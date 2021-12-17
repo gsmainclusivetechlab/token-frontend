@@ -290,7 +290,7 @@ export default {
           console.log(process.env.PROXY_WEB_HOOK_URL);
 
           response = await this.axiosPost(
-            "http://localhost:4000/sms-gateway",
+            process.env.VUE_APP_PROXY_WEBHOOK_URL + "/sms-gateway",
             this.postObjectSMS
           );
 
@@ -313,7 +313,7 @@ export default {
           this.postObjectUSSD.phoneNumber = this.terminalInputText;
 
           response = await this.axiosPost(
-            "http://localhost:4000/ussd-gateway",
+            process.env.VUE_APP_PROXY_WEBHOOK_URL + "/ussd-gateway",
             this.postObjectUSSD
           );
 
@@ -327,7 +327,7 @@ export default {
           this.postObjectUSSD.text = this.terminalInputText;
 
           response = await this.axiosPost(
-            "http://localhost:4000/ussd-gateway",
+            process.env.VUE_APP_PROXY_WEBHOOK_URL + "/ussd-gateway",
             this.postObjectUSSD
           );
 
