@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import HowItWorks from "../views/HowItWorks.vue";
 import Faq from "../views/Faq.vue";
 import TryB4All from "../views/TryB4All.vue";
+import TryToken from "../views/TryToken.vue";
 import RequestForm from "../views/RequestForm.vue";
 import RequestForm1 from "../views/RequestForm1.vue";
 import Orange from "../views/Orange.vue";
@@ -27,10 +28,15 @@ const routes = [
     name: "Faq",
     component: Faq,
   },
+  // {
+  //   path: "/tryb4all",
+  //   name: "TryB4All",
+  //   component: TryB4All,
+  // },
   {
-    path: "/tryb4all",
-    name: "TryB4All",
-    component: TryB4All,
+    path: "/trytoken",
+    name: "TryToken",
+    component: TryToken,
   },
   {
     path: "/requestform",

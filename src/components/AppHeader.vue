@@ -3,7 +3,7 @@
     <NavBar />
     <div
       v-bind:class="[
-        breadCrumb.link === 'tryb4all'
+        breadCrumb.link === 'trytoken'
           ? 'inner-head-try'
           : breadCrumb.link === 'about'
           ? 'inner-head-about'
