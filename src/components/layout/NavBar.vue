@@ -21,8 +21,11 @@
                 <b-nav-item href="#">
                   <router-link to="/howitworks">How it works</router-link>
                 </b-nav-item>
-                <b-nav-item href="#">
+                <!-- <b-nav-item href="#">
                   <router-link to="/tryb4all"> Try B4LL </router-link>
+                </b-nav-item> -->
+                <b-nav-item href="#">
+                  <router-link to="/trytoken"> Try Token </router-link>
                 </b-nav-item>
                 <b-nav-item href="https://docs.biometrics.gsmainclusivetechlab.io/">
                   <!-- <router-link to="/documentation">  -->
