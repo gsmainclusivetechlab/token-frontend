@@ -9,12 +9,9 @@
         <div class="fields-wrapper">
           <span class="text">{{ phoneMessageDisplay }}</span>
           <input type="text" v-model="phoneInput" />
-          <span
-                    class="error-msg"
-                    v-if="phoneMessageError.length != 0 "
-                  >
-                    {{ phoneMessageError }}
-                  </span>
+          <span class="error-msg" v-if="phoneMessageError.length != 0">
+            {{ phoneMessageError }}
+          </span>
           <div class="buttons-wrapper">
             <button type="reset">Cancel</button>
             <button type="submit">Send</button>
@@ -90,10 +87,12 @@ export default {
     phoneMessageDisplay: "",
     receivingPhoneNumber: "+447777777",
     phoneReplace: "",
-    phoneMessageError: ""
+    phoneMessageError: "",
+    pollIntervalGetSMS: null,
+    pollIntervalGetUSSD: null,
   }),
   created() {
-    this.phoneReplace = this.phone.replace(/\s/g, '');
+    this.phoneReplace = this.phone.replace(/\s/g, "");
     switch (this.selectedMode) {
       case "SMS":
         this.phoneMessageDisplay = "Enter the text:";
@@ -104,6 +103,10 @@ export default {
       default:
         break;
     }
+  },
+  beforeDestroy() {
+    clearInterval(this.pollIntervalGetSMS);
+    clearInterval(this.pollIntervalGetUSSD);
   },
   methods: {
     onClickKey(key) {
@@ -152,12 +155,16 @@ export default {
       };
 
       response = await this.axiosPost(
-        process.env.VUE_APP_PROXY_WEBHOOK_URL + "/sms-gateway",
+        process.env.VUE_APP_PROXY_WEBHOOK_URL + "/sms-gateway/send",
         postObjectSMS
       );
 
       if (response && response.data) {
-        this.updatePhoneMessageDisplay(response.data);
+        this.phoneInput = "";
+        this.pollIntervalGetSMS = setInterval(this.getSMSResponse, 1000); //save reference to the interval
+        setTimeout(() => {
+          clearInterval(this.pollIntervalGetSMS);
+        }, 36000000); //stop polling after an hour
       }
     },
 
@@ -173,12 +180,20 @@ export default {
       };
 
       response = await this.axiosPost(
-        process.env.VUE_APP_PROXY_WEBHOOK_URL + "/ussd-gateway",
+        process.env.VUE_APP_PROXY_WEBHOOK_URL + "/ussd-gateway/send",
         postObjectUSSD
       );
 
       if (response && response.data) {
-        this.updatePhoneMessageDisplay(response.data);
+        if (response.data.substring(0, 3) === "END") {
+          this.phoneInput = "";
+          this.pollIntervalGetUSSD = setInterval(this.getUSSDResponse, 1000); //save reference to the interval
+          setTimeout(() => {
+            clearInterval(this.pollIntervalGetUSSD);
+          }, 36000000); //stop polling after an hour
+        } else {
+          this.updatePhoneMessageDisplay(response.data);
+        }
       }
     },
 
@@ -208,10 +223,32 @@ export default {
       this.phoneInput = "";
     },
 
-    updatephoneMessageError(message){
+    updatephoneMessageError(message) {
       this.phoneMessageError = message;
       this.phoneInput = "";
-    }
+    },
+
+    getSMSResponse() {
+      this.axios
+        .get(process.env.VUE_APP_PROXY_WEBHOOK_URL + "/sms-message")
+        .then((response) => {
+          if (response.data.message && response.data.message != "") {
+            clearInterval(this.pollIntervalGetSMS); //won't be polled anymore
+            this.phoneMessageDisplay = response.data.message;
+          }
+        });
+    },
+
+    getUSSDResponse() {
+      this.axios
+        .get(process.env.VUE_APP_PROXY_WEBHOOK_URL + "/ussd-message")
+        .then((response) => {
+          if (response.data.message && response.data.message != "") {
+            clearInterval(this.pollIntervalGetUSSD); //won't be polled anymore
+            this.phoneMessageDisplay = response.data.message;
+          }
+        });
+    },
   },
 };
 </script>
