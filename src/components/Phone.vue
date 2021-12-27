@@ -155,7 +155,7 @@ export default {
       };
 
       response = await this.axiosPost(
-        process.env.VUE_APP_PROXY_WEBHOOK_URL + "/sms-gateway/send",
+        process.env.VUE_APP_PROXY_API_URL + "/sms-gateway/send",
         postObjectSMS
       );
 
@@ -180,7 +180,7 @@ export default {
       };
 
       response = await this.axiosPost(
-        process.env.VUE_APP_PROXY_WEBHOOK_URL + "/ussd-gateway/send",
+        process.env.VUE_APP_PROXY_API_URL + "/ussd-gateway/send",
         postObjectUSSD
       );
 
@@ -230,7 +230,7 @@ export default {
 
     getSMSResponse() {
       this.axios
-        .get(process.env.VUE_APP_PROXY_WEBHOOK_URL + "/sms-message")
+        .get(process.env.VUE_APP_PROXY_API_URL + "/message/sms")
         .then((response) => {
           if (response.data.message && response.data.message != "") {
             clearInterval(this.pollIntervalGetSMS); //won't be polled anymore
@@ -241,7 +241,7 @@ export default {
 
     getUSSDResponse() {
       this.axios
-        .get(process.env.VUE_APP_PROXY_WEBHOOK_URL + "/ussd-message")
+        .get(process.env.VUE_APP_PROXY_API_URL + "/message/ussd")
         .then((response) => {
           if (response.data.message && response.data.message != "") {
             clearInterval(this.pollIntervalGetUSSD); //won't be polled anymore
