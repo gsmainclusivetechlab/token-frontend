@@ -161,10 +161,14 @@ export default {
 
       if (response && response.data) {
         this.phoneInput = "";
-        this.pollIntervalGetSMS = setInterval(this.getSMSResponse, 1000); //save reference to the interval
-        setTimeout(() => {
-          clearInterval(this.pollIntervalGetSMS);
-        }, 36000000); //stop polling after an hour
+        if (response.data === "PONG") {
+          this.phoneMessageDisplay = response.data;
+        } else {
+          this.pollIntervalGetSMS = setInterval(this.getSMSResponse, 1000); //save reference to the interval
+          setTimeout(() => {
+            clearInterval(this.pollIntervalGetSMS);
+          }, 36000000); //stop polling after an hour
+        }
       }
     },
 
@@ -187,10 +191,14 @@ export default {
       if (response && response.data) {
         if (response.data.substring(0, 3) === "END") {
           this.phoneInput = "";
-          this.pollIntervalGetUSSD = setInterval(this.getUSSDResponse, 1000); //save reference to the interval
-          setTimeout(() => {
-            clearInterval(this.pollIntervalGetUSSD);
-          }, 36000000); //stop polling after an hour
+          if (response.data === "END ACK") {
+            this.phoneMessageDisplay = response.data;
+          } else {
+            this.pollIntervalGetUSSD = setInterval(this.getUSSDResponse, 1000); //save reference to the interval
+            setTimeout(() => {
+              clearInterval(this.pollIntervalGetUSSD);
+            }, 36000000); //stop polling after an hour
+          }
         } else {
           this.updatePhoneMessageDisplay(response.data);
         }
