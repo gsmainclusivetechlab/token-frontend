@@ -85,20 +85,33 @@ export default {
   data: () => ({
     phoneInput: "",
     phoneMessageDisplay: "",
-    receivingPhoneNumber: "+447777777",
-    phoneReplace: "",
+    phoneWithoutSpaces: "",
     phoneMessageError: "",
     pollIntervalGetSMS: null,
     pollIntervalGetUSSD: null,
+
+    postObjectSMS: {
+      phoneNumber: "",
+      receivingPhoneNumber: "+447777777",
+      text: "",
+    },
+
+    postObjectUSSD: {
+      phoneNumber: "",
+      serviceCode: "",
+      text: "",
+    },
   }),
   created() {
-    this.phoneReplace = this.phone.replace(/\s/g, "");
+    this.phoneWithoutSpaces = this.phone.replace(/\s/g, "");
     switch (this.selectedMode) {
       case "SMS":
         this.phoneMessageDisplay = "Enter the text:";
+        this.postObjectSMS.phoneNumber = this.phoneWithoutSpaces;
         break;
       case "USSD":
-        this.processUSSDMode();
+        this.phoneMessageDisplay = "Dial Short Code:";
+        this.postObjectUSSD.phoneNumber = this.phoneWithoutSpaces;
         break;
       default:
         break;
@@ -134,9 +147,12 @@ export default {
       switch (this.selectedMode) {
         case "SMS":
           this.phoneMessageDisplay = "Enter the text:";
+          this.postObjectSMS.text = "";
           break;
         case "USSD":
-          this.processUSSDMode();
+          this.phoneMessageDisplay = "Dial Short Code:";
+          this.postObjectUSSD.serviceCode = "";
+          this.postObjectUSSD.text = "";
           break;
         default:
           break;
@@ -146,17 +162,11 @@ export default {
     },
 
     async processSMSMode() {
-      let response = null;
+      this.postObjectSMS.text = this.phoneInput;
 
-      const postObjectSMS = {
-        phoneNumber: this.phoneReplace,
-        receivingPhoneNumber: this.receivingPhoneNumber,
-        text: this.phoneInput,
-      };
-
-      response = await this.axiosPost(
+      let response = await this.axiosPost(
         process.env.VUE_APP_PROXY_API_URL + "/sms-gateway/send",
-        postObjectSMS
+        this.postObjectSMS
       );
 
       if (response && response.data) {
@@ -173,27 +183,30 @@ export default {
     },
 
     async processUSSDMode() {
-      let response = null;
+      if (this.postObjectUSSD.serviceCode === "") {
+        this.postObjectUSSD.serviceCode = this.phoneInput;
+      } else {
+        if (this.postObjectUSSD.text === "") {
+          this.postObjectUSSD.text = this.phoneInput;
+        } else {
+          this.postObjectUSSD.text += "*" + this.phoneInput;
+        }
+      }
 
-      const postObjectUSSD = {
-        phoneNumber: this.phoneReplace,
-        receivingPhoneNumber: this.receivingPhoneNumber,
-        sessionId: "123",
-        serviceCode: "123",
-        text: this.phoneInput,
-      };
-
-      response = await this.axiosPost(
+      let response = await this.axiosPost(
         process.env.VUE_APP_PROXY_API_URL + "/ussd-gateway/send",
-        postObjectUSSD
+        this.postObjectUSSD
       );
 
       if (response && response.data) {
         if (response.data.substring(0, 3) === "END") {
-          this.phoneInput = "";
-          if (response.data === "END ACK") {
-            this.phoneMessageDisplay = response.data;
+          if (response.data === "END Invalid Option") {
+            this.phoneMessageDisplay = "Dial Short Code:";
+            this.postObjectUSSD.serviceCode = "";
+            this.postObjectUSSD.text = "";
+            this.updatePhoneMessageError(esponse.data.substring(0, 3));
           } else {
+            this.phoneInput = "";
             this.pollIntervalGetUSSD = setInterval(this.getUSSDResponse, 1000); //save reference to the interval
             setTimeout(() => {
               clearInterval(this.pollIntervalGetUSSD);
@@ -201,6 +214,13 @@ export default {
           }
         } else {
           this.updatePhoneMessageDisplay(response.data);
+        }
+      } else {
+        if (
+          this.postObjectUSSD.serviceCode !== "" &&
+          this.postObjectUSSD.text === ""
+        ) {
+          this.postObjectUSSD.serviceCode = "";
         }
       }
     },
@@ -217,9 +237,9 @@ export default {
         return response;
       } catch (err) {
         if (this.axios.isAxiosError(err) && err.response) {
-          this.updatephoneMessageError(err.response.data.error);
+          this.updatePhoneMessageError(err.response.data.error);
         } else {
-          this.updatephoneMessageError(err.message);
+          this.updatePhoneMessageError(err.message);
         }
 
         return null;
@@ -231,7 +251,7 @@ export default {
       this.phoneInput = "";
     },
 
-    updatephoneMessageError(message) {
+    updatePhoneMessageError(message) {
       this.phoneMessageError = message;
       this.phoneInput = "";
     },
@@ -335,5 +355,8 @@ export default {
 .error-msg {
   font-size: 14px;
   color: red;
+}
+.text {
+  white-space: pre-line;
 }
 </style>
