@@ -1,0 +1,339 @@
+<template>
+  <div class="phone-wrapper">
+    <div class="screen-content">
+      <form
+        class="my-form"
+        @submit.prevent="processSend"
+        @reset.prevent="processCancel"
+      >
+        <div class="fields-wrapper">
+          <span class="text">{{ phoneMessageDisplay }}</span>
+          <input type="text" v-model="phoneInput" />
+          <span class="error-msg" v-if="phoneMessageError.length != 0">
+            {{ phoneMessageError }}
+          </span>
+          <div class="buttons-wrapper">
+            <button type="reset">Cancel</button>
+            <button type="submit">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="keys-map">
+      <div class="row">
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('1')"></a>
+        </div>
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('2')"></a>
+        </div>
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('3')"></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('4')"></a>
+        </div>
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('5')"></a>
+        </div>
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('6')"></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('7')"></a>
+        </div>
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('8')"></a>
+        </div>
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('9')"></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('*')"></a>
+        </div>
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('0')"></a>
+        </div>
+        <div class="col">
+          <a href="javascript: void(0)" @click="onClickKey('#')"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Phone",
+  components: {},
+  props: {
+    selectedMode: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+  },
+  data: () => ({
+    phoneInput: "",
+    phoneMessageDisplay: "",
+    receivingPhoneNumber: "+447777777",
+    phoneReplace: "",
+    phoneMessageError: "",
+    pollIntervalGetSMS: null,
+    pollIntervalGetUSSD: null,
+  }),
+  created() {
+    this.phoneReplace = this.phone.replace(/\s/g, "");
+    switch (this.selectedMode) {
+      case "SMS":
+        this.phoneMessageDisplay = "Enter the text:";
+        break;
+      case "USSD":
+        this.processUSSDMode();
+        break;
+      default:
+        break;
+    }
+  },
+  beforeDestroy() {
+    clearInterval(this.pollIntervalGetSMS);
+    clearInterval(this.pollIntervalGetUSSD);
+  },
+  methods: {
+    onClickKey(key) {
+      this.phoneInput += key;
+    },
+
+    processSend(e) {
+      this.phoneMessageError = "";
+      switch (this.selectedMode) {
+        case "SMS":
+          this.processSMSMode();
+          break;
+        case "USSD":
+          this.processUSSDMode();
+          break;
+        default:
+          break;
+      }
+
+      e.preventDefault();
+    },
+
+    processCancel(e) {
+      this.phoneMessageError = "";
+      switch (this.selectedMode) {
+        case "SMS":
+          this.phoneMessageDisplay = "Enter the text:";
+          break;
+        case "USSD":
+          this.processUSSDMode();
+          break;
+        default:
+          break;
+      }
+
+      e.preventDefault();
+    },
+
+    async processSMSMode() {
+      let response = null;
+
+      const postObjectSMS = {
+        phoneNumber: this.phoneReplace,
+        receivingPhoneNumber: this.receivingPhoneNumber,
+        text: this.phoneInput,
+      };
+
+      response = await this.axiosPost(
+        process.env.VUE_APP_PROXY_API_URL + "/sms-gateway/send",
+        postObjectSMS
+      );
+
+      if (response && response.data) {
+        this.phoneInput = "";
+        if (response.data === "PONG") {
+          this.phoneMessageDisplay = response.data;
+        } else {
+          this.pollIntervalGetSMS = setInterval(this.getSMSResponse, 1000); //save reference to the interval
+          setTimeout(() => {
+            clearInterval(this.pollIntervalGetSMS);
+          }, 36000000); //stop polling after an hour
+        }
+      }
+    },
+
+    async processUSSDMode() {
+      let response = null;
+
+      const postObjectUSSD = {
+        phoneNumber: this.phoneReplace,
+        receivingPhoneNumber: this.receivingPhoneNumber,
+        sessionId: "123",
+        serviceCode: "123",
+        text: this.phoneInput,
+      };
+
+      response = await this.axiosPost(
+        process.env.VUE_APP_PROXY_API_URL + "/ussd-gateway/send",
+        postObjectUSSD
+      );
+
+      if (response && response.data) {
+        if (response.data.substring(0, 3) === "END") {
+          this.phoneInput = "";
+          if (response.data === "END ACK") {
+            this.phoneMessageDisplay = response.data;
+          } else {
+            this.pollIntervalGetUSSD = setInterval(this.getUSSDResponse, 1000); //save reference to the interval
+            setTimeout(() => {
+              clearInterval(this.pollIntervalGetUSSD);
+            }, 36000000); //stop polling after an hour
+          }
+        } else {
+          this.updatePhoneMessageDisplay(response.data);
+        }
+      }
+    },
+
+    async axiosPost(url, objectToSend) {
+      try {
+        let response = await this.axios.post(url, objectToSend, {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        });
+
+        return response;
+      } catch (err) {
+        if (this.axios.isAxiosError(err) && err.response) {
+          this.updatephoneMessageError(err.response.data.error);
+        } else {
+          this.updatephoneMessageError(err.message);
+        }
+
+        return null;
+      }
+    },
+
+    updatePhoneMessageDisplay(message) {
+      this.phoneMessageDisplay = message;
+      this.phoneInput = "";
+    },
+
+    updatephoneMessageError(message) {
+      this.phoneMessageError = message;
+      this.phoneInput = "";
+    },
+
+    getSMSResponse() {
+      this.axios
+        .get(process.env.VUE_APP_PROXY_API_URL + "/message/sms")
+        .then((response) => {
+          if (response.data.message && response.data.message != "") {
+            clearInterval(this.pollIntervalGetSMS); //won't be polled anymore
+            this.phoneMessageDisplay = response.data.message;
+          }
+        });
+    },
+
+    getUSSDResponse() {
+      this.axios
+        .get(process.env.VUE_APP_PROXY_API_URL + "/message/ussd")
+        .then((response) => {
+          if (response.data.message && response.data.message != "") {
+            clearInterval(this.pollIntervalGetUSSD); //won't be polled anymore
+            this.phoneMessageDisplay = response.data.message;
+          }
+        });
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.phone-wrapper {
+  width: 296px;
+  height: 700px;
+  position: relative;
+  background-image: url("../assets/images/dumb_phone.png");
+  margin-top: 1rem;
+}
+.phone-wrapper .screen-content {
+  display: flex;
+  width: 212px;
+  height: 190px;
+  position: absolute;
+  top: 130px;
+  left: 42px;
+}
+.phone-wrapper .screen-content form {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+  justify-content: center;
+}
+.phone-wrapper .screen-content form .fields-wrapper {
+  display: flex;
+  flex-flow: column;
+  background: linear-gradient(#575757, #252525);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+.phone-wrapper .screen-content form .fields-wrapper .text,
+.phone-wrapper .screen-content form .fields-wrapper input {
+  color: #fff;
+}
+.phone-wrapper .screen-content form .fields-wrapper .text {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.phone-wrapper .screen-content form .fields-wrapper input {
+  font-size: 14px;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+.phone-wrapper .screen-content form .fields-wrapper input:focus {
+  outline: none;
+}
+.phone-wrapper .screen-content form .fields-wrapper .buttons-wrapper {
+  display: flex;
+  margin-top: 8px;
+}
+.phone-wrapper .keys-map {
+  width: calc(100% - 20px);
+  height: 152px;
+  bottom: 32px;
+  margin: 0 10px;
+  position: absolute;
+}
+.phone-wrapper .keys-map .row {
+  height: 38px;
+  display: flex;
+}
+.phone-wrapper .keys-map .row .col {
+  flex: 1;
+}
+.phone-wrapper .keys-map .row .col a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.error-msg {
+  font-size: 14px;
+  color: red;
+}
+</style>

@@ -115,42 +115,13 @@
                   label="Spinning"
                 ></b-spinner> !-->
               </form>
-
-              <form
-                v-if="showInterectiveTerminal"
-                @submit.prevent="processTerminal"
-                method="post"
-                class="mt-3"
-              >
-                <div class="terminal">
-                  <template v-for="question in terminalQuestions">
-                    <div :key="question.key">
-                      <span class="question">{{ question.question }} </span>
-                      <span class="answer">{{ question.answer }}</span>
-                    </div>
-                  </template>
-                </div>
-
-                <div class="form-group">
-                  <textarea
-                    type="text"
-                    class="form-control"
-                    id="inputTextarea"
-                    v-model="terminalInputText"
-                  />
-                  <span
-                    class="error-msg"
-                    v-if="errors.terminalInputText.length != 0"
-                  >
-                    {{ errors.terminalInputText }}</span
-                  >
-                </div>
-
-                <a href="#" class="btn1">
-                  <input class="btn" type="submit" value="Send" />
-                </a>
-              </form>
             </div>
+
+            <Phone
+              v-if="showPhoneInterface"
+              :selectedMode="selectedMode"
+              :phone="phone"
+            />
           </div>
         </div>
       </div>
@@ -167,11 +138,11 @@ Vue.use(VueAxios, axios);
 import AppHeader from "../components/AppHeader";
 import Footer from "../components/layout/Footer";
 import { VueTelInput } from "vue-tel-input";
-import "dotenv/config";
+import Phone from "../components/Phone.vue";
 
 export default {
   name: "TryToken",
-  components: { AppHeader, Footer, VueTelInput },
+  components: { AppHeader, Footer, VueTelInput, Phone },
   data: () => ({
     props: {
       tittle: "EXPERIENCE THE TOKEN SHOWCASE",
@@ -184,29 +155,11 @@ export default {
     errors: {
       format: "",
       phone: "",
-      terminalInputText: "",
     },
-    showSubmit: true,
     loading: false,
     formDisabled: false,
-    showInterectiveTerminal: false,
+    showPhoneInterface: false,
     selectedMode: "SMS",
-    terminalInputText: "",
-    terminalQuestions: [
-      { key: 1, question: "What's the receiving phone number?", answer: "" },
-    ],
-    actualQuestionIndex: 0,
-    postObjectSMS: {
-      senderPhoneNumber: "",
-      receivingPhoneNumber: "",
-      text: "",
-    },
-    postObjectUSSD: {
-      phoneNumber: "",
-      sessionId: "123",
-      serviceCode: "123",
-      text: "",
-    },
   }),
   methods: {
     scrollBottom() {
@@ -219,10 +172,13 @@ export default {
 
     processForm(e) {
       if (this.formDisabled) {
-        this.resetTerminalProperties();
+        this.showPhoneInterface = false;
         this.formDisabled = false;
       } else {
-        this.resetErrors();
+        this.errors = {
+          format: "",
+          phone: "",
+        };
 
         let noformat = true;
         const number = this.phone.split(" ").join("");
@@ -232,17 +188,7 @@ export default {
         }
 
         if (this.phone && noformat) {
-          switch (this.selectedMode) {
-            case "SMS":
-              this.postObjectSMS.senderPhoneNumber = this.phone;
-              break;
-            case "USSD":
-              break;
-            default:
-              break;
-          }
-
-          this.showInterectiveTerminal = true;
+          this.showPhoneInterface = true;
           this.formDisabled = true;
         }
 
@@ -254,150 +200,8 @@ export default {
       e.preventDefault();
     },
 
-    processTerminal(e) {
-      this.resetErrors();
-
-      if (this.terminalInputText === "") {
-        this.errors.terminalInputText = "Write something.";
-        return;
-      }
-
-      switch (this.selectedMode) {
-        case "SMS":
-          this.processSMSMode();
-          break;
-        case "USSD":
-          this.processUSSDMode();
-          break;
-        default:
-          break;
-      }
-
-      e.preventDefault();
-    },
-
-    async processSMSMode() {
-      let response = null;
-      switch (this.actualQuestionIndex) {
-        case 0:
-          this.postObjectSMS.receivingPhoneNumber = this.terminalInputText;
-          this.addAnswerToQuestion(this.terminalInputText);
-          this.createNewQuestion("Enter the text:");
-          break;
-        case 1:
-          this.postObjectSMS.text = this.terminalInputText;
-
-          console.log(process.env.PROXY_WEB_HOOK_URL);
-
-          response = await this.axiosPost(
-            process.env.VUE_APP_PROXY_WEBHOOK_URL + "/sms-gateway",
-            this.postObjectSMS
-          );
-
-          if (response && response.data) {
-            this.addAnswerToQuestion(this.terminalInputText);
-            this.createNewQuestion(response.data);
-          }
-
-          break;
-        default:
-          break;
-      }
-    },
-
-    async processUSSDMode() {
-      let response = null;
-
-      switch (this.actualQuestionIndex) {
-        case 0:
-          this.postObjectUSSD.phoneNumber = this.terminalInputText;
-
-          response = await this.axiosPost(
-            process.env.VUE_APP_PROXY_WEBHOOK_URL + "/ussd-gateway",
-            this.postObjectUSSD
-          );
-
-          if (response && response.data) {
-            this.addAnswerToQuestion(this.terminalInputText);
-            this.createNewQuestion(response.data);
-          }
-
-          break;
-        case 1:
-          this.postObjectUSSD.text = this.terminalInputText;
-
-          response = await this.axiosPost(
-            process.env.VUE_APP_PROXY_WEBHOOK_URL + "/ussd-gateway",
-            this.postObjectUSSD
-          );
-
-          if (response && response.data) {
-            this.addAnswerToQuestion(this.terminalInputText);
-            this.createNewQuestion(response.data);
-          }
-          break;
-        default:
-          break;
-      }
-    },
-
     formButtonLabel() {
       return this.formDisabled ? "Stop" : "Start";
-    },
-
-    resetTerminalProperties() {
-      this.showInterectiveTerminal = false;
-      this.terminalInputText = "";
-      this.terminalQuestions = [
-        { key: 1, question: "What's the receiving phone number?", answer: "" },
-      ];
-      this.actualQuestionIndex = 0;
-
-      this.postObjectSMS = {
-        senderPhoneNumber: "",
-        receivingPhoneNumber: "",
-        text: "",
-      };
-
-      this.postObjectUSSD = {
-        phoneNumber: "",
-        sessionId: "123",
-        serviceCode: "123",
-        text: "",
-      };
-    },
-
-    resetErrors() {
-      this.errors = {
-        format: "",
-        phone: "",
-        terminalInputText: "",
-      };
-    },
-
-    async axiosPost(url, objectToSend) {
-      let response = await this.axios.post(url, objectToSend, {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
-
-      return response;
-    },
-
-    addAnswerToQuestion(answer) {
-      this.terminalQuestions[this.actualQuestionIndex].answer = answer;
-    },
-
-    createNewQuestion(newQuestion) {
-      this.actualQuestionIndex += 1;
-      this.terminalQuestions.push({
-        key: this.actualQuestionIndex + 1,
-        question: newQuestion,
-        answer: "",
-      });
-      this.terminalInputText = "";
     },
   },
 };
@@ -602,28 +406,5 @@ export default {
   .coming-soon-frame h4 {
     margin-bottom: 30px;
   }
-}
-
-.terminal {
-  width: 100%;
-  min-height: 5rem;
-  background: #373737;
-  padding: 0.375rem 0.75rem;
-  margin-bottom: 1rem;
-  border-radius: 0.25rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.terminal span {
-  word-break: break-all;
-}
-
-.terminal .question {
-  color: greenyellow;
-}
-
-.terminal .answer {
-  color: white;
 }
 </style>
