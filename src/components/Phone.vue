@@ -177,7 +177,7 @@ export default {
           this.pollIntervalGetSMS = setInterval(this.getSMSResponse, 1000); //save reference to the interval
           setTimeout(() => {
             clearInterval(this.pollIntervalGetSMS);
-          }, 36000000); //stop polling after an hour
+          }, 600000); //stop polling after ten minutes
         }
       }
     },
@@ -205,12 +205,15 @@ export default {
             this.postObjectUSSD.serviceCode = "";
             this.postObjectUSSD.text = "";
             this.updatePhoneMessageError(esponse.data.substring(0, 3));
+          } else if (response.data.includes("END OPERATION_ERROR")) {
+            this.updatePhoneMessageError(response.data);
+            this.postObjectUSSD.text = "";
           } else {
             this.phoneInput = "";
             this.pollIntervalGetUSSD = setInterval(this.getUSSDResponse, 1000); //save reference to the interval
             setTimeout(() => {
               clearInterval(this.pollIntervalGetUSSD);
-            }, 36000000); //stop polling after an hour
+            }, 600000); //stop polling after ten minutes
           }
         } else {
           this.updatePhoneMessageDisplay(response.data);
