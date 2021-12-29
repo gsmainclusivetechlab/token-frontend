@@ -138,12 +138,6 @@
                 :phone="phone"
               />
             </div>
-
-            <Phone
-              v-if="showPhoneInterface"
-              :selectedMode="selectedMode"
-              :phone="phone"
-            />
           </div>
         </div>
       </div>
