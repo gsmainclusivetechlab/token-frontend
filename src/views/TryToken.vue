@@ -69,34 +69,42 @@
             <div class="sign-up-frame">
               <h2>Customer</h2>
               <form @submit.prevent="processForm">
+                <!-- System radio button -->
+                <b-form-group
+                  :disabled="formDisabled"
+                  v-slot="{ ariaDescribedby }"
+                >
+                  <b-form-radio-group
+                    v-model="selectedSystem"
+                    :options="systemOptions"
+                    :aria-describedby="ariaDescribedby"
+                    name="radio-inline-1"
+                  ></b-form-radio-group>
+                </b-form-group>
+
+                <!-- Mode radio button -->
                 <div class="form-group">
                   <b-form-group
                     :disabled="formDisabled"
+                    label="Choose mode:"
                     v-slot="{ ariaDescribedby }"
                   >
-                    <b-form-radio
+                    <b-form-radio-group
                       v-model="selectedMode"
+                      :options="modeOptions"
                       :aria-describedby="ariaDescribedby"
-                      name="some-radios"
-                      value="SMS"
-                      >SMS Mode</b-form-radio
-                    >
-                    <b-form-radio
-                      v-model="selectedMode"
-                      :aria-describedby="ariaDescribedby"
-                      name="some-radios"
-                      value="USSD"
-                      >USSD Mode</b-form-radio
-                    >
+                      name="radio-inline-2"
+                    ></b-form-radio-group>
                   </b-form-group>
                 </div>
-                <div class="form-group">
+
+                <div v-if="selectedSystem == 'Mock'" class="form-group">
                   <label for="inputAddress2">Mobile number</label>
                   <vue-tel-input
                     v-model="phone"
-                    mode="international"
+                    :defaultCountry="'GH'"
                     validCharactersOnly
-                    :disabled="formDisabled"
+                    :disabled="true"
                   ></vue-tel-input>
                   <span
                     class="error-msg"
@@ -105,23 +113,31 @@
                     {{ errors.phone }} {{ errors.format }}
                   </span>
                 </div>
-                <a href="#" class="btn1">
+                <a v-if="selectedSystem == 'Mock'" href="#" class="btn1">
                   <input class="btn" type="submit" :value="formButtonLabel()" />
                 </a>
-
-                <!-- <b-spinner
-                  style="margin-left: 45%"
-                  v-if="loading"
-                  label="Spinning"
-                ></b-spinner> !-->
               </form>
-            </div>
 
-            <Phone
-              v-if="showPhoneInterface"
-              :selectedMode="selectedMode"
-              :phone="phone"
-            />
+              <div v-if="selectedSystem == 'Live'">
+                <span v-if="selectedMode == 'SMS'" class="font-weight-bold"
+                  >Please send an SMS to +444111111</span
+                >
+                <span v-if="selectedMode == 'USSD'" class="font-weight-bold"
+                  >Please dial a USSD code to *#165#</span
+                >
+              </div>
+            </div>
+            <div>
+              <OperationInformation
+                v-if="showOperationInformation"
+                :selectedMode="selectedMode"
+              />
+              <Phone
+                v-if="showPhoneInterface"
+                :selectedMode="selectedMode"
+                :phone="phone"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -139,10 +155,11 @@ import AppHeader from "../components/AppHeader";
 import Footer from "../components/layout/Footer";
 import { VueTelInput } from "vue-tel-input";
 import Phone from "../components/Phone.vue";
+import OperationInformation from "../components/OperationInformation.vue";
 
 export default {
   name: "TryToken",
-  components: { AppHeader, Footer, VueTelInput, Phone },
+  components: { AppHeader, Footer, VueTelInput, Phone, OperationInformation },
   data: () => ({
     props: {
       tittle: "EXPERIENCE THE TOKEN SHOWCASE",
@@ -151,7 +168,7 @@ export default {
         link: "trytoken",
       },
     },
-    phone: "",
+    phone: "+233207212676",
     errors: {
       format: "",
       phone: "",
@@ -159,8 +176,35 @@ export default {
     loading: false,
     formDisabled: false,
     showPhoneInterface: false,
+    showOperationInformation: false,
+    selectedSystem: "Mock",
+    systemOptions: [
+      { text: "Mock", value: "Mock" },
+      { text: "LIVE", value: "Live" },
+    ],
     selectedMode: "SMS",
+    modeOptions: [
+      { text: "SMS Mode", value: "SMS" },
+      { text: "USSD Mode", value: "USSD" },
+    ],
   }),
+  watch: {
+    selectedSystem: function (newSelectedSystem, oldSelectedSystem) {
+      switch (newSelectedSystem) {
+        case "Mock":
+          this.showOperationInformation = false;
+          break;
+        case "Live":
+          this.selectedMode = "SMS";
+          this.showPhoneInterface = false;
+          this.showOperationInformation = true;
+          this.formDisabled = false;
+          break;
+        default:
+          break;
+      }
+    },
+  },
   methods: {
     scrollBottom() {
       window.scrollTo({
@@ -173,6 +217,7 @@ export default {
     processForm(e) {
       if (this.formDisabled) {
         this.showPhoneInterface = false;
+        this.showOperationInformation = false;
         this.formDisabled = false;
       } else {
         this.errors = {
@@ -189,6 +234,7 @@ export default {
 
         if (this.phone && noformat) {
           this.showPhoneInterface = true;
+          this.showOperationInformation = true;
           this.formDisabled = true;
         }
 
