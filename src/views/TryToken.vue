@@ -5,65 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-6">
-            <div class="content-login">
-              <h2>
-                Sign up to test our <br />
-                IVR Call Centre
-              </h2>
-              <p>The call centre is currently operating using two numbers:</p>
-              <h4>
-                <p>
-                  <span class="phone-call-frame mr-10"
-                    ><img
-                      src="../assets/images/phone-call-blue.png"
-                      class="img-fluid"
-                      alt="phone-call-blue"
-                    />
-                  </span>
-                  <b>English (UK): </b
-                  ><a href="tel:+441904803378">+44 1904 803378</a> /
-                  <a href="tel:+17372450200">+1 737 245 0200</a>
-                </p>
-                <p>
-                  <span class="phone-call-frame mr-10"
-                    ><img
-                      src="../assets/images/phone-call-blue.png"
-                      class="img-fluid"
-                      alt="phone-call-blue"
-                    /> </span
-                  ><b>French (FR): </b>
-                  <a href="tel:+447723432543">+44 7723 432543</a>
-                </p>
-                <p>
-                  <span class="phone-call-frame mr-10"
-                    ><img
-                      src="../assets/images/phone-call-blue.png"
-                      class="img-fluid"
-                      alt="phone-call-blue"
-                    /> </span
-                  ><b>Urdu (PK): </b>
-                  <a href="tel:+441485500402">+44 1485 500402</a>
-                </p>
-              </h4>
-              <p>
-                Follow the instructions to enrol using your voice print,
-                enabling you to navigate through the use cases.
-              </p>
-              <p>
-                If you would like to suggest a new use case to meet your
-                business needs, contact the
-                <a
-                  href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/"
-                  target="_blank"
-                >
-                  Inclusive Tech Lab</a
-                >
-                or
-                <a @click="scrollBottom" class="link-color">
-                  suggest a new use case.</a
-                >
-              </p>
-            </div>
+            <Agent />
           </div>
           <div class="col-12 col-lg-6">
             <div class="sign-up-frame">
@@ -156,10 +98,18 @@ import Footer from "../components/layout/Footer";
 import { VueTelInput } from "vue-tel-input";
 import Phone from "../components/Phone.vue";
 import OperationInformation from "../components/OperationInformation.vue";
+import Agent from "../components/Agent.vue";
 
 export default {
   name: "TryToken",
-  components: { AppHeader, Footer, VueTelInput, Phone, OperationInformation },
+  components: {
+    AppHeader,
+    Footer,
+    VueTelInput,
+    Phone,
+    OperationInformation,
+    Agent,
+  },
   data: () => ({
     props: {
       tittle: "EXPERIENCE THE TOKEN SHOWCASE",
@@ -188,6 +138,16 @@ export default {
       { text: "USSD Mode", value: "USSD" },
     ],
   }),
+  mounted() {
+    this.$root.$on("showPhone", () => {
+      if (!this.showPhoneInterface) {
+        this.selectedSystem = "Mock";
+        this.showPhoneInterface = true;
+        this.showOperationInformation = true;
+        this.formDisabled = true;
+      }
+    });
+  },
   watch: {
     selectedSystem: function (newSelectedSystem, oldSelectedSystem) {
       switch (newSelectedSystem) {

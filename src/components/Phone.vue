@@ -6,6 +6,12 @@
         @submit.prevent="processSend"
         @reset.prevent="processCancel"
       >
+        <div
+          class="notification-wrapper"
+          v-if="lastMessageReceive && lastMessageReceive.length != 0"
+        >
+          <span>{{ lastMessageReceive }}</span>
+        </div>
         <div class="fields-wrapper">
           <span class="text">{{ phoneMessageDisplay }}</span>
           <input type="text" v-model="phoneInput" />
@@ -88,7 +94,7 @@ export default {
     phoneWithoutSpaces: "",
     phoneMessageError: "",
     pollIntervalGetSMS: null,
-    pollIntervalGetUSSD: null,
+    pollTimeoutGetSMS: null,
 
     postObjectSMS: {
       phoneNumber: "",
@@ -101,6 +107,8 @@ export default {
       serviceCode: "",
       text: "",
     },
+
+    lastMessageReceive: "",
   }),
   created() {
     this.phoneWithoutSpaces = this.phone.replace(/\s/g, "");
@@ -117,9 +125,15 @@ export default {
         break;
     }
   },
+  mounted() {
+    this.pollIntervalGetSMS = setInterval(this.getSMSResponse, 1000); //save reference to the interval
+    this.pollTimeoutGetSMS = setTimeout(() => {
+      clearInterval(this.pollIntervalGetSMS);
+    }, 600000); //stop polling after ten minutes
+  },
   beforeDestroy() {
     clearInterval(this.pollIntervalGetSMS);
-    clearInterval(this.pollIntervalGetUSSD);
+    clearTimeout(this.pollTimeoutGetSMS);
   },
   methods: {
     onClickKey(key) {
@@ -172,12 +186,7 @@ export default {
       if (response && response.data) {
         this.phoneInput = "";
         if (response.data === "PONG") {
-          this.phoneMessageDisplay = response.data;
-        } else {
-          this.pollIntervalGetSMS = setInterval(this.getSMSResponse, 1000); //save reference to the interval
-          setTimeout(() => {
-            clearInterval(this.pollIntervalGetSMS);
-          }, 600000); //stop polling after ten minutes
+          this.lastMessageReceive = response.data;
         }
       }
     },
@@ -204,19 +213,23 @@ export default {
             this.phoneMessageDisplay = "Dial Short Code:";
             this.postObjectUSSD.serviceCode = "";
             this.postObjectUSSD.text = "";
-            this.updatePhoneMessageError(esponse.data.substring(0, 3));
+            this.updatePhoneMessageError(response.data.substring(0, 3));
           } else if (response.data.includes("END OPERATION_ERROR")) {
             this.updatePhoneMessageError(response.data);
             this.postObjectUSSD.text = "";
           } else {
+            this.phoneMessageDisplay = "Dial Short Code:";
+            this.postObjectUSSD.serviceCode = "";
+            this.postObjectUSSD.text = "";
             this.phoneInput = "";
-            this.pollIntervalGetUSSD = setInterval(this.getUSSDResponse, 1000); //save reference to the interval
-            setTimeout(() => {
-              clearInterval(this.pollIntervalGetUSSD);
-            }, 600000); //stop polling after ten minutes
           }
         } else {
-          this.updatePhoneMessageDisplay(response.data);
+          if (response.data === "ACK") {
+            this.phoneInput = "";
+            this.lastMessageReceive = response.data;
+          } else {
+            this.updatePhoneMessageDisplay(response.data);
+          }
         }
       } else {
         if (
@@ -263,21 +276,13 @@ export default {
       this.axios
         .get(process.env.VUE_APP_PROXY_API_URL + "/message/sms")
         .then((response) => {
-          if (response.data.message && response.data.message != "") {
-            clearInterval(this.pollIntervalGetSMS); //won't be polled anymore
-            this.phoneMessageDisplay = response.data.message;
+          if (response.data) {
+            this.lastMessageReceive = response.data.message;
           }
-        });
-    },
-
-    getUSSDResponse() {
-      this.axios
-        .get(process.env.VUE_APP_PROXY_API_URL + "/message/ussd")
-        .then((response) => {
-          if (response.data.message && response.data.message != "") {
-            clearInterval(this.pollIntervalGetUSSD); //won't be polled anymore
-            this.phoneMessageDisplay = response.data.message;
-          }
+        })
+        .catch(() => {
+          clearInterval(this.pollIntervalGetSMS);
+          clearTimeout(this.pollTimeoutGetSMS);
         });
     },
   },
@@ -361,5 +366,10 @@ export default {
 }
 .text {
   white-space: pre-line;
+}
+.notification-wrapper {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
 }
 </style>
