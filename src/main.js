@@ -6,6 +6,7 @@ import App from "./App.vue";
 import router from './router'
 import Notifications from 'vue-notification';
 import VueGtag from "vue-gtag";
+import { IconsPlugin } from 'bootstrap-vue'
 
 Vue.config.productionTip = false;
 Vue.use(Notifications)
@@ -13,6 +14,8 @@ Vue.use(Notifications)
 Vue.use(VueGtag, {
   config: { id: "G-SYN09MW98X" }
 });
+
+Vue.use(IconsPlugin)
 
 new Vue({
   router,

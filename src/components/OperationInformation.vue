@@ -11,8 +11,14 @@
         user will receive the message saying that his token was deleted.
       </li>
       <li>
-        <span>Renew Token</span> - Write 'RENEW_TOKEN' on input field. The user
-        will receive the message with your new token.
+        <span>Cash In</span> - Write 'CASH_IN -space- {AMOUNT}' on input field.
+        The user will receive the message about the operation being accepted or
+        not.
+      </li>
+      <li>
+        <span>Cash Out</span> - Write 'CASH_OUT -space- {AMOUNT}' on input
+        field. The user will receive the message about the operation being
+        accepted or not.
       </li>
     </ul>
     <ul v-if="selectedMode === 'USSD'">
@@ -25,8 +31,14 @@
         receive the message saying that his token was deleted.
       </li>
       <li>
-        <span>Renew Token</span> - Write short code '*165#' -> 3. The user will
-        receive the message with his new token.
+        <span>Cash In</span> - Write short code '*165#' -> 3 -> Insert Amount.
+        The user will receive the message about the operation being accepted or
+        not.
+      </li>
+      <li>
+        <span>Cash Out</span> - Write short code '*165#' -> 4 -> Insert Amount.
+        The user will receive the message about the operation being accepted or
+        not.
       </li>
     </ul>
   </div>
