@@ -79,6 +79,10 @@ export default {
   name: "Phone",
   components: {},
   props: {
+    selectedSystem: {
+      type: String,
+      required: true,
+    },
     selectedMode: {
       type: String,
       required: true,
@@ -100,12 +104,14 @@ export default {
       phoneNumber: "",
       receivingPhoneNumber: "+447777777",
       text: "",
+      system: ""
     },
 
     postObjectUSSD: {
       phoneNumber: "",
       serviceCode: "",
       text: "",
+      system: ""
     },
 
     lastMessageReceive: "",
@@ -116,10 +122,12 @@ export default {
       case "SMS":
         this.phoneMessageDisplay = "Enter the text:";
         this.postObjectSMS.phoneNumber = this.phoneWithoutSpaces;
+        this.postObjectSMS.system = this.selectedSystem;
         break;
       case "USSD":
         this.phoneMessageDisplay = "Dial Short Code:";
         this.postObjectUSSD.phoneNumber = this.phoneWithoutSpaces;
+        this.postObjectUSSD.system = this.selectedSystem;
         break;
       default:
         break;

@@ -2,7 +2,7 @@
   <div>
     <h2>Agent</h2>
     <AgentTables />
-    <AgentCreateOperation />
+    <AgentCreateOperation :selectedSystem="selectedSystem" />
   </div>
 </template>
 
@@ -12,6 +12,12 @@ import AgentTables from "./AgentTables.vue";
 export default {
   name: "Agent",
   components: { AgentCreateOperation, AgentTables },
+  props: {
+    selectedSystem: {
+      type: String,
+      required: true,
+    }
+  },
 };
 </script>
 

@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-6">
-            <Agent />
+            <Agent :selectedSystem="selectedSystem" />
           </div>
           <div class="col-12 col-lg-6">
             <div class="sign-up-frame">
@@ -40,7 +40,7 @@
                   </b-form-group>
                 </div>
 
-                <div v-if="selectedSystem == 'Mock'" class="form-group">
+                <div v-if="selectedSystem == 'mock'" class="form-group">
                   <label for="inputAddress2">Mobile number</label>
                   <vue-tel-input
                     v-model="phone"
@@ -55,12 +55,12 @@
                     {{ errors.phone }} {{ errors.format }}
                   </span>
                 </div>
-                <a v-if="selectedSystem == 'Mock'" href="#" class="btn1">
+                <a v-if="selectedSystem == 'mock'" href="#" class="btn1">
                   <input class="btn" type="submit" :value="formButtonLabel()" />
                 </a>
               </form>
 
-              <div v-if="selectedSystem == 'Live'">
+              <div v-if="selectedSystem == 'live'">
                 <span v-if="selectedMode == 'SMS'" class="font-weight-bold"
                   >Please send an SMS to +444111111</span
                 >
@@ -76,6 +76,7 @@
               />
               <Phone
                 v-if="showPhoneInterface"
+                :selectedSystem="selectedSystem"
                 :selectedMode="selectedMode"
                 :phone="phone"
               />
@@ -127,10 +128,10 @@ export default {
     formDisabled: false,
     showPhoneInterface: false,
     showOperationInformation: false,
-    selectedSystem: "Mock",
+    selectedSystem: "mock",
     systemOptions: [
-      { text: "Mock", value: "Mock" },
-      { text: "LIVE", value: "Live" },
+      { text: "Mock", value: "mock" },
+      { text: "LIVE", value: "live" },
     ],
     selectedMode: "SMS",
     modeOptions: [
@@ -139,10 +140,10 @@ export default {
     ],
   }),
   mounted() {
-    this.$root.$on("showPhone", () => {
-      if (!this.showPhoneInterface) {
-        this.selectedSystem = "Mock";
-        this.showPhoneInterface = true;
+    this.$root.$on("createOperation", () => {
+
+      if(this.selectedSystem === "mock" && !this.formDisabled){
+this.showPhoneInterface = true;
         this.showOperationInformation = true;
         this.formDisabled = true;
       }
@@ -151,10 +152,10 @@ export default {
   watch: {
     selectedSystem: function (newSelectedSystem, oldSelectedSystem) {
       switch (newSelectedSystem) {
-        case "Mock":
+        case "mock":
           this.showOperationInformation = false;
           break;
-        case "Live":
+        case "live":
           this.selectedMode = "SMS";
           this.showPhoneInterface = false;
           this.showOperationInformation = true;
