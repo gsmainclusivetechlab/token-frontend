@@ -21,7 +21,7 @@ export default {
     this.pollInterval = setInterval(this.getData, 1000); //save reference to the interval
     this.pollTimeout = setTimeout(() => {
       clearInterval(this.pollInterval);
-    }, 600000); //stop polling after ten minutes
+    }, 1800000); //stop polling after ten minutes
   },
   beforeDestroy() {
     clearInterval(this.pollInterval);
@@ -45,8 +45,8 @@ export default {
           this.notificationList = response.data.notifications;
         }
       } catch (err) {
-        clearInterval(this.pollInterval);
-        clearTimeout(this.pollTimeout);
+        // clearInterval(this.pollInterval);
+        // clearTimeout(this.pollTimeout);
       }
     },
   },

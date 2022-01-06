@@ -137,7 +137,7 @@ export default {
     this.pollIntervalGetSMS = setInterval(this.getSMSResponse, 1000); //save reference to the interval
     this.pollTimeoutGetSMS = setTimeout(() => {
       clearInterval(this.pollIntervalGetSMS);
-    }, 600000); //stop polling after ten minutes
+    }, 1800000); //stop polling after ten minutes
   },
   beforeDestroy() {
     clearInterval(this.pollIntervalGetSMS);
@@ -289,8 +289,8 @@ export default {
           }
         })
         .catch(() => {
-          clearInterval(this.pollIntervalGetSMS);
-          clearTimeout(this.pollTimeoutGetSMS);
+          // clearInterval(this.pollIntervalGetSMS);
+          // clearTimeout(this.pollTimeoutGetSMS);
         });
     },
   },

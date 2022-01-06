@@ -113,7 +113,7 @@ export default {
           this.amount = "";
           this.selectedOperation = "cash-in";
 
-          this.$root.$emit("createOperation");
+          this.$root.$emit("showPhoneInterface");
         }
       } catch (err) {
         if (this.axios.isAxiosError(err) && err.response) {

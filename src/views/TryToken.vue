@@ -140,10 +140,9 @@ export default {
     ],
   }),
   mounted() {
-    this.$root.$on("createOperation", () => {
-
-      if(this.selectedSystem === "mock" && !this.formDisabled){
-this.showPhoneInterface = true;
+    this.$root.$on("showPhoneInterface", () => {
+      if (this.selectedSystem === "mock" && !this.formDisabled) {
+        this.showPhoneInterface = true;
         this.showOperationInformation = true;
         this.formDisabled = true;
       }

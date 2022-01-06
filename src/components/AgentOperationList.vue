@@ -19,6 +19,9 @@
         </div>
       </template>
     </b-table>
+    <b-modal v-model="modalShow" hide-footer title="Error">
+        <span>{{ errorMessage }}</span>
+      </b-modal>
   </div>
 </template>
 
@@ -41,11 +44,13 @@ export default {
       { key: "name.fullName", label: "Client Name" },
       { key: "actions", label: "Actions" },
     ],
+    errorMessage: "",
+    modalShow: false,
   }),
   methods: {
-    acceptOperation(data) {
+    async acceptOperation(data) {
       try {
-        this.axios.post(
+        await this.axios.post(
           `${process.env.VUE_APP_PROXY_API_URL}/operations/accept/${data.id}`,
           null,
           {
@@ -55,7 +60,14 @@ export default {
             },
           }
         );
-      } catch (err) {}
+
+        this.$root.$emit("showPhoneInterface");
+      } catch (err) {
+        if (this.axios.isAxiosError(err) && err.response) {
+          this.errorMessage = err.response.data.error;
+          this.modalShow = true;
+        }
+      }
     },
     rejectOperation(data) {
       try {
@@ -69,7 +81,12 @@ export default {
             },
           }
         );
-      } catch (err) {}
+      } catch (err) {
+        if (this.axios.isAxiosError(err) && err.response) {
+          this.errorMessage = err.response.data.error;
+          this.modalShow = true;
+        }
+      }
     },
   },
 };
