@@ -62,16 +62,17 @@
 
               <div v-if="selectedSystem == 'live'">
                 <span v-if="selectedMode == 'SMS'" class="font-weight-bold"
-                  >Please send an SMS to +444111111</span
+                  >Please send an SMS to +447401232937</span
                 >
                 <span v-if="selectedMode == 'USSD'" class="font-weight-bold"
-                  >Please dial a USSD code to *#165#</span
+                  >Please send an SMS to +447401232937</span
                 >
               </div>
             </div>
             <div>
               <OperationInformation
                 v-if="showOperationInformation"
+                :selectedSystem="selectedSystem"
                 :selectedMode="selectedMode"
               />
               <Phone

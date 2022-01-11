@@ -1,46 +1,21 @@
 <template>
   <div class="wrapper">
-    <span>Available Operations:</span>
-    <ul v-if="selectedMode === 'SMS'">
-      <li>
-        <span>Get Token</span> - Write 'GET_TOKEN' on input field. The user will
-        receive the message with his token.
-      </li>
-      <li>
-        <span>Delete Token</span> - Write 'DELETE_TOKEN' on input field. The
-        user will receive the message saying that his token was deleted.
-      </li>
-      <li>
-        <span>Cash In</span> - Write 'CASH_IN -space- {AMOUNT}' on input field.
-        The user will receive the message about the operation being accepted or
-        not.
-      </li>
-      <li>
-        <span>Cash Out</span> - Write 'CASH_OUT -space- {AMOUNT}' on input
-        field. The user will receive the message about the operation being
-        accepted or not.
-      </li>
-    </ul>
-    <ul v-if="selectedMode === 'USSD'">
-      <li>
-        <span>Get Token</span> - Write short code '*165#' -> 1. The user will
-        receive the message with his token.
-      </li>
-      <li>
-        <span>Delete Token</span> - Write short code '*165#' -> 2. The user will
-        receive the message saying that his token was deleted.
-      </li>
-      <li>
-        <span>Cash In</span> - Write short code '*165#' -> 3 -> Insert Amount.
-        The user will receive the message about the operation being accepted or
-        not.
-      </li>
-      <li>
-        <span>Cash Out</span> - Write short code '*165#' -> 4 -> Insert Amount.
-        The user will receive the message about the operation being accepted or
-        not.
-      </li>
-    </ul>
+    <div class="d-flex justify-content-center">
+      <span class="font-weight-bold">DEFAULT PIN: 1234</span>
+    </div>
+
+    <div>
+      <span>Available Operations:</span>
+      <ul>
+        <li
+          v-for="item in getInformation(selectedSystem, selectedMode)"
+          :key="item.title"
+        >
+          <span class="font-weight-bold">{{ item.title }}</span
+          ><span>{{ item.description }}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -48,9 +23,110 @@
 export default {
   name: "OperationInformation",
   props: {
+    selectedSystem: {
+      type: String,
+      required: true,
+    },
     selectedMode: {
       type: String,
       required: true,
+    },
+  },
+  data: () => ({
+    informations: [
+      {
+        system: ["mock", "live"],
+        mode: "SMS",
+        title: "Get Token",
+        description:
+          " - Write 'GET_TOKEN' on input field. The user will receive the message with his token",
+      },
+      {
+        system: ["mock", "live"],
+        mode: "SMS",
+        title: "Delete Token",
+        description:
+          " - Write 'DELETE_TOKEN' on input field. The user will receive the message saying that his token was deleted.",
+      },
+      {
+        system: ["mock", "live"],
+        mode: "SMS",
+        title: "Cash In",
+        description:
+          " - Write 'CASH_IN -space- {AMOUNT}' on input field. If the agent accepts the operation, the user will receive a message asking for the pin, otherwise he will receive a message saying that the operation was rejected.",
+      },
+      {
+        system: ["mock", "live"],
+        mode: "SMS",
+        title: "Cash Out",
+        description:
+          " - Write 'CASH_OUT -space- {AMOUNT}' on input field. If the agent accepts the operation, the user will receive a message asking for the pin, otherwise he will receive a message saying that the operation was rejected.",
+      },
+
+      {
+        system: ["mock"],
+        mode: "USSD",
+        title: "Get Token",
+        description:
+          " - Write short code '*165#' -> 1. The user will receive the message with his token.",
+      },
+      {
+        system: ["mock"],
+        mode: "USSD",
+        title: "Delete Token",
+        description:
+          " - Write short code '*165#' -> 2. The user will receive the message saying that his token was deleted.",
+      },
+      {
+        system: ["mock"],
+        mode: "USSD",
+        title: "Cash In",
+        description:
+          " - Write short code '*165#' -> 3 -> Insert Amount. If the agent accepts the operation, the user will receive a message asking for the pin, otherwise he will receive a message saying that the operation was rejected.",
+      },
+      {
+        system: ["mock"],
+        mode: "USSD",
+        title: "Cash Out",
+        description:
+          " - Write short code '*165#' -> 4 -> Insert Amount. If the agent accepts the operation, the user will receive a message asking for the pin, otherwise he will receive a message saying that the operation was rejected.",
+      },
+
+      {
+        system: ["live"],
+        mode: "USSD",
+        title: "Get Token",
+        description:
+          " - Send the following message - '*165#*1' to the number above. The user will receive the message with his token.",
+      },
+      {
+        system: ["live"],
+        mode: "USSD",
+        title: "Delete Token",
+        description:
+          " - Send the following message - '*165#*2' to the number above. The user will receive the message saying that his token was deleted.",
+      },
+      {
+        system: ["live"],
+        mode: "USSD",
+        title: "Cash In",
+        description:
+          " - Send the following message - '*165#*3*{AMOUNT}' to the number above. If the agent accepts the operation, the user will receive a message asking for the pin, otherwise he will receive a message saying that the operation was rejected.",
+      },
+      {
+        system: ["live"],
+        mode: "USSD",
+        title: "Cash Out",
+        description:
+          " - Send the following message - '*165#*4*{AMOUNT}' to the number above. If the agent accepts the operation, the user will receive a message asking for the pin, otherwise he will receive a message saying that the operation was rejected.",
+      },
+    ],
+  }),
+  methods: {
+    getInformation(system, mode) {
+      return this.informations.filter(
+        (elem) => elem.system.includes(system) && elem.mode === mode
+      );
     },
   },
 };
@@ -64,9 +140,5 @@ export default {
 
 .wrapper ul {
   list-style: disc;
-}
-
-.wrapper li span {
-  font-weight: bold;
 }
 </style>
