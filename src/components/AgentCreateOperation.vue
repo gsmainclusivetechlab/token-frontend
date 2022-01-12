@@ -55,6 +55,12 @@
 <script>
 export default {
   name: "AgentCreateOperation",
+  props: {
+    selectedSystem: {
+      type: String,
+      required: true,
+    }
+  },
   data: () => ({
     selectedOperation: "cash-in",
     operationOptions: [
@@ -94,6 +100,7 @@ export default {
                 token: this.customerToken,
                 amount: this.amount,
                 type: this.selectedOperation,
+                system: this.selectedSystem
               },
               headers: {
                 "Content-Type": "application/json",
@@ -106,7 +113,7 @@ export default {
           this.amount = "";
           this.selectedOperation = "cash-in";
 
-          this.$root.$emit("showPhone");
+          this.$root.$emit("showPhoneInterface");
         }
       } catch (err) {
         if (this.axios.isAxiosError(err) && err.response) {
