@@ -41,7 +41,7 @@ export default {
         label: "Operation Type",
       },
       { key: "amount", label: "Amount" },
-      { key: "name.fullName", label: "Client Name" },
+      { key: "identifier", label: "Client Identifier" },
       { key: "actions", label: "Actions" },
     ],
     errorMessage: "",
@@ -69,9 +69,9 @@ export default {
         }
       }
     },
-    rejectOperation(data) {
+    async rejectOperation(data) {
       try {
-        this.axios.post(
+        await this.axios.post(
           `${process.env.VUE_APP_PROXY_API_URL}/operations/reject/${data.id}`,
           null,
           {
@@ -81,6 +81,8 @@ export default {
             },
           }
         );
+
+        this.$root.$emit("showPhoneInterface");
       } catch (err) {
         if (this.axios.isAxiosError(err) && err.response) {
           this.errorMessage = err.response.data.error;

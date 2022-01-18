@@ -1,87 +1,131 @@
 <template>
   <div class="home">
-    <AppHeader v-bind="props" />
+    <AppHeader v-bind="headerProps" />
     <div class="login-form-frame">
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-6">
-            <Agent :selectedSystem="selectedSystem" />
+            <div class="content-login">
+              <h2>
+                Sign up to test our <br />
+                Token Project
+              </h2>
+              <p>FILL INFORMATION HERE ABOUT THE PROJECT AND THE ENROLLMENT</p>
+              <p>Currently the call center is working in two numbers:</p>
+              <h4>
+                <p><b>UK </b><a href="tel:+1234567890">+1234567890</a> / <a href="tel:+1234567890">+1234567890</a></p>
+              </h4>
+              <p>
+                You can call and follow the instructions to enrol using your voice print, to then be able to navigate through the use cases.
+              </p>
+              <p>
+                If you would like to suggest a new use case to meet your business needs, contact the
+                <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank">
+                  Inclusive Tech Lab</a
+                >
+                or
+                <a @click="scrollBottom" class="link-color"> suggest a new use case.</a>
+              </p>
+            </div>
           </div>
           <div class="col-12 col-lg-6">
-            <div class="sign-up-frame">
-              <h2>Customer</h2>
-              <form @submit.prevent="processForm">
-                <!-- System radio button -->
-                <b-form-group
-                  :disabled="formDisabled"
-                  v-slot="{ ariaDescribedby }"
+            <SignUpCustomer />
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="two-col-biometric-wrap text-white">
+      <b-container>
+        <b-row class="justify-content-start align-items-center">
+          <b-col cols="12" xl="6">
+            <div class="biometric-content">
+              <h2>
+                Test Different <br />
+                Biometric Providers
+              </h2>
+              <p>
+                Biometrics For All allows mobile money providers to test multiple biometrics solutions available in the market. Our solution
+                was structured with a modular and flexible architecture, allowing new biometrics providers to include their solutions to
+                showcase both in our IVR call centre and in the mobile app. Our team is constantly evolving the assets, increasing the range
+                of possible suppliers available. If you are a biometric supplier and would like to contribute to our showcase, please
+                <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank">
+                  contact the Inclusive Tech lab.</a
                 >
-                  <b-form-radio-group
-                    v-model="selectedSystem"
-                    :options="systemOptions"
-                    :aria-describedby="ariaDescribedby"
-                    name="radio-inline-1"
-                  ></b-form-radio-group>
-                </b-form-group>
-
-                <!-- Mode radio button -->
-                <div class="form-group">
-                  <b-form-group
-                    :disabled="formDisabled"
-                    label="Choose mode:"
-                    v-slot="{ ariaDescribedby }"
-                  >
-                    <b-form-radio-group
-                      v-model="selectedMode"
-                      :options="modeOptions"
-                      :aria-describedby="ariaDescribedby"
-                      name="radio-inline-2"
-                    ></b-form-radio-group>
-                  </b-form-group>
-                </div>
-
-                <div v-if="selectedSystem == 'mock'" class="form-group">
-                  <label for="inputAddress2">Mobile number</label>
-                  <vue-tel-input
-                    v-model="phone"
-                    :defaultCountry="'GH'"
-                    validCharactersOnly
-                    :disabled="true"
-                  ></vue-tel-input>
-                  <span
-                    class="error-msg"
-                    v-if="errors.phone.length != 0 || errors.format.length != 0"
-                  >
-                    {{ errors.phone }} {{ errors.format }}
-                  </span>
-                </div>
-                <a v-if="selectedSystem == 'mock'" href="#" class="btn1">
-                  <input class="btn" type="submit" :value="formButtonLabel()" />
-                </a>
-              </form>
-
-              <div v-if="selectedSystem == 'live'">
-                <span v-if="selectedMode == 'SMS'" class="font-weight-bold"
-                  >Please send an SMS to +447401232937</span
-                >
-                <span v-if="selectedMode == 'USSD'" class="font-weight-bold"
-                  >Please send an SMS to +447401232937</span
-                >
-              </div>
+              </p>
             </div>
-            <div>
-              <OperationInformation
-                v-if="showOperationInformation"
-                :selectedSystem="selectedSystem"
-                :selectedMode="selectedMode"
-              />
-              <Phone
-                v-if="showPhoneInterface"
-                :selectedSystem="selectedSystem"
-                :selectedMode="selectedMode"
-                :phone="phone"
-              />
+          </b-col>
+          <b-col cols="12" xl="6">
+            <div class="biometric-img-block">
+              <b-row class="justify-content-center align-items-center gutter-20 flex-md-column">
+                <b-col cols="12" md="7">
+                  <a href="https://voiceit.io/" target="_blank">
+                    <div class="bg-biometric2 bg-black">
+                      <img src="../assets/images/biometric-provide-icon-1.svg" class="img-fluid" alt="biometric-provide-icon-1" />
+                    </div>
+                  </a>
+                  <a href="https://diamondfortress.com/" target="_blank">
+                    <div class="bg-biometric2 bg-blue">
+                      <img src="../assets/images/biometric-provide-icon-3.svg" class="img-fluid" alt="biometric-provide-icon-3" />
+                    </div>
+                  </a>
+                </b-col>
+              </b-row>
             </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
+
+    <div class="login-form-frame">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <AgentConfig :selectedSystem="selectedSystem" />
+          </div>
+          <div class="col-12 col-lg-6">
+            <CustomerConfig
+              :selectedSystemParent="selectedSystem"
+              :selectedModeParent="selectedMode"
+              :phoneParent="phoneNumber"
+              @selectedSystemChild="updateSelectedSystem"
+              @selectedModeChild="updateSelectedMode"
+              @emitShowPhoneInterface="updateShowPhoneInterface"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-form-frame">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <AgentTables />
+          </div>
+          <div class="col-12 col-lg-6">
+            <h2 class="text-center">Mobile Simulation</h2>
+            <Phone v-if="showPhoneInterface" :selectedSystem="selectedSystem" :selectedMode="selectedMode" :phone="phoneNumber" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content-wrapper try-frame">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="img-about-content">
+              <img src="../assets/images/Guide.png" class="img-fluid" alt="Guide" />
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <h2>Use our documentation to get the most out of your experience</h2>
+            <h6>
+              B4LL allows you to experience different use cases. Our documentation guides you through happy and unhappy flows and tells you
+              everything you need to know to make the correct use of the showcase. So please visit our documentation page and try to go over
+              the flows which are outlined. There is an infinite number of open possibilities, so, help us to improve bringing your business
+              needs so we can provide a customised experience to you.
+            </h6>
           </div>
         </div>
       </div>
@@ -91,124 +135,54 @@
 </template>
 
 <script>
-import Vue from "vue";
-import axios from "axios";
-import VueAxios from "vue-axios";
+import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
-import AppHeader from "../components/AppHeader";
-import Footer from "../components/layout/Footer";
-import { VueTelInput } from "vue-tel-input";
-import Phone from "../components/Phone.vue";
-import OperationInformation from "../components/OperationInformation.vue";
-import Agent from "../components/Agent.vue";
-
+import AppHeader from '../components/AppHeader';
+import Footer from '../components/layout/Footer';
+import { VueTelInput } from 'vue-tel-input';
+import SignUpCustomer from '../components/SignUpCustomer.vue';
+import AgentConfig from '../components/AgentConfig.vue';
+import CustomerConfig from '../components/CustomerConfig.vue';
+import Phone from '../components/Phone.vue';
+import AgentTables from '../components/AgentTables.vue';
 export default {
-  name: "TryToken",
-  components: {
-    AppHeader,
-    Footer,
-    VueTelInput,
-    Phone,
-    OperationInformation,
-    Agent,
-  },
+  name: 'TryToken',
+  components: { AppHeader, Footer, VueTelInput, SignUpCustomer, AgentConfig, CustomerConfig, Phone, AgentTables },
   data: () => ({
-    props: {
-      tittle: "EXPERIENCE THE TOKEN SHOWCASE",
+    headerProps: {
+      tittle: 'EXPERIENCE THE TOKEN SHOWCASE',
+      content: 'Protect yourself from exposing your phone number using a token solution',
       breadCrumb: {
-        tittle: "Try Token",
-        link: "trytoken",
+        tittle: 'Try Token',
+        link: 'trytoken',
       },
     },
-    phone: "+233207212676",
-    errors: {
-      format: "",
-      phone: "",
-    },
-    loading: false,
-    formDisabled: false,
     showPhoneInterface: false,
-    showOperationInformation: false,
-    selectedSystem: "mock",
-    systemOptions: [
-      { text: "Mock", value: "mock" },
-      { text: "LIVE", value: "live" },
-    ],
-    selectedMode: "SMS",
-    modeOptions: [
-      { text: "SMS Mode", value: "SMS" },
-      { text: "USSD Mode", value: "USSD" },
-    ],
+    selectedSystem: 'mock',
+    selectedMode: 'SMS',
+    phoneNumber: '+447401232937',
   }),
-  mounted() {
-    this.$root.$on("showPhoneInterface", () => {
-      if (this.selectedSystem === "mock" && !this.formDisabled) {
-        this.showPhoneInterface = true;
-        this.showOperationInformation = true;
-        this.formDisabled = true;
-      }
-    });
-  },
-  watch: {
-    selectedSystem: function (newSelectedSystem, oldSelectedSystem) {
-      switch (newSelectedSystem) {
-        case "mock":
-          this.showOperationInformation = false;
-          break;
-        case "live":
-          this.selectedMode = "SMS";
-          this.showPhoneInterface = false;
-          this.showOperationInformation = true;
-          this.formDisabled = false;
-          break;
-        default:
-          break;
-      }
-    },
-  },
   methods: {
     scrollBottom() {
       window.scrollTo({
         top: 10000,
         left: 0,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     },
 
-    processForm(e) {
-      if (this.formDisabled) {
-        this.showPhoneInterface = false;
-        this.showOperationInformation = false;
-        this.formDisabled = false;
-      } else {
-        this.errors = {
-          format: "",
-          phone: "",
-        };
-
-        let noformat = true;
-        const number = this.phone.split(" ").join("");
-        if (number.length > 17 || number.length < 12) {
-          noformat = false;
-          this.errors.format = "Enter phone number in correct format.";
-        }
-
-        if (this.phone && noformat) {
-          this.showPhoneInterface = true;
-          this.showOperationInformation = true;
-          this.formDisabled = true;
-        }
-
-        if (!this.phone) {
-          this.errors.phone = "Phone required.";
-        }
-      }
-
-      e.preventDefault();
+    updateSelectedSystem(newValue) {
+      this.selectedSystem = newValue;
     },
 
-    formButtonLabel() {
-      return this.formDisabled ? "Stop" : "Start";
+    updateSelectedMode(newValue) {
+      this.selectedMode = newValue;
+    },
+
+    updateShowPhoneInterface(newValue) {
+      this.showPhoneInterface = newValue;
     },
   },
 };
@@ -229,9 +203,9 @@ export default {
   padding-bottom: 70px;
   position: relative;
 }
-.login-form-frame::before {
-  content: "";
-  background-image: url("../assets/images/phone-call.png");
+/* .login-form-frame::before {
+  content: '';
+  background-image: url('../assets/images/phone-call.png');
   position: absolute;
   left: 49px;
   top: 17px;
@@ -242,8 +216,8 @@ export default {
   height: 100px;
 }
 .login-form-frame::after {
-  content: "";
-  background-image: url("../assets/images/bg.png");
+  content: '';
+  background-image: url('../assets/images/bg.png');
   position: absolute;
   right: -10px;
   top: -61px;
@@ -253,7 +227,7 @@ export default {
   width: 391px;
   height: 550px;
   z-index: -1;
-}
+} */
 .error-msg {
   font-size: 12px;
   color: red;
@@ -310,9 +284,11 @@ export default {
 }
 
 .login-form-frame .sign-up-frame h2,
+.login-form-frame .sign-up-frame h4,
 .login-form-frame .sign-up-frame p {
   text-align: center;
 }
+
 .login-form-frame .sign-up-frame {
   background-color: #f9f9f9;
   border-radius: 18px;
@@ -345,7 +321,7 @@ export default {
   padding-left: 0;
 }
 .login-form-frame .sign-up-frame .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -394,9 +370,9 @@ export default {
   .login-form-frame .sign-up-frame {
     width: auto;
   }
-  .login-form-frame::after {
-    content: "";
-    background-image: url("../assets/images/bg.png");
+  /* .login-form-frame::after {
+    content: '';
+    background-image: url('../assets/images/bg.png');
     position: absolute;
     right: 0;
     bottom: 0;
@@ -407,7 +383,7 @@ export default {
     width: 224px;
     height: 330px;
     z-index: -1;
-  }
+  } */
 }
 @media only screen and (max-width: 767px) {
   .coming-soon-frame h4 {
