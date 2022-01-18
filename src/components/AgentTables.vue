@@ -1,15 +1,18 @@
 <template>
   <div>
-    <AgentNotifications :data="notificationList" />
-    <AgentOperationList :data="operationList" />
+    <h2 class="text-center">Notifications</h2>
+    <div>
+      <AgentNotifications :data="notificationList" />
+      <AgentOperationList :data="operationList" />
+    </div>
   </div>
 </template>
 
 <script>
-import AgentOperationList from "./AgentOperationList.vue";
-import AgentNotifications from "./AgentNotifications.vue";
+import AgentOperationList from './AgentOperationList.vue';
+import AgentNotifications from './AgentNotifications.vue';
 export default {
-  name: "AgentTables",
+  name: 'AgentTables',
   components: { AgentOperationList, AgentNotifications },
   data: () => ({
     operationList: [],
@@ -30,15 +33,12 @@ export default {
   methods: {
     async getData() {
       try {
-        let response = await this.axios.get(
-          process.env.VUE_APP_PROXY_API_URL + "/operations",
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
+        let response = await this.axios.get(`${process.env.VUE_APP_PROXY_API_URL}/operations`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        });
 
         if (response && response.data) {
           this.operationList = response.data.operations;
