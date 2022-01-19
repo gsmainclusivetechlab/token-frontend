@@ -54,7 +54,7 @@ const routes = [
     component: Orange,
   },
   { path: "/404", component: NotFound },
-  { path: "*", redirect: "/404" },
+  // { path: "*", redirect: "/404" },
 
   {
     path: "/about",
