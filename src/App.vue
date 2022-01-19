@@ -45,13 +45,14 @@ a {
   font-weight: bold;
   /* color: #fff; */
 }
-.app {
+.app, .modal-dialog {
   font-family: "Arial";
   font-size: 16px;
   line-height: normal;
   line-height: 26px;
   font-weight: 400;
 }
+
 a,
 a:hover {
   text-decoration: none;
