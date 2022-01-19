@@ -7,7 +7,7 @@
     </div>
 
     <div>
-      <span>Live - SMS Mode</span>
+      <span>Live/Mock - SMS Mode</span>
       <ul>
         <li
           v-for="item in getInformation('live', 'SMS')"
@@ -29,7 +29,7 @@
         </li>
       </ul>
 
-      <span>Mock - SMS Mode</span>
+      <!-- <span>Mock - SMS Mode</span>
       <ul>
         <li
           v-for="item in getInformation('mock', 'SMS')"
@@ -38,7 +38,7 @@
           <span class="font-weight-bold">{{ item.title }}</span
           ><span>{{ item.description }}</span>
         </li>
-      </ul>
+      </ul> -->
 
       <span>Mock - USSD Mode</span>
       <ul>
@@ -57,16 +57,16 @@
 <script>
 export default {
   name: "OperationInformation",
-  props: {
-    selectedSystem: {
-      type: String,
-      required: true,
-    },
-    selectedMode: {
-      type: String,
-      required: true,
-    },
-  },
+  // props: {
+  //   selectedSystem: {
+  //     type: String,
+  //     required: true,
+  //   },
+  //   selectedMode: {
+  //     type: String,
+  //     required: true,
+  //   },
+  // },
   data: () => ({
     informations: [
       {
@@ -102,7 +102,7 @@ export default {
         mode: "SMS",
         title: "PIN",
         description:
-          " - Write 'PIN -space- 1234' on input field. This is the last step when the user have a pending transaction.",
+          " - Write 'PIN -space- {VALUE}' on input field. This is the last step when the user have a pending transaction.",
       },
       {
         system: ["mock", "live"],

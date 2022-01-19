@@ -30,6 +30,7 @@
           </div>
           <div class="col-12 col-lg-6">
             <SignUpCustomer />
+            <DeleteCustomer class="mt-3"/>
           </div>
         </div>
       </div>
@@ -154,9 +155,10 @@ import CustomerConfig from '../components/CustomerConfig.vue';
 import Phone from '../components/Phone.vue';
 import AgentTables from '../components/AgentTables.vue';
 import OperationInformation from '../components/OperationInformation.vue';
+import DeleteCustomer from '../components/DeleteCustomer.vue';
 export default {
   name: 'TryToken',
-  components: { AppHeader, Footer, VueTelInput, SignUpCustomer, AgentConfig, CustomerConfig, Phone, AgentTables, OperationInformation },
+  components: { AppHeader, Footer, VueTelInput, SignUpCustomer, AgentConfig, CustomerConfig, Phone, AgentTables, OperationInformation, DeleteCustomer },
   data: () => ({
     headerProps: {
       tittle: 'EXPERIENCE THE TOKEN SHOWCASE',
