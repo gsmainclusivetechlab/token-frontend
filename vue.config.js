@@ -1,3 +1,4 @@
 module.exports = {
-  publicPath: './'
+  publicPath: './token-frontend',
+  assetsDir: './token-frontend',
 };
