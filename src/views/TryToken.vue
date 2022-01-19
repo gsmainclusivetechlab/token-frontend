@@ -38,7 +38,7 @@
       <b-container>
         <b-row class="justify-content-start align-items-center">
           <b-col cols="12" xl="6">
-            <div class="biometric-content">
+            <!-- <div class="biometric-content">
               <h2>
                 Test Different <br />
                 Biometric Providers
@@ -52,10 +52,10 @@
                   contact the Inclusive Tech lab.</a
                 >
               </p>
-            </div>
+            </div> -->
           </b-col>
           <b-col cols="12" xl="6">
-            <div class="biometric-img-block">
+            <!-- <div class="biometric-img-block">
               <b-row class="justify-content-center align-items-center gutter-20 flex-md-column">
                 <b-col cols="12" md="7">
                   <a href="https://voiceit.io/" target="_blank">
@@ -70,6 +70,12 @@
                   </a>
                 </b-col>
               </b-row>
+            </div> -->
+            <div class="biometric-content">
+              <h2>
+                How to use the Token Showcase
+              </h2>
+              <OperationInformation />
             </div>
           </b-col>
         </b-row>
@@ -110,7 +116,7 @@
       </div>
     </div>
 
-    <div class="about-content-wrapper try-frame">
+    <!-- <div class="about-content-wrapper try-frame">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-6">
@@ -129,7 +135,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <Footer />
   </div>
 </template>
@@ -147,9 +153,10 @@ import AgentConfig from '../components/AgentConfig.vue';
 import CustomerConfig from '../components/CustomerConfig.vue';
 import Phone from '../components/Phone.vue';
 import AgentTables from '../components/AgentTables.vue';
+import OperationInformation from '../components/OperationInformation.vue';
 export default {
   name: 'TryToken',
-  components: { AppHeader, Footer, VueTelInput, SignUpCustomer, AgentConfig, CustomerConfig, Phone, AgentTables },
+  components: { AppHeader, Footer, VueTelInput, SignUpCustomer, AgentConfig, CustomerConfig, Phone, AgentTables, OperationInformation },
   data: () => ({
     headerProps: {
       tittle: 'EXPERIENCE THE TOKEN SHOWCASE',
