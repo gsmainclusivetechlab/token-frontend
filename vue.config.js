@@ -1,4 +1,4 @@
-module.exports = {
-  publicPath: './',
-  assetsDir: './',
-};
+// module.exports = {
+//   publicPath: './',
+//   assetsDir: './',
+// };
