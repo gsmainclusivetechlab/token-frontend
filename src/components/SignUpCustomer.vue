@@ -5,7 +5,7 @@
       <form @submit.prevent="processForm" method="post">
         <div class="form-group">
           <label for="inputAddress">Nick Name</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="Enter Nick Name" v-model="nickName" />
+          <input type="text" class="form-control" id="inputAddress" placeholder="Enter Nick Name" v-model="nickName" maxlength="50" />
           <span class="error-msg" v-if="errors.nickName.length != 0"> {{ errors.nickName }}</span>
         </div>
         <div class="form-group">
@@ -96,7 +96,7 @@ export default {
               'Access-Control-Allow-Origin': '*',
             },
           })
-          .then((res) => {
+          .then(res => {
             this.loading = false;
             this.modalTitle = 'Success';
             this.modalMessage = 'Sing up was successful.';
@@ -106,7 +106,7 @@ export default {
             this.nickName = '';
             this.termsConditions = 'no';
           })
-          .catch((err) => {
+          .catch(err => {
             this.loading = false;
             if (this.axios.isAxiosError(err) && err.response) {
               this.modalTitle = 'Error';
@@ -134,5 +134,4 @@ export default {
 };
 </script>
 <style src="vue-tel-input/dist/vue-tel-input.css"></style>
-<style>
-</style>
+<style></style>

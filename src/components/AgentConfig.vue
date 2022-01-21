@@ -19,6 +19,8 @@
               v-model="customerIdentifier"
               placeholder="Enter Customer Token/Phone"
               id="inputTokenPhone"
+              type="text"
+              maxlength="50"
             ></b-form-input>
             <span class="error-msg" v-if="errors.inputTokenPhone.length != 0"> {{ errors.inputTokenPhone }}</span>
           </div>
@@ -31,18 +33,11 @@
           </div>
 
           <!-- Merchant -->
-      <div v-if="selectedOperation == 'merchant-payment'" class="form-group">
-        <label for="inputMerchant">Merchant Code</label>
-        <b-form-input
-          class="form-group"
-          v-model="merchantCode"
-          placeholder="Enter Merchant Code"
-          id="inputMerchant"
-        ></b-form-input>
-        <span class="error-msg" v-if="errors.inputMerchant.length != 0">
-          {{ errors.inputMerchant }}</span
-        >
-      </div>
+          <div v-if="selectedOperation == 'merchant-payment'" class="form-group">
+            <label for="inputMerchant">Merchant Code</label>
+            <b-form-input class="form-group" v-model="merchantCode" placeholder="Enter Merchant Code" id="inputMerchant"></b-form-input>
+            <span class="error-msg" v-if="errors.inputMerchant.length != 0"> {{ errors.inputMerchant }}</span>
+          </div>
 
           <a v-if="!loading" href="#" class="btn1">
             <input class="btn" type="submit" value="Create" />
@@ -83,7 +78,7 @@ export default {
     errors: {
       inputTokenPhone: '',
       inputAmount: '',
-      inputMerchant: ''
+      inputMerchant: '',
     },
     modalShow: false,
     modalTitle: '',
@@ -96,7 +91,7 @@ export default {
       currencyDisplay: 'narrowSymbol',
       valueRange: {
         min: 0,
-        max: 500,
+        // max: 500,
       },
       precision: 2,
       hideCurrencySymbolOnFocus: true,
@@ -111,23 +106,32 @@ export default {
   methods: {
     async processForm(e) {
       try {
+        var errorFlag = false;
         if (!this.customerIdentifier) {
           this.errors.inputTokenPhone = 'Customer Token/Phone required.';
+          errorFlag = true;
         }
 
         if (!this.amount) {
           this.errors.inputAmount = 'Amount required.';
+          errorFlag = true;
+        } else {
+          if (this.amount > 500) {
+            this.errors.inputAmount = `Amount can't be greater than $500`;
+            errorFlag = true;
+          }
         }
 
-        if(this.selectedOperation == 'merchant-payment' && !this.merchantCode){
+        if (this.selectedOperation == 'merchant-payment' && !this.merchantCode) {
           this.errors.inputMerchant = 'Merchant Code required.';
+          errorFlag = true;
         }
 
-        if (this.customerIdentifier && this.amount && this.selectedOperation) {
+        if (!errorFlag && this.customerIdentifier && this.amount && this.selectedOperation) {
           this.errors = {
             inputTokenPhone: '',
             inputAmount: '',
-            inputMerchant: ''
+            inputMerchant: '',
           };
 
           let postData = {
@@ -135,7 +139,7 @@ export default {
             amount: this.amount,
             type: this.selectedOperation,
             system: this.selectedSystem,
-            merchantCode: this.merchantCode
+            merchantCode: this.merchantCode,
           };
 
           await this.axios.post(process.env.VUE_APP_PROXY_API_URL + '/operations', postData, {
