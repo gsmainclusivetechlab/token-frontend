@@ -57,6 +57,12 @@
                 The number of use cases are always growing, and we invite those interested to bring new ideas for us to
                 implement.
               </p>
+              <p>
+                <u><b>Default PIN</b></u>: 1234
+              </p>
+              <p>
+                <u><b>Merchant Code Available</b></u>: 4321
+              </p>
             </div>
           </div>
         </div>
@@ -70,7 +76,7 @@
                       <img src="../assets/images/biometrics-types.png" class="img-fluid" alt="biometrics-types" />
                     </div> -->
                     <div class="content-manage-frame">
-                      <h5>Get Token</h5>
+                      <h5>UC1 - Get Token</h5>
                       <p>Generate a token based on user's phone number.</p>
                       <p>
                         <u><b>Using SMS plus Mock Mode</b></u> - Write 'GET_TOKEN' on input field.
@@ -93,7 +99,7 @@
                       <img src="../assets/images/Alerts.png" class="img-fluid" alt="feature-icon-2" />
                     </div> -->
                     <div class="content-manage-frame">
-                      <h5>Delete Token</h5>
+                      <h5>UC2 - Delete Token</h5>
                       <p>Delete the generated token.</p>
                       <p>
                         <u><b>Using SMS plus Mock Mode</b></u> - Write 'DELETE_TOKEN' on input field.
@@ -113,32 +119,10 @@
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
                     <!-- <div class="img-manage">
-                      <img src="../assets/images/fingerprint.png" class="img-fluid" alt="feature-icon-6" />
-                    </div> -->
-                    <div class="content-manage-frame">
-                      <h5>Agent Initiated Cash-in / Cash-out</h5>
-                      <p>Choose the Operation Cash-In or Cash-Out on frame Agent Operation Seetings</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="twoline-managing-frame">
-                    <!-- <div class="img-manage">
-                      <img src="../assets/images/feature-icon-7.png" class="img-fluid" alt="Alerts" />
-                    </div> -->
-                    <div class="content-manage-frame">
-                      <h5>Merchant Initiated Merchant Payment</h5>
-                      <p>Choose the Operation Merchant-Payment on frame Agent Operation Seetings</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="twoline-managing-frame">
-                    <!-- <div class="img-manage">
                       <img src="../assets/images/passphrases.png" class="img-fluid" alt="passphrases" />
                     </div> -->
                     <div class="content-manage-frame">
-                      <h5>Customer Initiated Cash-in / Cash-out</h5>
+                      <h5>UC3 - Customer Initiated Cash-in / Cash-out</h5>
                       <p>
                         <u><b>Using SMS plus Mock Mode</b></u> - Write 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' on input field.
                       </p>
@@ -161,7 +145,7 @@
                       <img src="../assets/images/feature-icon-1.png" class="img-fluid" alt="feature-icon-1" />
                     </div> -->
                     <div class="content-manage-frame">
-                      <h5>Customer Initiated Merchant Payment</h5>
+                      <h5>UC5 - Customer Initiated Merchant Payment</h5>
                       <p>
                         <u><b>Using SMS plus Mock Mode</b></u> - Write 'PAYMENT -space- {MERCHANT_CODE} -space- {AMOUNT}' on input field.
                       </p>
@@ -174,6 +158,29 @@
                       <p>
                         <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*5*{MERCHANT_CODE}*{AMOUNT}' to +447401232937.
                       </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="twoline-managing-frame">
+                    <!-- <div class="img-manage">
+                      <img src="../assets/images/fingerprint.png" class="img-fluid" alt="feature-icon-6" />
+                    </div> -->
+                    <div class="content-manage-frame">
+                      <h5>UC4 - Agent Initiated Cash-in / Cash-out</h5>
+                      <p>Choose the Operation Cash-In or Cash-Out on frame Agent Operation Seetings</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="twoline-managing-frame">
+                    <!-- <div class="img-manage">
+                      <img src="../assets/images/feature-icon-7.png" class="img-fluid" alt="Alerts" />
+                    </div> -->
+                    <div class="content-manage-frame">
+                      <h5>UC6 - Merchant Initiated Merchant Payment</h5>
+                      <p>Choose the Operation Merchant-Payment on frame Agent Operation Seetings</p>
                     </div>
                   </div>
                 </div>
