@@ -248,6 +248,13 @@ export default {
 
         return response;
       } catch (err) {
+        if (this.axios.isAxiosError(err) && err.response) {
+          //USSD Case
+          if(err.response.data.error === 'Invalid short code'){
+            this.updatePhoneMessageError(err.response.data.error);
+          }
+        } 
+
         return null;
       }
     },

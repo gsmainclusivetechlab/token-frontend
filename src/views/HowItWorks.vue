@@ -8,27 +8,36 @@
           <div class="row">
             <div class="col-12 col-lg-6">
               <div class="bio-content-wrap">
-                <h2>IVR Call Centre</h2>
-                <p>
+                <!-- <h2>IVR Call Centre</h2> -->
+                <h2>Token Solution</h2>
+                <!-- <p>
                   One of the targets of the B4LL project is to demonstrate the advantages of using voice and speech recognition for identification and authentication of users to access digital services.
-                </p>
+                </p> -->
                 <p>
+                  One of the targets of the Token project is to demonstrate the advantages of using a token that will replace the user's phone
+                  number to make mobile money transactions with the goal of improving the security of the users.
+                </p>
+                <!-- <p>
                   This showcase consists of an IVR call centre that allows the user to navigate through a menu of different possibilities, using voice bots which can be an alternative to requiring someone to present physical ID.
-                </p>
+                </p> -->
                 <p>
+                  This showcase consists of a system that allows the user to generate a token based on their phone number to execute
+                  transactions preventing their phone number from being exposed.
+                </p>
+                <!-- <p>
                   The use cases available are a simulation of real services and
                   aim to demonstrate the use of voice registration and
                   authentication.
+                </p> -->
+                <p>
+                  The available use cases will show that if users use the token they will be able to do the same as they are currently able
+                  to do using their phone number.
                 </p>
               </div>
             </div>
             <div class="col-12 col-lg-6">
               <div class="img-bio">
-                <img
-                  src="../assets/images/usecase-content.png"
-                  class="img-fluid"
-                  alt="usecase-content"
-                />
+                <img src="../assets/images/usecase-gsma.png" class="img-fluid" alt="usecase-content" />
               </div>
             </div>
           </div>
@@ -38,184 +47,173 @@
     <section class="two-col-biometric-wrap text-white managing-content">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-4">
+          <div class="col-12">
             <div class="right-manage-img">
               <h2 class="mb-0">Use Cases</h2>
               <p>
-                Our showcase is based on the advantages of using different types
-                of biometrics (such as fingerprint, face and voice recognition)
-                to address its potentials in different business needs.
+                Our showcase have a Agent/Merchant simulation and two possibilities to simulate the Customer, Mock and Live.
               </p>
               <p>
-                For this, our demonstration has several use cases covering from
-                the biometric enrolment process to the verification to access
-                services. The number of use cases are always growing, and we
-                invite those interested to bring new ideas for us to implement.
+                The number of use cases are always growing, and we invite those interested to bring new ideas for us to
+                implement.
               </p>
             </div>
           </div>
-          <div class="col-12 col-lg-1"></div>
-          <div class="col-12 col-lg-7">
+        </div>
+        <div class="row">
+          <div class="col-12">
             <div class="managing-box">
               <div class="row">
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <div class="img-manage">
-                      <img
-                        src="../assets/images/feature-icon-1.png"
-                        class="img-fluid"
-                        alt="feature-icon-1"
-                      />
-                    </div>
+                    <!-- <div class="img-manage">
+                      <img src="../assets/images/biometrics-types.png" class="img-fluid" alt="biometrics-types" />
+                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>Pay Utility Bills</h5>
+                      <h5>Get Token</h5>
+                      <p>Generate a token based on user's phone number.</p>
                       <p>
-                        Experience how simple it can be to pay a bill using your
-                        mobile.
+                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'GET_TOKEN' on input field.
+                      </p>
+                      <p>
+                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'GET_TOKEN' to +447401232937.
+                      </p>
+                      <p>
+                        <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 1.
+                      </p>
+                      <p>
+                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*1' to +447401232937.
                       </p>
                     </div>
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <div class="img-manage">
-                      <img
-                        src="../assets/images/feature-icon-7.png"
-                        class="img-fluid"
-                        alt="Alerts"
-                      />
-                    </div>
+                    <!-- <div class="img-manage">
+                      <img src="../assets/images/Alerts.png" class="img-fluid" alt="feature-icon-2" />
+                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>Make a transfer</h5>
+                      <h5>Delete Token</h5>
+                      <p>Delete the generated token.</p>
                       <p>
-                        Simulate a money transference for another account.
+                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'DELETE_TOKEN' on input field.
+                      </p>
+                      <p>
+                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'DELETE_TOKEN' to +447401232937.
+                      </p>
+                      <p>
+                        <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 2.
+                      </p>
+                      <p>
+                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*2' to +447401232937.
                       </p>
                     </div>
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <div class="img-manage">
-                      <img
-                        src="../assets/images/biometrics-types.png"
-                        class="img-fluid"
-                        alt="biometrics-types"
-                      />
-                    </div>
+                    <!-- <div class="img-manage">
+                      <img src="../assets/images/fingerprint.png" class="img-fluid" alt="feature-icon-6" />
+                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>Different biometrics types</h5>
-                      <p>
-                        Check how different types of biometric can be used to
-                        access services
-                      </p>
+                      <h5>Agent Initiated Cash-in / Cash-out</h5>
+                      <p>Choose the Operation Cash-In or Cash-Out on frame Agent Operation Seetings</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <div class="img-manage">
-                      <img
-                        src="../assets/images/Alerts.png"
-                        class="img-fluid"
-                        alt="feature-icon-2"
-                      />
-                    </div>
+                    <!-- <div class="img-manage">
+                      <img src="../assets/images/feature-icon-7.png" class="img-fluid" alt="Alerts" />
+                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>Simulate Alerts</h5>
-                      <p>
-                        Use incoming calls with voice verification to simulate
-                        alerts which requires user’s approval.
-                      </p>
+                      <h5>Merchant Initiated Merchant Payment</h5>
+                      <p>Choose the Operation Merchant-Payment on frame Agent Operation Seetings</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <div class="img-manage">
-                      <img
-                        src="../assets/images/passphrases.png"
-                        class="img-fluid"
-                        alt="passphrases"
-                      />
-                    </div>
+                    <!-- <div class="img-manage">
+                      <img src="../assets/images/passphrases.png" class="img-fluid" alt="passphrases" />
+                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>Multiple Passphrases</h5>
+                      <h5>Customer Initiated Cash-in / Cash-out</h5>
                       <p>
-                        Increase the access security using multiples passphrase.
-                        During the user’s verification, one of the passphrases
-                        is randomly chosen.
+                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' on input field.
+                      </p>
+                      <p>
+                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' to +447401232937.
+                      </p>
+                      <p>
+                        <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 3 -> Insert Amount.
+                      </p>
+                      <p>
+                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*3*{AMOUNT}' to +447401232937.
                       </p>
                     </div>
                   </div>
                 </div>
+                
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <div class="img-manage">
-                      <img
-                        src="../assets/images/fingerprint.png"
-                        class="img-fluid"
-                        alt="feature-icon-6"
-                      />
-                    </div>
+                    <!-- <div class="img-manage">
+                      <img src="../assets/images/feature-icon-1.png" class="img-fluid" alt="feature-icon-1" />
+                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>Constant Indentity Verification</h5>
+                      <h5>Customer Initiated Merchant Payment</h5>
                       <p>
-                        The biometric verification is required after a
-                        determined period of time to keep your access and
-                        account safe.
+                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'PAYMENT -space- {MERCHANT_CODE} -space- {AMOUNT}' on input field.
+                      </p>
+                      <p>
+                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'PAYMENT -space- {MERCHANT_CODE} -space- {AMOUNT}' to +447401232937.
+                      </p>
+                      <p>
+                        <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 5 -> Insert Merchant Code -> Insert Amount.
+                      </p>
+                      <p>
+                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*5*{MERCHANT_CODE}*{AMOUNT}' to +447401232937.
                       </p>
                     </div>
                   </div>
                 </div>
+                
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <div class="mobile-app-content grey-bg">
+    <!-- <div class="mobile-app-content grey-bg">
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="img-app-wrap">
-              <img
-                src="../assets/images/mobile-app.png"
-                class="img-fluid"
-                alt="mobile-app"
-              />
+              <img src="../assets/images/mobile-app.png" class="img-fluid" alt="mobile-app" />
             </div>
           </div>
           <div class="col-12 col-lg-6">
             <div class="app-content-wrap">
               <h2>Mobile App</h2>
               <h6>
-                The mobile application demonstrates the potential of biometrics
-                in emerging markets as a flexible, open-source and adaptable way
-                to attend the needs of mobile operators. When necessary, the app
-                allows the connection with different biometrics suppliers that
-                do not require biometric sensors more than a microphone and a
-                camera.
+                The mobile application demonstrates the potential of biometrics in emerging markets as a flexible, open-source and adaptable
+                way to attend the needs of mobile operators. When necessary, the app allows the connection with different biometrics
+                suppliers that do not require biometric sensors more than a microphone and a camera.
               </h6>
               <h6>
-                Users can use the different types of biometrics, perform the
-                enrolment process and navigate through the different use cases
-                to experience how the use of biometrics helps to increase
-                security when accessing and using services.
+                Users can use the different types of biometrics, perform the enrolment process and navigate through the different use cases
+                to experience how the use of biometrics helps to increase security when accessing and using services.
               </h6>
             </div>
           </div>
           <div class="col-12 col-lg-6">
             <div class="img-app-wrap">
-              <img
-                src="../assets/images/mobile-app.png"
-                class="img-fluid"
-                alt="mobile-app"
-              />
+              <img src="../assets/images/mobile-app.png" class="img-fluid" alt="mobile-app" />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- <section class="tutorial-section text-center">
       <div class="container">
@@ -237,17 +235,17 @@
 </template>
 
 <script>
-import AppHeader from "../components/AppHeader";
-import Footer from "../components/layout/Footer";
+import AppHeader from '../components/AppHeader';
+import Footer from '../components/layout/Footer';
 export default {
-  name: "HowItWorks",
+  name: 'HowItWorks',
   components: { AppHeader, Footer },
   data: () => ({
     props: {
-      tittle: "FEATURES B4LL BRINGS TO YOU",
+      tittle: 'FEATURES TOKEN BRINGS TO YOU',
       breadCrumb: {
-        tittle: "How it works",
-        link: "/howitworks",
+        tittle: 'How it works',
+        link: '/howitworks',
       },
     },
   }),
@@ -300,7 +298,7 @@ export default {
   padding-bottom: 35px;
 }
 .tutorial-section::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   background-image: url(../assets/images/bio-left.svg);
@@ -313,7 +311,7 @@ export default {
   left: 0;
 }
 .tutorial-section::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   background-image: url(../assets/images/video-bg-1.svg);
@@ -358,8 +356,8 @@ export default {
   position: relative;
 }
 .mobile-app-content::after {
-  content: "";
-  background-image: url("../assets/images/bg-5.png");
+  content: '';
+  background-image: url('../assets/images/bg-5.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -383,9 +381,9 @@ export default {
   position: relative;
 }
 .usecase-wrapper::before {
-  content: "";
+  content: '';
   background-position: center;
-  background-image: url("../assets/images/Bubble-small.png");
+  background-image: url('../assets/images/Bubble-small.png');
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -395,9 +393,9 @@ export default {
   height: 261px;
 }
 .usecase-wrapper .usecase-three-col-content::after {
-  content: "";
+  content: '';
   background-position: center;
-  background-image: url("../assets/images/bubblel.png");
+  background-image: url('../assets/images/bubblel.png');
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -418,8 +416,8 @@ export default {
 }
 
 .bio-all::after {
-  content: "";
-  background-image: url("../assets/images/bg-3.png");
+  content: '';
+  background-image: url('../assets/images/bg-3.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
