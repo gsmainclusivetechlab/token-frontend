@@ -351,7 +351,7 @@ export default {
 };
 </script>
 <style src="vue-tel-input/dist/vue-tel-input.css"></style>
-<style>
+<style scoped>
 .coming-soon-frame h4 {
   margin-bottom: 0;
   color: #fff;

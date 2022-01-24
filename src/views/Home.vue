@@ -13,13 +13,10 @@
         >
           <b-carousel-slide>
             <!-- <b-container> -->
-            <h1>BIOMETRICS FOR ALL (B4LL)</h1>
+            <h1>TOKENISATION</h1>
             <div class="biometric-content-carousal">
-              <h4>
-                An opportunity to lift the barriers of digital inclusion in
-                emerging markets
-              </h4>
-              <div class="os-system-wrap">
+              <h4>Using token to provide secure transactions <br> in different mobile money scenarios</h4>
+              <!-- <div class="os-system-wrap">
                 <ul>
                   <li>
                     <a href="https://apps.apple.com/gb/app/gsma-b4ll/id1566270261" target="_blank">
@@ -40,7 +37,7 @@
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
             <!-- </b-container> -->
             <template #img>
@@ -55,13 +52,10 @@
           </b-carousel-slide>
           <b-carousel-slide>
             <!-- <b-container> -->
-            <h1>BIOMETRICS FOR ALL (B4LL)</h1>
+            <h1>TOKENISATION</h1>
             <div class="biometric-content-carousal">
-              <h4>
-                An opportunity to lift the barriers of digital inclusion in
-                emerging markets
-              </h4>
-              <div class="os-system-wrap">
+              <h4>Using token to provide secure transactions <br> in different mobile money scenarios</h4>
+              <!-- <div class="os-system-wrap">
                 <ul>
                   <li>
                     <a href="https://apps.apple.com/gb/app/gsma-b4ll/id1566270261" target="_blank">
@@ -82,7 +76,7 @@
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
             <!-- </b-container> -->
             <template #img>
@@ -97,13 +91,10 @@
           </b-carousel-slide>
           <b-carousel-slide>
             <!-- <b-container> -->
-            <h1>BIOMETRICS FOR ALL (B4LL)</h1>
+            <h1>TOKENISATION</h1>
             <div class="biometric-content-carousal">
-              <h4>
-                An opportunity to lift the barriers of digital inclusion in
-                emerging markets
-              </h4>
-              <div class="os-system-wrap">
+              <h4>Using token to provide secure transactions <br> in different mobile money scenarios</h4>
+              <!-- <div class="os-system-wrap">
                 <ul>
                   <li>
                     <a href="https://apps.apple.com/gb/app/gsma-b4ll/id1566270261" target="_blank">
@@ -124,7 +115,7 @@
                     </a>  
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
             <!-- </b-container> -->
             <template #img>
@@ -140,25 +131,19 @@
         </b-carousel>
       </div>
     </div>
-    <div class="digital-wrapper ">
+    <div class="digital-wrapper mb-3">
       <b-container>
         <b-row>
           <b-col cols="12" md="5">
             <div class="digital-frame-left-content">
-              <h3>
-                Unifying the digital identification ecosystem
-              </h3>
-              <h4>
-                Are you a mobile operator or financial services provider looking
-                to adopt biometrics in emerging markets?
-              </h4>
+              <h3>Improving the safety and the security of the customers</h3>
+              <h4>Are you a mobile operator and have concerns about safety and security of your customers?</h4>
               <a href="/howitworks" class="btn btn-lap">Learn More</a>
             </div>
           </b-col>
           <b-col cols="12" md="7">
             <div class="content-digital">
-              </br>
-              <p>
+              <!-- <p>
                 Biometrics For All offers an Interactive Voice Response (IVR)
                 call centre and mobile application with multiple use cases
                 showcasing the potential of biometrics to advance financial
@@ -167,26 +152,30 @@
               <p>
                 It currently offers enrolment and authentication using voice, with fingerprint and face recognition features to come soon and the scope to adopt additional modalities as well.
               </p>
-              <a href="#" class="btn btn-mob">Learn More</a>
+              <a href="#" class="btn btn-mob">Learn More</a> -->
+              <p>
+                Token Project offers a more comfortable way for users to make mobile money transactions knowing that their phone number will
+                not be exposed.
+              </p>
             </div>
           </b-col>
         </b-row>
       </b-container>
     </div>
-    <section class="digital-frame-bottom-content">
+    <!-- <section class="digital-frame-bottom-content">
       <b-container>
         <b-row>
           <b-col cols="12">
             <div class="full-width-banner text-center">
               <h4>
-                Empower your customers with inclusive biometric solutions
+                Optimise your work registering, testing, and onboarding partners in minutes!
               </h4>
             </div>
             <div class="mobile-group-banner"></div>
           </b-col>
         </b-row>
       </b-container>
-    </section>
+    </section> -->
     <!-- <section class="two-col-biometric-wrap text-white">
       <b-container>
         <b-row class="justify-content-start align-items-center">
@@ -250,56 +239,37 @@
         <div class="row">
           <div class="col-12">
             <div class="feature-content text-center">
-              <h2>Why choose Biometrics For All?</h2>
-              <h6>
-                Drive your business to unlock new security technologies for your
-                customers
-              </h6>
+              <h2>Why use the tokens in Mobile Money transactions?</h2>
+              <h6>Drive your business to unlock new security technologies for your customers</h6>
             </div>
             <div class="three-col-feature-frame">
               <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="card-wrap">
-                    <img
-                      src="../assets/images/development.png"
-                      class="img-fluid"
-                      alt="development"
-                    />
+                    <img src="../assets/images/development.png" class="img-fluid" alt="development" />
                     <h5>Tailored use cases</h5>
                     <h6>
-                      We understand that every business is unique, so our team
-                      is continuously developing new use cases and customising
-                      our assets to meet your business needs and objectives.
+                      We understand that every business is unique, so our team is continuously developing new use cases and customising our
+                      assets to meet your business needs and objectives.
                     </h6>
                   </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="card-wrap">
-                    <img
-                      src="../assets/images/trusted.png"
-                      class="img-fluid"
-                      alt="trusted"
-                    />
+                    <img src="../assets/images/trusted.png" class="img-fluid" alt="trusted" />
                     <h5>Trusted technical expertise</h5>
                     <h6>
-                      Adopting a new technology/service can be tricky to
-                      navigate, so we provide expertise to support you in
-                      understanding the impacts of using biometrics and during
-                      the adoption of biometrics solutions.
+                      Adopting a new technology/service can be tricky to navigate, so we provide expertise to support you in understanding
+                      the impacts of using biometrics and during the adoption of biometrics solutions.
                     </h6>
                   </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="card-wrap">
-                    <img
-                      src="../assets/images/smartphones.png"
-                      class="img-fluid"
-                      alt="smartphones"
-                    />
+                    <img src="../assets/images/smartphones.png" class="img-fluid" alt="smartphones" />
                     <h5>Built for low-tech environments</h5>
                     <h6>
-                      Our solutions are built to be used on feature phones and
-                      low-tech smartphones with a low-resolution camera or no
+                      Our solutions are built to be used on feature phones and low-tech smartphones with a low-resolution camera or no
                       camera at all.
                     </h6>
                   </div>
@@ -310,34 +280,26 @@
         </div>
       </div>
     </div>
-    <section class="question-wrapper">
+    <!-- <section class="question-wrapper">
       <b-container>
         <b-row>
           <b-col cols="12">
-            <div class="headline-accordion-wrap text-center bg-dark-color ">
+            <div class="headline-accordion-wrap text-center bg-dark-color">
               <h2>Frequently Asked Questions</h2>
             </div>
 
             <div class="accordion" role="tablist">
               <b-card no-body class="card-header mb-1">
                 <b-card-header header-tag="header" class="p-1" role="tab">
-                  <b-button
-                    block
-                    v-b-toggle.accordion-1
-                    variant="light"
-                    class="card-link"
+                  <b-button block v-b-toggle.accordion-1 variant="light" class="card-link"
                     >I want to showcase my biometric solution on B4LL. How can I do that?</b-button
                   >
                 </b-card-header>
-                <b-collapse
-                  id="accordion-1"
-                  visible
-                  accordion="my-accordion"
-                  role="tabpanel"
-                >
+                <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
                   <b-card-body>
                     <b-card-text
-                      >We are always happy to engage with new partners. If you think you have a biometric solution that may be suitable to be showcased through B4LL, please get in touch with us.</b-card-text
+                      >We are always happy to engage with new partners. If you think you have a biometric solution that may be suitable to
+                      be showcased through B4LL, please get in touch with us.</b-card-text
                     >
                   </b-card-body>
                 </b-collapse>
@@ -345,42 +307,29 @@
 
               <b-card no-body class="card-header mb-1">
                 <b-card-header header-tag="header" class="p-1" role="tab">
-                  <b-button
-                    block
-                    v-b-toggle.accordion-2
-                    variant="light"
-                    class="card-link"
+                  <b-button block v-b-toggle.accordion-2 variant="light" class="card-link"
                     >Is the GSMA ITL providing biometric verification solutions through B4LL commercially?</b-button
                   >
                 </b-card-header>
-                <b-collapse
-                  id="accordion-2"
-                  accordion="my-accordion"
-                  role="tabpanel"
-                >
+                <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
                   <b-card-body>
                     <b-card-text
-                      >No, B4LL is a completely free facility. The solutions housed within B4LL are not commercial offerings from the GSMA ITL. If service providers like the general experience of the solutions housed within B4LL, they are free to adopt them commercially in their markets. The GSMA ITL would not be privy to any such commercial adoption of biometric solutions by service providers. </b-card-text
-                    >
+                      >No, B4LL is a completely free facility. The solutions housed within B4LL are not commercial offerings from the GSMA
+                      ITL. If service providers like the general experience of the solutions housed within B4LL, they are free to adopt them
+                      commercially in their markets. The GSMA ITL would not be privy to any such commercial adoption of biometric solutions
+                      by service providers.
+                    </b-card-text>
                   </b-card-body>
                 </b-collapse>
               </b-card>
 
               <b-card no-body class="card-header mb-1">
                 <b-card-header header-tag="header" class="p-1" role="tab">
-                  <b-button
-                    block
-                    v-b-toggle.accordion-3
-                    variant="light"
-                    class="card-link"
+                  <b-button block v-b-toggle.accordion-3 variant="light" class="card-link"
                     >Is it possible to see the call centre working in a different languages or dialects?</b-button
                   >
                 </b-card-header>
-                <b-collapse
-                  id="accordion-3"
-                  accordion="my-accordion"
-                  role="tabpanel"
-                >
+                <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
                   <b-card-body>
                     <b-card-text
                       >Sure! You can have the call centre working in any language or dialect, or even multiple languages.</b-card-text
@@ -391,24 +340,22 @@
             </div>
             <div class="questions-frame text-center">
               <p>
-                Still have a question?<span class="question-bold">
-                  <a href="#"> Ask your question here</a></span
-                >
+                Still have a question?<span class="question-bold"> <a href="#"> Ask your question here</a></span>
               </p>
             </div>
           </b-col>
         </b-row>
       </b-container>
-    </section>
+    </section> -->
     <Footer />
   </div>
 </template>
 
 <script>
-import NavBar from "../components/layout/NavBar";
-import Footer from "../components/layout/Footer";
+import NavBar from '../components/layout/NavBar';
+import Footer from '../components/layout/Footer';
 export default {
-  name: "Home",
+  name: 'Home',
   components: { NavBar, Footer },
 };
 </script>
@@ -417,8 +364,8 @@ export default {
   background-image: linear-gradient(180deg, #6b3076 0%, #424985 100%);
 }
 .home-header::before {
-  content: "";
-  background-image: url("../assets/images/banner-bg-gradient.png");
+  content: '';
+  background-image: url('../assets/images/banner-bg-gradient.png');
   background-position: top;
   position: absolute;
   top: 2px;
@@ -435,8 +382,8 @@ export default {
   z-index: 9;
 }
 .slider-portfolio::after {
-  content: "";
-  background-image: url("../assets/images/dots.png");
+  content: '';
+  background-image: url('../assets/images/dots.png');
   background-position: top;
   position: absolute;
   bottom: 0;
@@ -544,7 +491,7 @@ export default {
   padding-bottom: 30px;
 }
 .mobile-group-banner {
-  background-image: url("../assets/images/group10.png");
+  background-image: url('../assets/images/group10.png');
   min-height: 621px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -559,9 +506,9 @@ export default {
   padding-top: 60px;
   padding-bottom: 32px;
 }
-.digital-wrapper::before {
-  content: "";
-  background-image: url("../assets/images/biometric-bg-icon-2.png");
+/* .digital-wrapper::before {
+  content: '';
+  background-image: url('../assets/images/biometric-bg-icon-2.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -572,8 +519,8 @@ export default {
   top: 36px;
 }
 .digital-wrapper::after {
-  content: "";
-  background-image: url("../assets/images/biometric-bg-icon-1.png");
+  content: '';
+  background-image: url('../assets/images/biometric-bg-icon-1.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -582,11 +529,11 @@ export default {
   bottom: 0;
   width: 141px;
   height: 135px;
-}
+} */
 
 .two-col-biometric-wrap {
   min-height: 556px;
-  background-image: url("../assets/images/group-9.png");
+  background-image: url('../assets/images/group-9.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -632,8 +579,8 @@ export default {
   margin-left: 20px;
 }
 .two-col-biometric-wrap .bg-biometric::before {
-  content: "";
-  background-image: url("../assets/images/biometric-bg-icon-1.png");
+  content: '';
+  background-image: url('../assets/images/biometric-bg-icon-1.png');
   position: absolute;
   background-position: center;
   background-size: contain;
@@ -645,8 +592,8 @@ export default {
   z-index: -1;
 }
 .two-col-biometric-wrap .bg-biometric2::before {
-  content: "";
-  background-image: url("../assets/images/biometric-bg-icon-2.png");
+  content: '';
+  background-image: url('../assets/images/biometric-bg-icon-2.png');
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
@@ -658,8 +605,8 @@ export default {
   z-index: -1;
 }
 .two-col-biometric-wrap .bg-biometric3::before {
-  content: "";
-  background-image: url("../assets/images/biometric-bg-icon-3.png");
+  content: '';
+  background-image: url('../assets/images/biometric-bg-icon-3.png');
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
@@ -686,7 +633,7 @@ export default {
   margin-left: -10px;
   margin-right: -10px;
 }
-.row.gutter-20 [class*="col-"] {
+.row.gutter-20 [class*='col-'] {
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -762,24 +709,24 @@ export default {
   padding-left: 0;
 }
 
-.accordion .card .card-header .card-link[aria-expanded="true"] {
+.accordion .card .card-header .card-link[aria-expanded='true'] {
   color: #95236c;
 }
 .accordion .card .card-header .card-link .collapsed > .when-opened {
   color: #95236c;
-  content: "";
-  background-image: url("../assets/images/accordion-arrow-active.svg");
+  content: '';
+  background-image: url('../assets/images/accordion-arrow-active.svg');
 }
 
 .accordion .card .card-header .card-link.collapsed > .when-opened,
 :not(.collapsed) > .when-closed::after {
-  content: "";
-  background-image: url("../assets/images/accordion-arrow-active.svg");
+  content: '';
+  background-image: url('../assets/images/accordion-arrow-active.svg');
 }
 .accordion .card .card-header .card-link::after {
-  content: "";
+  content: '';
   position: absolute;
-  background-image: url("../assets/images/accordion-arrow.svg");
+  background-image: url('../assets/images/accordion-arrow.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -802,9 +749,9 @@ export default {
   box-shadow: none;
   border: none;
 }
-.accordion .card .card-header .card-link[aria-expanded="true"]::after {
-  content: "";
-  background-image: url("../assets/images/accordion-arrow-active.svg");
+.accordion .card .card-header .card-link[aria-expanded='true']::after {
+  content: '';
+  background-image: url('../assets/images/accordion-arrow-active.svg');
 }
 .card-link .btn-light:hover {
   color: #fdfdfe;

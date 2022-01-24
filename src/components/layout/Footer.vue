@@ -1,47 +1,5 @@
 <template>
   <div>
-    <section class="app-downloading-wrapper">
-      <div
-        class="downloading-frame d-flex justify-content-center align-items-center"
-      >
-        <b-container>
-          <b-row>
-            <b-col cols="12">
-              <h2>
-                Ready? Test our IVR Call Centre and App Now!
-              </h2>
-              <h4 class="text-white">
-                And keep your eyes peeled for new functionalities coming soon
-              </h4>
-              <p>
-                <em>
-                  Be the innovator in your market. Experience how mobile
-                  biometrics can be used to facilitate seamless payments
-                </em>
-              </p>
-              <!-- <ul>
-                <li>
-                  <a href="#">
-                    <img
-                      src="../../assets/images/ios.svg"
-                      class="img-fluid"
-                      alt=""
-                  /></a>
-                </li>
-                <li>
-                  <a href="#">
-                    <img
-                      src="../../assets/images/google.svg"
-                      class="img-fluid"
-                      alt=""
-                  /></a>
-                </li>
-              </ul> -->
-            </b-col>
-          </b-row>
-        </b-container>
-      </div>
-    </section>
     <div class="new-case-wrapper w-100 ">
       <div class="container">
         <div class="row">
@@ -133,15 +91,15 @@
                     <li>
                       <a href="/howitworks">How it works</a>
                     </li>
-                    <li><a href="/tryb4all">Try B4LL</a></li>
-                    <li>
+                    <li><a href="/trytoken">Try Token</a></li>
+                    <!-- <li>
                       <a
                         href=" https://docs.biometrics.gsmainclusivetechlab.io/ "
                         >Documentation</a
                       >
                     </li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/faq">FAQs</a></li>
+                    <li><a href="/faq">FAQs</a></li> -->
                   </ul>
                 </div>
                 <p class="copyright">

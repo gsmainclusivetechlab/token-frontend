@@ -10,14 +10,16 @@
                 Sign up to test our <br />
                 Token Project
               </h2>
-              <p>FILL INFORMATION HERE ABOUT THE PROJECT AND THE ENROLLMENT</p>
+              <!-- <p>FILL INFORMATION HERE ABOUT THE PROJECT AND THE ENROLLMENT</p>
               <p>Currently the call center is working in two numbers:</p>
               <h4>
                 <p><b>UK </b><a href="tel:+1234567890">+1234567890</a> / <a href="tel:+1234567890">+1234567890</a></p>
-              </h4>
-              <p>
-                You can call and follow the instructions to enrol using your voice print, to then be able to navigate through the use cases.
-              </p>
+              </h4> -->
+
+              <p>If you want to use the live version, you need to sign up to be able to receive messages from the system.</p>
+
+              <p>To test the Use Cases, you can follow the instructions present <a href="/howitworks" target="_blank"> here</a>.</p>
+
               <p>
                 If you would like to suggest a new use case to meet your business needs, contact the
                 <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank">
@@ -30,16 +32,16 @@
           </div>
           <div class="col-12 col-lg-6">
             <SignUpCustomer />
-            <DeleteCustomer class="mt-3"/>
+            <DeleteCustomer class="mt-3" />
           </div>
         </div>
       </div>
     </div>
-    <section class="two-col-biometric-wrap text-white">
+    <!-- <section class="two-col-biometric-wrap text-white">
       <b-container>
         <b-row class="justify-content-start align-items-center">
           <b-col cols="12" xl="6">
-            <!-- <div class="biometric-content">
+            <div class="biometric-content">
               <h2>
                 Test Different <br />
                 Biometric Providers
@@ -53,10 +55,10 @@
                   contact the Inclusive Tech lab.</a
                 >
               </p>
-            </div> -->
+            </div>
           </b-col>
           <b-col cols="12" xl="6">
-            <!-- <div class="biometric-img-block">
+            <div class="biometric-img-block">
               <b-row class="justify-content-center align-items-center gutter-20 flex-md-column">
                 <b-col cols="12" md="7">
                   <a href="https://voiceit.io/" target="_blank">
@@ -71,17 +73,15 @@
                   </a>
                 </b-col>
               </b-row>
-            </div> -->
+            </div>
             <div class="biometric-content">
-              <h2>
-                How to use the Token Showcase
-              </h2>
+              <h2>How to use the Token Showcase</h2>
               <OperationInformation />
             </div>
           </b-col>
         </b-row>
       </b-container>
-    </section>
+    </section> -->
 
     <div class="login-form-frame">
       <div class="container">
@@ -158,7 +158,18 @@ import OperationInformation from '../components/OperationInformation.vue';
 import DeleteCustomer from '../components/DeleteCustomer.vue';
 export default {
   name: 'TryToken',
-  components: { AppHeader, Footer, VueTelInput, SignUpCustomer, AgentConfig, CustomerConfig, Phone, AgentTables, OperationInformation, DeleteCustomer },
+  components: {
+    AppHeader,
+    Footer,
+    VueTelInput,
+    SignUpCustomer,
+    AgentConfig,
+    CustomerConfig,
+    Phone,
+    AgentTables,
+    OperationInformation,
+    DeleteCustomer,
+  },
   data: () => ({
     headerProps: {
       tittle: 'EXPERIENCE THE TOKEN SHOWCASE',

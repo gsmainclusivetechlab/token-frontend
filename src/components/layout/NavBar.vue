@@ -27,19 +27,19 @@
                 <b-nav-item href="#">
                   <router-link to="/trytoken"> Try Token </router-link>
                 </b-nav-item>
-                <b-nav-item href="https://docs.biometrics.gsmainclusivetechlab.io/">
+                <!-- <b-nav-item href="https://docs.biometrics.gsmainclusivetechlab.io/"> -->
                   <!-- <router-link to="/documentation">  -->
-                  <a href=" https://docs.biometrics.gsmainclusivetechlab.io/ "
+                  <!-- <a href=" https://docs.biometrics.gsmainclusivetechlab.io/ "
                     >Documentation</a
-                  >
+                  > -->
                   <!-- </router-link> -->
-                </b-nav-item>
-                <b-nav-item href="#">
+                <!-- </b-nav-item> -->
+                <!-- <b-nav-item href="#">
                   <router-link to="/about">About</router-link>
                 </b-nav-item>
                 <b-nav-item href="#">
                   <router-link to="/faq">FAQs</router-link>
-                </b-nav-item>
+                </b-nav-item> -->
               </b-navbar-nav>
             </b-navbar-nav>
           </b-collapse>
