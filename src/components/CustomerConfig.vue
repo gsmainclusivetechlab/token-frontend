@@ -43,6 +43,10 @@
           <span v-if="selectedMode == 'SMS'" class="font-weight-bold">Please send an SMS to +447401232937</span>
           <span v-if="selectedMode == 'USSD'" class="font-weight-bold">Please send an SMS to +447401232937</span>
         </div>
+
+        <div class="mt-2" v-if="selectedSystem == 'mock' && !formDisabled">
+          <span><i>Remember to press button "Start" if you want to use Mock system and to appear the mobile in your page.</i></span>
+        </div>
       </div>
     </div>
   </div>
@@ -83,14 +87,10 @@ export default {
     },
     loading: false,
     formDisabled: false,
-    //showPhoneInterface: false,
-    //showOperationInformation: false,
-    //selectedSystem: 'mock',
     systemOptions: [
       { text: 'Mock', value: 'mock' },
       { text: 'LIVE', value: 'live' },
     ],
-    // selectedMode: 'SMS',
     modeOptions: [
       { text: 'SMS Mode', value: 'SMS' },
       { text: 'USSD Mode', value: 'USSD' },
@@ -104,8 +104,6 @@ export default {
   mounted() {
     this.$root.$on('showPhoneInterface', () => {
       if (this.selectedSystem === 'mock' && !this.formDisabled) {
-        //this.showPhoneInterface = true;
-        //this.showOperationInformation = true;
         this.formDisabled = true;
         this.$emit('emitShowPhoneInterface', this.formDisabled);
       }
@@ -115,12 +113,8 @@ export default {
     selectedSystem: function (newSelectedSystem, oldSelectedSystem) {
       switch (newSelectedSystem) {
         case 'mock':
-          //this.showOperationInformation = false;
           break;
         case 'live':
-          //this.selectedModeLocal = 'SMS';
-          //this.showPhoneInterface = false;
-          //this.showOperationInformation = true;
           this.formDisabled = false;
           break;
         default:
@@ -135,16 +129,6 @@ export default {
   },
   methods: {
     processForm(e) {
-      // if (this.formDisabled) {
-      //   //this.showPhoneInterface = false;
-      //   //this.showOperationInformation = false;
-      //   this.formDisabled = false;
-      // } else {
-      //   //this.showPhoneInterface = true;
-      //     //this.showOperationInformation = true;
-      //     this.formDisabled = true;
-      // }
-
       this.formDisabled = !this.formDisabled;
       this.$emit('emitShowPhoneInterface', this.formDisabled);
 

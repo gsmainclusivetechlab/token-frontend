@@ -8,27 +8,15 @@
           <div class="row">
             <div class="col-12 col-lg-6">
               <div class="bio-content-wrap">
-                <!-- <h2>IVR Call Centre</h2> -->
                 <h2>Token Solution</h2>
-                <!-- <p>
-                  One of the targets of the B4LL project is to demonstrate the advantages of using voice and speech recognition for identification and authentication of users to access digital services.
-                </p> -->
                 <p>
-                  One of the targets of the Token project is to demonstrate the advantages of using a token that will replace the user's phone
-                  number to make mobile money transactions with the goal of improving the security of the users.
+                  One of the targets of the Token project is to demonstrate the advantages of using a token that will replace the user's
+                  phone number to make mobile money transactions with the goal of improving the security of the users.
                 </p>
-                <!-- <p>
-                  This showcase consists of an IVR call centre that allows the user to navigate through a menu of different possibilities, using voice bots which can be an alternative to requiring someone to present physical ID.
-                </p> -->
                 <p>
                   This showcase consists of a system that allows the user to generate a token based on their phone number to execute
                   transactions preventing their phone number from being exposed.
                 </p>
-                <!-- <p>
-                  The use cases available are a simulation of real services and
-                  aim to demonstrate the use of voice registration and
-                  authentication.
-                </p> -->
                 <p>
                   The available use cases will show that if users use the token they will be able to do the same as they are currently able
                   to do using their phone number.
@@ -50,13 +38,22 @@
           <div class="col-12">
             <div class="right-manage-img">
               <h2 class="mb-0">Use Cases</h2>
+              <p>Our showcase have an Agent/Merchant simulation and two possibilities to simulate the Customer, Mock and Live.</p>
               <p>
-                Our showcase have a Agent/Merchant simulation and two possibilities to simulate the Customer, Mock and Live.
+                In Mock option, will appear a mobile on the page that will simulate a real mobile phone. it will be possible to choose
+                between SMS mode or USSD mode. To choose this option the user's needs to choose option Mock on Customer Area and press
+                button "Start".
               </p>
               <p>
-                The number of use cases are always growing, and we invite those interested to bring new ideas for us to
-                implement.
+                In Live option, the user's will need to use a real mobile phone and send message to a certain number. To use this option the
+                user's will need to do the sing up process.
               </p>
+              <p>
+                It's important to choose the correct option in the Customer area, because when the user's use Agent/Merchant workflow, if
+                the Mock option is selected, the notifications will be send to the page. Otherwise, if the Live option was selected the
+                notifications will be send to the user's real mobile phone.
+              </p>
+              <p>The number of use cases are always growing, and we invite those interested to bring new ideas for us to implement.</p>
               <p>
                 <u><b>Default PIN</b></u>: 1234
               </p>
@@ -72,11 +69,8 @@
               <div class="row">
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <!-- <div class="img-manage">
-                      <img src="../assets/images/biometrics-types.png" class="img-fluid" alt="biometrics-types" />
-                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>UC1 - Get Token</h5>
+                      <h5 class="text-center">UC1 - Get Token</h5>
                       <p>Generate a token based on user's phone number.</p>
                       <p>
                         <u><b>Using SMS plus Mock Mode</b></u> - Write 'GET_TOKEN' on input field.
@@ -95,11 +89,8 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <!-- <div class="img-manage">
-                      <img src="../assets/images/Alerts.png" class="img-fluid" alt="feature-icon-2" />
-                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>UC2 - Delete Token</h5>
+                      <h5 class="text-center">UC2 - Delete Token</h5>
                       <p>Delete the generated token.</p>
                       <p>
                         <u><b>Using SMS plus Mock Mode</b></u> - Write 'DELETE_TOKEN' on input field.
@@ -118,16 +109,15 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <!-- <div class="img-manage">
-                      <img src="../assets/images/passphrases.png" class="img-fluid" alt="passphrases" />
-                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>UC3 - Customer Initiated Cash-in / Cash-out</h5>
+                      <h5 class="text-center">UC3 - Customer Initiated Cash-in / Cash-out</h5>
                       <p>
-                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' on input field.
+                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' on input
+                        field.
                       </p>
                       <p>
-                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' to +447401232937.
+                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT
+                        -space- {AMOUNT}' to +447401232937.
                       </p>
                       <p>
                         <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 3 -> Insert Amount.
@@ -138,25 +128,24 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <!-- <div class="img-manage">
-                      <img src="../assets/images/feature-icon-1.png" class="img-fluid" alt="feature-icon-1" />
-                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>UC5 - Customer Initiated Merchant Payment</h5>
+                      <h5 class="text-center">UC5 - Customer Initiated Merchant Payment</h5>
                       <p>
                         <u><b>Using SMS plus Mock Mode</b></u> - Write 'PAYMENT -space- {MERCHANT_CODE} -space- {AMOUNT}' on input field.
                       </p>
                       <p>
-                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'PAYMENT -space- {MERCHANT_CODE} -space- {AMOUNT}' to +447401232937.
+                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'PAYMENT -space- {MERCHANT_CODE} -space-
+                        {AMOUNT}' to +447401232937.
                       </p>
                       <p>
                         <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 5 -> Insert Merchant Code -> Insert Amount.
                       </p>
                       <p>
-                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*5*{MERCHANT_CODE}*{AMOUNT}' to +447401232937.
+                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*5*{MERCHANT_CODE}*{AMOUNT}' to
+                        +447401232937.
                       </p>
                     </div>
                   </div>
@@ -164,79 +153,26 @@
 
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <!-- <div class="img-manage">
-                      <img src="../assets/images/fingerprint.png" class="img-fluid" alt="feature-icon-6" />
-                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>UC4 - Agent Initiated Cash-in / Cash-out</h5>
+                      <h5 class="text-center">UC4 - Agent Initiated Cash-in / Cash-out</h5>
                       <p>Choose the Operation Cash-In or Cash-Out on frame Agent Operation Seetings</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
-                    <!-- <div class="img-manage">
-                      <img src="../assets/images/feature-icon-7.png" class="img-fluid" alt="Alerts" />
-                    </div> -->
                     <div class="content-manage-frame">
-                      <h5>UC6 - Merchant Initiated Merchant Payment</h5>
+                      <h5 class="text-center">UC6 - Merchant Initiated Merchant Payment</h5>
                       <p>Choose the Operation Merchant-Payment on frame Agent Operation Seetings</p>
                     </div>
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- <div class="mobile-app-content grey-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <div class="img-app-wrap">
-              <img src="../assets/images/mobile-app.png" class="img-fluid" alt="mobile-app" />
-            </div>
-          </div>
-          <div class="col-12 col-lg-6">
-            <div class="app-content-wrap">
-              <h2>Mobile App</h2>
-              <h6>
-                The mobile application demonstrates the potential of biometrics in emerging markets as a flexible, open-source and adaptable
-                way to attend the needs of mobile operators. When necessary, the app allows the connection with different biometrics
-                suppliers that do not require biometric sensors more than a microphone and a camera.
-              </h6>
-              <h6>
-                Users can use the different types of biometrics, perform the enrolment process and navigate through the different use cases
-                to experience how the use of biometrics helps to increase security when accessing and using services.
-              </h6>
-            </div>
-          </div>
-          <div class="col-12 col-lg-6">
-            <div class="img-app-wrap">
-              <img src="../assets/images/mobile-app.png" class="img-fluid" alt="mobile-app" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <section class="tutorial-section text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-          <h2>Test our call centre now!</h2>
-            <p>
-              Access our documentation and get the most out your experience, <br/>
-              If you cannot find the use cases you need, please contact us  <br/>
-              Let's  
-            </p>
-            <img src="../assets/images/Call.png" class="img-fluid" alt="Call" />
-          </div>
-        </div>
-      </div>
-    </section> -->
     <Footer />
   </div>
 </template>
