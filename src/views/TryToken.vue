@@ -10,13 +10,10 @@
                 Sign up to test our <br />
                 Token Project
               </h2>
-              <!-- <p>FILL INFORMATION HERE ABOUT THE PROJECT AND THE ENROLLMENT</p>
-              <p>Currently the call center is working in two numbers:</p>
-              <h4>
-                <p><b>UK </b><a href="tel:+1234567890">+1234567890</a> / <a href="tel:+1234567890">+1234567890</a></p>
-              </h4> -->
-
-              <p>If you want to use the live version, you need to sign up to be able to receive messages from the system.</p>
+              <p>
+                If you want to use the Live version, you need to sign up to be able to receive messages from the system. After the test, we
+                have the possibility to remove your data from the system, just press the button 'Delete Account'.
+              </p>
 
               <p>To test the Use Cases, you can follow the instructions present <a href="/howitworks" target="_blank"> here</a>.</p>
 
@@ -37,52 +34,6 @@
         </div>
       </div>
     </div>
-    <!-- <section class="two-col-biometric-wrap text-white">
-      <b-container>
-        <b-row class="justify-content-start align-items-center">
-          <b-col cols="12" xl="6">
-            <div class="biometric-content">
-              <h2>
-                Test Different <br />
-                Biometric Providers
-              </h2>
-              <p>
-                Biometrics For All allows mobile money providers to test multiple biometrics solutions available in the market. Our solution
-                was structured with a modular and flexible architecture, allowing new biometrics providers to include their solutions to
-                showcase both in our IVR call centre and in the mobile app. Our team is constantly evolving the assets, increasing the range
-                of possible suppliers available. If you are a biometric supplier and would like to contribute to our showcase, please
-                <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank">
-                  contact the Inclusive Tech lab.</a
-                >
-              </p>
-            </div>
-          </b-col>
-          <b-col cols="12" xl="6">
-            <div class="biometric-img-block">
-              <b-row class="justify-content-center align-items-center gutter-20 flex-md-column">
-                <b-col cols="12" md="7">
-                  <a href="https://voiceit.io/" target="_blank">
-                    <div class="bg-biometric2 bg-black">
-                      <img src="../assets/images/biometric-provide-icon-1.svg" class="img-fluid" alt="biometric-provide-icon-1" />
-                    </div>
-                  </a>
-                  <a href="https://diamondfortress.com/" target="_blank">
-                    <div class="bg-biometric2 bg-blue">
-                      <img src="../assets/images/biometric-provide-icon-3.svg" class="img-fluid" alt="biometric-provide-icon-3" />
-                    </div>
-                  </a>
-                </b-col>
-              </b-row>
-            </div>
-            <div class="biometric-content">
-              <h2>How to use the Token Showcase</h2>
-              <OperationInformation />
-            </div>
-          </b-col>
-        </b-row>
-      </b-container>
-    </section> -->
-
     <div class="login-form-frame">
       <div class="container">
         <div class="row">
@@ -102,7 +53,6 @@
         </div>
       </div>
     </div>
-
     <div class="login-form-frame">
       <div class="container">
         <div class="row">
@@ -116,27 +66,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="about-content-wrapper try-frame">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <div class="img-about-content">
-              <img src="../assets/images/Guide.png" class="img-fluid" alt="Guide" />
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <h2>Use our documentation to get the most out of your experience</h2>
-            <h6>
-              B4LL allows you to experience different use cases. Our documentation guides you through happy and unhappy flows and tells you
-              everything you need to know to make the correct use of the showcase. So please visit our documentation page and try to go over
-              the flows which are outlined. There is an infinite number of open possibilities, so, help us to improve bringing your business
-              needs so we can provide a customised experience to you.
-            </h6>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <Footer />
   </div>
 </template>
