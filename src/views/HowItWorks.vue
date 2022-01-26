@@ -46,7 +46,7 @@
               </p>
               <p>
                 In Live option, the user's will need to use a real mobile phone and send message to a certain number. To use this option the
-                user's will need to do the sing up process.
+                user's will need to do the sign up process.
               </p>
               <p>
                 It's important to choose the correct option in the Customer area, because when the user's use Agent/Merchant workflow, if
