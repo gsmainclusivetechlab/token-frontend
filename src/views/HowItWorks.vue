@@ -80,6 +80,9 @@
           <div class="col-12">
             <div class="managing-box">
               <div class="row">
+                <div class="col-12">
+                  <h2>Use Cases</h2>
+                </div>
                 <div class="col-12 col-md-6">
                   <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
