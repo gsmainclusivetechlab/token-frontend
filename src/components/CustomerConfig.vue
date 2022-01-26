@@ -45,7 +45,7 @@
         </div>
 
         <div class="mt-2" v-if="selectedSystem == 'mock' && !formDisabled">
-          <span><i>Remember to press button "Start" if you want to use Mock system and to appear the mobile in your page.</i></span>
+          <span><i>When using the Mock mode you need to press "Start" to initiate the mobile interface in this page.</i></span>
         </div>
       </div>
     </div>
@@ -137,7 +137,7 @@ export default {
 
     formButtonLabel() {
       return this.formDisabled ? 'Stop' : 'Start';
-    }
+    },
   },
 };
 </script>
