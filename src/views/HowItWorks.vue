@@ -37,28 +37,41 @@
         <div class="row">
           <div class="col-12">
             <div class="right-manage-img">
-              <h2 class="mb-0">Use Cases</h2>
-              <p>Our showcase have an Agent/Merchant simulation and two possibilities to simulate the Customer, Mock and Live.</p>
+              <h2 class="mb-0">How it works</h2>
               <p>
-                In Mock option, will appear a mobile on the page that will simulate a real mobile phone. it will be possible to choose
-                between SMS mode or USSD mode. To choose this option the user's needs to choose option Mock on Customer Area and press
-                button "Start".
+                Our showcase has an Agent/Merchant simulation and two possibilities to act as the Customer, a simulated Mock mode and Live
+                mode.
               </p>
               <p>
-                In Live option, the user's will need to use a real mobile phone and send message to a certain number. To use this option the
-                user's will need to do the sign up process.
+                In the Mock mode, a mobile phone will appear on the page that will simulate a real mobile phone. it will be possible to
+                choose between using SMS or USSD to make actions. To use the Mock mode the user's needs to choose option Mock on the
+                Customer Area and press the "Start" button.
               </p>
               <p>
-                It's important to choose the correct option in the Customer area, because when the user's use Agent/Merchant workflow, if
-                the Mock option is selected, the notifications will be send to the page. Otherwise, if the Live option was selected the
-                notifications will be send to the user's real mobile phone.
-              </p>
-              <p>The number of use cases are always growing, and we invite those interested to bring new ideas for us to implement.</p>
-              <p>
-                <u><b>Default PIN</b></u>: 1234
+                In Live mode, the user will use his mobile phone to send SMS messages to a phone number provided for demonstrating the Token
+                Solution. To use this mode the user will need to sign, for the system to recognize his phone number as belonging to a valid
+                user. The option to delete his information from the system is also provided via the “Delete Account” button.
               </p>
               <p>
-                <u><b>Merchant Code Available</b></u>: 4321
+                Note that when the Mock mode is selected the notifications from the Agent/Merchant workflow will be sent to the page itself
+                and shown in the mobile interface provide. If the Live mode is selected the notifications will be sent to the user's real
+                mobile phone.
+              </p>
+              <p>
+                During the simulation, a PIN will be requested to the user to confirm operations. The PIN provided below is the only
+                accepted value.
+              </p>
+              <p>
+                <u><b>Default PIN</b></u
+                >: 1234
+              </p>
+              <p>
+                A Merchant code identifier is also required for the Merchant payment use cases, and the only accepted value is the one
+                below.
+              </p>
+              <p>
+                <u><b>Merchant Code Available</b></u
+                >: 4321
               </p>
             </div>
           </div>
@@ -71,18 +84,18 @@
                   <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
                       <h5 class="text-center">UC1 - Get Token</h5>
-                      <p>Generate a token based on user's phone number.</p>
+                      <p>Generate a token based on the user's phone number.</p>
                       <p>
-                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'GET_TOKEN' on input field.
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'GET_TOKEN' on the input field.
                       </p>
                       <p>
-                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'GET_TOKEN' to +447401232937.
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'GET_TOKEN'.
                       </p>
                       <p>
-                        <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 1.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 1.
                       </p>
                       <p>
-                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*1' to +447401232937.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*1'.
                       </p>
                     </div>
                   </div>
@@ -93,16 +106,16 @@
                       <h5 class="text-center">UC2 - Delete Token</h5>
                       <p>Delete the generated token.</p>
                       <p>
-                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'DELETE_TOKEN' on input field.
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'DELETE_TOKEN' on input field.
                       </p>
                       <p>
-                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'DELETE_TOKEN' to +447401232937.
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'DELETE_TOKEN'.
                       </p>
                       <p>
-                        <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 2.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 2.
                       </p>
                       <p>
-                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*2' to +447401232937.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*2'.
                       </p>
                     </div>
                   </div>
@@ -112,18 +125,18 @@
                     <div class="content-manage-frame">
                       <h5 class="text-center">UC3 - Customer Initiated Cash-in / Cash-out</h5>
                       <p>
-                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' on input
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' on input
                         field.
                       </p>
                       <p>
-                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT
-                        -space- {AMOUNT}' to +447401232937.
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'CASH_IN -space- {AMOUNT}' or
+                        'CASH_OUT -space- {AMOUNT}'.
                       </p>
                       <p>
-                        <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 3 -> Insert Amount.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 3 -> Insert Amount.
                       </p>
                       <p>
-                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*3*{AMOUNT}' to +447401232937.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*3*{AMOUNT}'.
                       </p>
                     </div>
                   </div>
@@ -134,18 +147,18 @@
                     <div class="content-manage-frame">
                       <h5 class="text-center">UC5 - Customer Initiated Merchant Payment</h5>
                       <p>
-                        <u><b>Using SMS plus Mock Mode</b></u> - Write 'PAYMENT -space- {MERCHANT_CODE} -space- {AMOUNT}' on input field.
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'PAYMENT -space- {MERCHANT_CODE} -space- {AMOUNT}' on input field.
                       </p>
                       <p>
-                        <u><b>Using SMS plus Live Mode</b></u> - Send the following message - 'PAYMENT -space- {MERCHANT_CODE} -space-
-                        {AMOUNT}' to +447401232937.
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PAYMENT -space- {MERCHANT_CODE}
+                        -space- {AMOUNT}'.
                       </p>
                       <p>
-                        <u><b>Using USSD plus Mock Mode</b></u> - Write short code '*165#' -> 5 -> Insert Merchant Code -> Insert Amount.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 5 -> Insert Merchant Code -> Insert Amount.
                       </p>
                       <p>
-                        <u><b>Using USSD plus Live Mode</b></u> - Send the following message - '*165#*5*{MERCHANT_CODE}*{AMOUNT}' to
-                        +447401232937.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 -
+                        '*165#*5*{MERCHANT_CODE}*{AMOUNT}'.
                       </p>
                     </div>
                   </div>
@@ -155,7 +168,7 @@
                   <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
                       <h5 class="text-center">UC4 - Agent Initiated Cash-in / Cash-out</h5>
-                      <p>Choose the Operation Cash-In or Cash-Out on frame Agent Operation Seetings</p>
+                      <p>Choose the Operation Cash-In or Cash-Out on Agent Operation Seetings</p>
                     </div>
                   </div>
                 </div>
@@ -163,10 +176,24 @@
                   <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
                       <h5 class="text-center">UC6 - Merchant Initiated Merchant Payment</h5>
-                      <p>Choose the Operation Merchant-Payment on frame Agent Operation Seetings</p>
+                      <p>Choose the Operation Merchant-Payment on Agent Operation Seetings</p>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bio-all">
+      <div class="container">
+        <div class="bio-all-contents">
+          <div class="row">
+            <div class="col-12">
+              <div class="bio-content-wrap">
+                <h2>New Use Cases</h2>
+                <p>The number of use cases are always growing, and we invite those interested to bring new ideas for us to implement.</p>
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@
                 Token Project
               </h2>
               <p>
-                If you want to use the Live version, you need to sign up to be able to receive messages from the system. After the test, we
+                If you want to use the Live version, you need to sign up to be able to receive messages from the system. After the test, you
                 have the possibility to remove your data from the system, just press the button 'Delete Account'.
               </p>
 
