@@ -99,7 +99,7 @@ export default {
           .then(res => {
             this.loading = false;
             this.modalTitle = 'Success';
-            this.modalMessage = 'Sing up was successful.';
+            this.modalMessage = 'Sign up was successful.';
             this.modalShow = true;
 
             this.phone = '';
