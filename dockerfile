@@ -15,6 +15,8 @@ RUN npm install
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . .
 
+ENV VUE_APP_PROXY_API_URL=http://localhost:4000
+
 # build app for production with minification
 RUN npm run build
 
