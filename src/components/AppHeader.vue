@@ -80,7 +80,7 @@ export default {
 .inner-header .inner-header-wrap::before,
 .inner-header .inner-head-try::before {
   content: "";
-  background-image: url("../assets/images/inner-dot-bg.png");
+  /*background-image: url("../assets/images/inner-dot-bg.png");*/
   background-position: top;
   position: absolute;
   top: 0;

@@ -27,6 +27,9 @@
                 <b-nav-item href="#">
                   <router-link to="/trytoken"> Try Token </router-link>
                 </b-nav-item>
+                <b-nav-item href="#">
+                  <router-link to="/trytoken2"> Try 2</router-link>
+                </b-nav-item>
                 <!-- <b-nav-item href="https://docs.biometrics.gsmainclusivetechlab.io/"> -->
                   <!-- <router-link to="/documentation">  -->
                   <!-- <a href=" https://docs.biometrics.gsmainclusivetechlab.io/ "

@@ -16,7 +16,8 @@
             <h1>TOKENISATION PROJECT</h1>
             <div class="biometric-content-carousal">
               <h4>
-                USING TOKEN TO PROVIDE SECURE TRANSACTIONS IN DIFFERENT MOBILE MONEY SCENARIOS
+                USING TOKEN TO PROVIDE SECURE TRANSACTIONS 
+                </br> IN DIFFERENT MOBILE MONEY SCENARIOS
               </h4>
               </br>
               </br>
@@ -30,7 +31,7 @@
                 class="img-fluid slider-img"
                 width="1024"
                 height="480"
-                src="../assets/images/MobileMoney_5.jpg"
+                src="../assets/images/banner-illustration-1.png"
                 alt="image slot"
                 style="vertical-align:middle"
               />
@@ -98,7 +99,14 @@
             </div>
             <div class="col-12 col-lg-6">
               <div class="img-bio">    
-              < INSERT TEXT OR IMAGE AFTER MARKETING REVIEW >  
+                  <img
+                    class="slider-img"
+                    width="1024"
+                    height="480"
+                    src="../assets/images/MobileMoney_5.jpg"
+                    alt="image slot"
+                    style="vertical-align:right"
+                  />
               </div>
             </div>
           </div>
@@ -123,9 +131,7 @@
           </b-col>
           <b-col cols="12" xl="6">
             <div class="biometric-img-block">
-              <b-row
-                class="justify-content-center align-items-center gutter-20 flex-md-column"
-              >
+              <b-row class="justify-content-center align-items-center gutter-20 flex-md-column">
                 <b-col cols="12" md="7">                
                 </b-col>
               </b-row>
