@@ -90,7 +90,7 @@ export default {
   background-repeat: no-repeat;
 }
 .inner-header .inner-header-wrap {
-  background-image: url("../assets/images/security.png");
+  background-image: url("../assets/images/bg-02.png");
   background-position: center;
   background-repeat: no-repeat;
   min-height: 374px;
@@ -98,7 +98,7 @@ export default {
   color: #fff;
 }
 .inner-header .inner-head-try {
-  background-image: url("../assets/images/bg-try.png");
+  background-image: url("../assets/images/bg-02.png");
   background-position: center;
   background-repeat: no-repeat;
   min-height: 374px;
