@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <AppHeader v-bind="headerProps" />
-    
+
     <!-- FRAME 01: CONTENT -->
     <section class="bio-all">
       <div class="container">
@@ -45,7 +45,9 @@
                   <br />
                   <br />
                   <div align="right" class="newscase-btn">
-                    <a id="show-modal" @click="tryMock()" class="btn-newscase">Try Virtual Token Simulation</a>
+                    <router-link to="/trytoken/mock">
+                      <a id="show-modal" class="btn-newscase">Try Virtual Token Simulation</a>
+                    </router-link>
                   </div>
                 </b-col>
               </b-row>
