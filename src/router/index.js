@@ -3,12 +3,11 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import HowItWorks from '../views/HowItWorks.vue';
 import Faq from '../views/Faq.vue';
-import TryB4All from '../views/TryB4All.vue';
-import TryToken from '../views/TryToken.vue';
 import RequestForm from '../views/RequestForm.vue';
 import RequestForm1 from '../views/RequestForm1.vue';
 import Orange from '../views/Orange.vue';
 import NotFound from '../views/NotFound.vue';
+import TryToken2 from "../views/TryToken2.vue";
 
 Vue.use(VueRouter);
 
@@ -28,19 +27,19 @@ const routes = [
     name: 'Faq',
     component: Faq,
   },
-  // {
-  //   path: "/tryb4all",
-  //   name: "TryB4All",
-  //   component: TryB4All,
-  // },
   {
     path: '/trytoken',
     name: 'TryToken',
     component: () => import(/* webpackChunkName: "about" */ '../views/TryToken.vue'),
   },
   {
-    path: '/requestform',
-    name: 'RequestForm',
+    path: "/trytoken2",
+    name: "trytoken2",
+    component: TryToken2,
+  },
+  {
+    path: "/requestform",
+    name: "RequestForm",
     component: RequestForm,
   },
   {
