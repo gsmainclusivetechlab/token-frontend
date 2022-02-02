@@ -45,7 +45,7 @@
                   <br />
                   <br />
                   <div align="right" class="newscase-btn">
-                    <a id="show-modal" href="/trytoken/mock" class="btn-newscase">Try Virtual Token Simulation</a>
+                    <a id="show-modal" @click="tryMock()" class="btn-newscase">Try Virtual Token Simulation</a>
                   </div>
                 </b-col>
               </b-row>
@@ -124,6 +124,9 @@ export default {
         left: 0,
         behavior: 'smooth',
       });
+    },
+    tryMock() {
+      this.$router.push({ path: `/trytoken/mock` });
     },
   },
 };
