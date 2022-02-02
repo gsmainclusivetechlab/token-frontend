@@ -3,20 +3,20 @@
     <div class="sign-up-frame">
       <h2>Sign Up</h2>
       <form @submit.prevent="processForm" method="post">
-        <div class="form-group">
-          <label for="inputAddress">Nick Name</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="Enter Nick Name" v-model="nickName" maxlength="50" />
+        <div v-if="!insertOTP" class="form-group">
+          <label for="inputNickName">Nick Name</label>
+          <input type="text" class="form-control" id="inputNickName" placeholder="Enter Nick Name" v-model="nickName" maxlength="50" />
           <span class="error-msg" v-if="errors.nickName.length != 0"> {{ errors.nickName }}</span>
         </div>
-        <div class="form-group">
-          <label for="inputAddress2">Mobile Number</label>
+        <div v-if="!insertOTP" class="form-group">
+          <label for="inputMobileNumber">Mobile Number</label>
           <vue-tel-input v-model="phone" mode="international" :inputOptions="optionsTelInput" validCharactersOnly></vue-tel-input>
           <span class="error-msg" v-if="errors.phone.length != 0 || errors.format.length != 0">
             {{ errors.phone }} {{ errors.format }}
           </span>
         </div>
 
-        <div class="form-group">
+        <div v-if="!insertOTP" class="form-group">
           <div class="form-check">
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox" id="gridCheck" v-model="termsConditions" true-value="yes" false-value="no" />
@@ -26,6 +26,12 @@
             </label>
             <span class="error-msg" v-if="errors.tc.length != 0"> {{ errors.tc }}</span>
           </div>
+        </div>
+
+        <div v-if="insertOTP" class="form-group">
+          <label for="inputOTP">You will receive a message on your mobile phone with the OTP</label>
+          <input type="text" class="form-control" id="inputOTP" placeholder="Enter OTP" v-model="otp" maxlength="4" />
+          <span class="error-msg" v-if="errors.otp.length != 0"> {{ errors.otp }}</span>
         </div>
 
         <a v-if="!loading" href="#" class="btn1">
@@ -54,17 +60,22 @@ export default {
     phone: '',
     nickName: '',
     termsConditions: 'no',
+    otp: '',
     errors: {
       format: '',
       nickName: '',
       phone: '',
       tc: '',
+      otp: '',
     },
     loading: false,
     optionsTelInput: { placeholder: 'Enter Mobile Number' },
+
     modalShow: false,
     modalTitle: '',
     modalMessage: '',
+
+    insertOTP: false,
   }),
   methods: {
     processForm(e) {
@@ -73,7 +84,19 @@ export default {
         nickName: '',
         phone: '',
         tc: '',
+        otp: '',
       };
+
+      if (this.insertOTP) {
+        this.processOTPValidation();
+      } else {
+        this.processSignUp();
+      }
+
+      e.preventDefault();
+    },
+
+    processSignUp() {
       let noformat = true;
       const number = this.phone.split(' ').join('');
       if (number.length > 17 || number.length < 12) {
@@ -96,7 +119,7 @@ export default {
               'Access-Control-Allow-Origin': '*',
             },
           })
-          .then(res => {
+          .then((res) => {
             this.loading = false;
             this.modalTitle = 'Success';
             this.modalMessage = 'Sign up was successful.';
@@ -105,8 +128,10 @@ export default {
             this.phone = '';
             this.nickName = '';
             this.termsConditions = 'no';
+
+            this.insertOTP = true;
           })
-          .catch(err => {
+          .catch((err) => {
             this.loading = false;
             if (this.axios.isAxiosError(err) && err.response) {
               this.modalTitle = 'Error';
@@ -127,11 +152,139 @@ export default {
       if (this.termsConditions === 'no') {
         this.errors.tc = 'Accept terms and conditions.';
       }
+    },
 
-      e.preventDefault();
+    processOTPValidation() {
+      if (!this.otp) {
+        this.errors.otp = 'OTP required.';
+      } else {
+        this.axios
+          .get(`${process.env.VUE_APP_PROXY_API_URL}/accounts/${this.otp}/valid`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+            },
+          })
+          .then((res) => {
+            this.loading = false;
+            this.$router.push({ path: `/trytoken/live/${this.otp}` });
+          })
+          .catch((err) => {
+            this.loading = false;
+            if (this.axios.isAxiosError(err) && err.response) {
+              this.modalTitle = 'Error';
+              this.modalMessage = err.response.data.error;
+              this.modalShow = true;
+            }
+          });
+      }
     },
   },
 };
 </script>
 <style src="vue-tel-input/dist/vue-tel-input.css"></style>
-<style></style>
+<style>
+.btn {
+  width: 100%;
+}
+.error-msg {
+  font-size: 12px;
+  color: red;
+}
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #95236c;
+}
+.link-color:hover {
+  color: #ae52c4;
+  cursor: pointer;
+}
+.sign-up-frame p {
+  font-size: 14px;
+}
+
+.sign-up-frame h2,
+.sign-up-frame h4,
+.sign-up-frame p {
+  text-align: center;
+}
+
+.sign-up-frame {
+  background-color: #f9f9f9;
+  border-radius: 18px;
+  border: 1px solid #f2f2f2;
+  width: 485px;
+  /* height: 501px; */
+  padding-left: 26px;
+  padding-top: 34px;
+  padding-right: 28px;
+  padding-bottom: 51px;
+}
+::placeholder {
+  font-size: 14px;
+}
+.sign-up-frame .checkmark {
+  position: absolute;
+  top: 5px;
+  margin-right: 5px;
+  left: 0;
+  border: 1px solid #979797;
+  width: 14px;
+  height: 14px;
+}
+.content-login h4 a {
+  color: #373737;
+  font-size: 18px;
+  font-weight: bold;
+}
+.sign-up-frame .form-check {
+  padding-left: 0;
+}
+.sign-up-frame .checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.form-check-label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.form-check-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* Show the checkmark when checked */
+.form-check-label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.form-check-label .checkmark:after {
+  left: 3px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid #95236c;
+  border-width: 0 3px 3px 0;
+  /* background-color: #95236c; */
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.form-response {
+  text-align: center;
+  margin-top: 20px;
+}
+</style>

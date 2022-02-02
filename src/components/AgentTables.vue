@@ -2,8 +2,8 @@
   <div>
     <h2 class="text-center">Notifications</h2>
     <div>
-      <AgentNotifications :data="notificationList" />
-      <AgentOperationList :data="operationList" />
+      <AgentNotifications :data="notificationList" :sessionId="sessionId"/>
+      <AgentOperationList :data="operationList" :sessionId="sessionId"/>
     </div>
   </div>
 </template>
@@ -14,6 +14,12 @@ import AgentNotifications from './AgentNotifications.vue';
 export default {
   name: 'AgentTables',
   components: { AgentOperationList, AgentNotifications },
+  props: {
+    sessionId: {
+      type: Number,
+      required: true,
+    },
+  },
   data: () => ({
     operationList: [],
     notificationList: [],
@@ -37,6 +43,7 @@ export default {
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
+            'sessionId': this.sessionId
           },
         });
 
