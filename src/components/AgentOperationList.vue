@@ -4,64 +4,57 @@
     <b-table :items="data" :fields="fields">
       <template #cell(actions)="row">
         <div class="d-flex">
-          <div
-            class="button-custom text-success mr-1"
-            @click="acceptOperation(row.item)"
-          >
+          <div class="button-custom text-success mr-1" @click="acceptOperation(row.item)">
             <b-icon icon="check2" aria-label="Accept"></b-icon>
           </div>
-          <div
-            class="button-custom text-danger"
-            @click="rejectOperation(row.item)"
-          >
+          <div class="button-custom text-danger" @click="rejectOperation(row.item)">
             <b-icon size="lg" icon="x" aria-label="Reject"></b-icon>
           </div>
         </div>
       </template>
     </b-table>
     <b-modal v-model="modalShow" hide-footer title="Error">
-        <span>{{ errorMessage }}</span>
-      </b-modal>
+      <span>{{ errorMessage }}</span>
+    </b-modal>
   </div>
 </template>
 
 <script>
 export default {
-  name: "AgentOperationList",
+  name: 'AgentOperationList',
   props: {
     data: {
       type: Array,
+      required: true,
+    },
+    sessionId: {
+      type: Number,
       required: true,
     },
   },
   data: () => ({
     fields: [
       {
-        key: "type",
-        label: "Operation Type",
+        key: 'type',
+        label: 'Operation Type',
       },
-      { key: "amount", label: "Amount" },
-      { key: "identifier", label: "Client Identifier" },
-      { key: "actions", label: "Actions" },
+      { key: 'amount', label: 'Amount' },
+      { key: 'identifier', label: 'Client Identifier' },
+      { key: 'actions', label: 'Actions' },
     ],
-    errorMessage: "",
+    errorMessage: '',
     modalShow: false,
   }),
   methods: {
     async acceptOperation(data) {
       try {
-        await this.axios.post(
-          `${process.env.VUE_APP_PROXY_API_URL}/operations/accept/${data.id}`,
-          null,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
-
-        this.$root.$emit("showPhoneInterface");
+        await this.axios.post(`${process.env.VUE_APP_PROXY_API_URL}/operations/accept/${data.id}`, null, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            sessionId: this.sessionId,
+          },
+        });
       } catch (err) {
         if (this.axios.isAxiosError(err) && err.response) {
           this.errorMessage = err.response.data.error;
@@ -71,18 +64,13 @@ export default {
     },
     async rejectOperation(data) {
       try {
-        await this.axios.post(
-          `${process.env.VUE_APP_PROXY_API_URL}/operations/reject/${data.id}`,
-          null,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
-
-        this.$root.$emit("showPhoneInterface");
+        await this.axios.post(`${process.env.VUE_APP_PROXY_API_URL}/operations/reject/${data.id}`, null, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            sessionId: this.sessionId,
+          },
+        });
       } catch (err) {
         if (this.axios.isAxiosError(err) && err.response) {
           this.errorMessage = err.response.data.error;

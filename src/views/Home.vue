@@ -13,31 +13,17 @@
         >
           <b-carousel-slide>
             <!-- <b-container> -->
-            <h1>TOKENISATION</h1>
+            <h1>TOKENISATION PROJECT</h1>
             <div class="biometric-content-carousal">
-              <h4>Using token to provide secure transactions <br> in different mobile money scenarios</h4>
-              <!-- <div class="os-system-wrap">
-                <ul>
-                  <li>
-                    <a href="https://apps.apple.com/gb/app/gsma-b4ll/id1566270261" target="_blank">
-                    <img
-                      src="../assets/images/ios.svg"
-                      class="img-fluid"
-                      alt=""
-                    />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://play.google.com/store/apps/details?id=com.gsmab4all" target="_blank">
-                    <img
-                      src="../assets/images/google.svg"
-                      class="img-fluid"
-                      alt=""
-                    />
-                    </a>
-                  </li>
-                </ul>
-              </div> -->
+              <h4>
+                USING TOKEN TO PROVIDE SECURE TRANSACTIONS 
+                </br> IN DIFFERENT MOBILE MONEY SCENARIOS
+              </h4>
+              </br>
+              </br>
+              </br>
+              <div class="os-system-wrap">
+              </div>
             </div>
             <!-- </b-container> -->
             <template #img>
@@ -47,90 +33,16 @@
                 height="480"
                 src="../assets/images/banner-illustration-1.png"
                 alt="image slot"
-              />
-            </template>
-          </b-carousel-slide>
-          <b-carousel-slide>
-            <!-- <b-container> -->
-            <h1>TOKENISATION</h1>
-            <div class="biometric-content-carousal">
-              <h4>Using token to provide secure transactions <br> in different mobile money scenarios</h4>
-              <!-- <div class="os-system-wrap">
-                <ul>
-                  <li>
-                    <a href="https://apps.apple.com/gb/app/gsma-b4ll/id1566270261" target="_blank">
-                    <img
-                      src="../assets/images/ios.svg"
-                      class="img-fluid"
-                      alt=""
-                    />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://play.google.com/store/apps/details?id=com.gsmab4all" target="_blank">
-                    <img
-                      src="../assets/images/google.svg"
-                      class="img-fluid"
-                      alt=""
-                    />
-                    </a>
-                  </li>
-                </ul>
-              </div> -->
-            </div>
-            <!-- </b-container> -->
-            <template #img>
-              <img
-                class="d-block img-fluid slider-img"
-                width="1024"
-                height="480"
-                src="../assets/images/banner-illustration-2.png"
-                alt="image slot"
-              />
-            </template>
-          </b-carousel-slide>
-          <b-carousel-slide>
-            <!-- <b-container> -->
-            <h1>TOKENISATION</h1>
-            <div class="biometric-content-carousal">
-              <h4>Using token to provide secure transactions <br> in different mobile money scenarios</h4>
-              <!-- <div class="os-system-wrap">
-                <ul>
-                  <li>
-                    <a href="https://apps.apple.com/gb/app/gsma-b4ll/id1566270261" target="_blank">
-                    <img
-                      src="../assets/images/ios.svg"
-                      class="img-fluid"
-                      alt=""
-                    />
-                    </a>  
-                  </li>
-                  <li>
-                    <a href="https://play.google.com/store/apps/details?id=com.gsmab4all" target="_blank">
-                    <img
-                      src="../assets/images/google.svg"
-                      class="img-fluid"
-                      alt=""
-                    />
-                    </a>  
-                  </li>
-                </ul>
-              </div> -->
-            </div>
-            <!-- </b-container> -->
-            <template #img>
-              <img
-                class="d-block img-fluid slider-img"
-                width="1024"
-                height="480"
-                src="../assets/images/banner-illustration-3.png"
-                alt="image slot"
+                style="vertical-align:middle"
               />
             </template>
           </b-carousel-slide>
         </b-carousel>
       </div>
     </div>
+
+
+    <!-- FRAME 01: LEARN MORE -->
     <div class="digital-wrapper mb-3">
       <b-container>
         <b-row>
@@ -156,90 +68,87 @@
               <p>
                 Token Project offers a more comfortable way for users to make mobile money transactions knowing that their phone number will
                 not be exposed.
+                </br>
+                </br>
+                < INSERT TEXT AFTER MARKETING REVIEW >
               </p>
             </div>
           </b-col>
         </b-row>
       </b-container>
     </div>
-    <!-- <section class="digital-frame-bottom-content">
-      <b-container>
-        <b-row>
-          <b-col cols="12">
-            <div class="full-width-banner text-center">
-              <h4>
-                Optimise your work registering, testing, and onboarding partners in minutes!
-              </h4>
+
+    <!-- FRAME 02: IMAGE -->
+    <section class="bio-all">
+      <div class="container">
+        <div class="bio-all-contents">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <div class="bio-content-wrap">
+                <h2>Features</h2>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                </p>
+                <p>
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                </p>
+                <p>
+                  It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
             </div>
-            <div class="mobile-group-banner"></div>
-          </b-col>
-        </b-row>
-      </b-container>
-    </section> -->
-    <!-- <section class="two-col-biometric-wrap text-white">
+            <div class="col-12 col-lg-6">
+              <div class="img-bio">    
+                  <img
+                    class="slider-img"
+                    width="1024"
+                    height="480"
+                    src="../assets/images/MobileMoney_5.jpg"
+                    alt="image slot"
+                    style="vertical-align:right"
+                  />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FRAME 03: PROBLEMS -->
+    <section class="two-col-biometric-wrap text-white">
       <b-container>
         <b-row class="justify-content-start align-items-center">
           <b-col cols="12" xl="6">
             <div class="biometric-content">
               <h2>
-                Meet our <br />
-                Biometric Content
+                Problems and Solutions
               </h2>
               <p>
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin literature from
-                45 BC, making it over
-              </p>
-              <p>
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has
+                INSERT THE MAIN PROBLEMS FACED WHEN THERE IS NO TOKEN SOLUTION
               </p>
             </div>
           </b-col>
           <b-col cols="12" xl="6">
             <div class="biometric-img-block">
-              <b-row
-                class="justify-content-center align-items-center gutter-20"
-              >
-                <b-col cols="12" md="6">
-                  <div class="bg-biometric bg-black">
-                    <img
-                      src="../assets/images/biometric-provide-icon-1.svg"
-                      class="img-fluid"
-                      alt=""
-                    />
-                  </div>
-                </b-col>
-                <b-col cols="12" md="6">
-                  <div class="biometric-right-col">
-                    <div class="bg-biometric2 bg-white mb-20">
-                      <img
-                        src="../assets/images/biometric-provide-icon-2.svg"
-                        class="img-fluid"
-                        alt=""
-                      />
-                    </div>
-                    <div class="bg-biometric3 bg-blue">
-                      <img
-                        src="../assets/images/biometric-provide-icon-3.svg"
-                        class="img-fluid"
-                        alt=""
-                      />
-                    </div>
-                  </div>
+              <b-row class="justify-content-center align-items-center gutter-20 flex-md-column">
+                <b-col cols="12" md="7">                
                 </b-col>
               </b-row>
             </div>
           </b-col>
         </b-row>
       </b-container>
-    </section> -->
+    </section>
+
+
+    <!-- FRAME 04: FEATURES -->
     <div class="digital-wrapper feature-wrap bg-greys">
       <div class="container">
         <div class="row">
           <div class="col-12">
             <div class="feature-content text-center">
-              <h2>Why use the tokens in Mobile Money transactions?</h2>
+              <h2>How the Inclusive Tech Lab can help you?</h2>
               <h6>Drive your business to unlock new security technologies for your customers</h6>
             </div>
             <div class="three-col-feature-frame">
@@ -247,10 +156,10 @@
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="card-wrap">
                     <img src="../assets/images/development.png" class="img-fluid" alt="development" />
-                    <h5>Tailored use cases</h5>
+                    <h5>Built for low-tech environments</h5>
                     <h6>
-                      We understand that every business is unique, so our team is continuously developing new use cases and customising our
-                      assets to meet your business needs and objectives.
+                      Our solutions are built to be used on feature phones and low-tech smartphones with a low-resolution camera or no
+                      camera at all.
                     </h6>
                   </div>
                 </div>
@@ -267,10 +176,9 @@
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="card-wrap">
                     <img src="../assets/images/smartphones.png" class="img-fluid" alt="smartphones" />
-                    <h5>Built for low-tech environments</h5>
+                    <h5>Open-souce code</h5>
                     <h6>
-                      Our solutions are built to be used on feature phones and low-tech smartphones with a low-resolution camera or no
-                      camera at all.
+                      Our solutions are open source and can help you to quickly adapt to your needs
                     </h6>
                   </div>
                 </div>
@@ -280,73 +188,8 @@
         </div>
       </div>
     </div>
-    <!-- <section class="question-wrapper">
-      <b-container>
-        <b-row>
-          <b-col cols="12">
-            <div class="headline-accordion-wrap text-center bg-dark-color">
-              <h2>Frequently Asked Questions</h2>
-            </div>
 
-            <div class="accordion" role="tablist">
-              <b-card no-body class="card-header mb-1">
-                <b-card-header header-tag="header" class="p-1" role="tab">
-                  <b-button block v-b-toggle.accordion-1 variant="light" class="card-link"
-                    >I want to showcase my biometric solution on B4LL. How can I do that?</b-button
-                  >
-                </b-card-header>
-                <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
-                  <b-card-body>
-                    <b-card-text
-                      >We are always happy to engage with new partners. If you think you have a biometric solution that may be suitable to
-                      be showcased through B4LL, please get in touch with us.</b-card-text
-                    >
-                  </b-card-body>
-                </b-collapse>
-              </b-card>
-
-              <b-card no-body class="card-header mb-1">
-                <b-card-header header-tag="header" class="p-1" role="tab">
-                  <b-button block v-b-toggle.accordion-2 variant="light" class="card-link"
-                    >Is the GSMA ITL providing biometric verification solutions through B4LL commercially?</b-button
-                  >
-                </b-card-header>
-                <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
-                  <b-card-body>
-                    <b-card-text
-                      >No, B4LL is a completely free facility. The solutions housed within B4LL are not commercial offerings from the GSMA
-                      ITL. If service providers like the general experience of the solutions housed within B4LL, they are free to adopt them
-                      commercially in their markets. The GSMA ITL would not be privy to any such commercial adoption of biometric solutions
-                      by service providers.
-                    </b-card-text>
-                  </b-card-body>
-                </b-collapse>
-              </b-card>
-
-              <b-card no-body class="card-header mb-1">
-                <b-card-header header-tag="header" class="p-1" role="tab">
-                  <b-button block v-b-toggle.accordion-3 variant="light" class="card-link"
-                    >Is it possible to see the call centre working in a different languages or dialects?</b-button
-                  >
-                </b-card-header>
-                <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
-                  <b-card-body>
-                    <b-card-text
-                      >Sure! You can have the call centre working in any language or dialect, or even multiple languages.</b-card-text
-                    >
-                  </b-card-body>
-                </b-collapse>
-              </b-card>
-            </div>
-            <div class="questions-frame text-center">
-              <p>
-                Still have a question?<span class="question-bold"> <a href="#"> Ask your question here</a></span>
-              </p>
-            </div>
-          </b-col>
-        </b-row>
-      </b-container>
-    </section> -->
+  
     <Footer />
   </div>
 </template>
@@ -361,12 +204,12 @@ export default {
 </script>
 <style>
 .home-header {
-  background-image: linear-gradient(180deg, #6b3076 0%, #424985 100%);
+  background-image: linear-gradient(180deg, #921D61  0%, #4F5691 100%);
 }
 .home-header::before {
   content: '';
-  background-image: url('../assets/images/banner-bg-gradient.png');
-  background-position: top;
+  background-image: url('../assets/images/bg-home-dots-01.png');
+  background-position: bottom;
   position: absolute;
   top: 2px;
   left: 0;
@@ -383,7 +226,7 @@ export default {
 }
 .slider-portfolio::after {
   content: '';
-  background-image: url('../assets/images/dots.png');
+  /* background-image: url('../assets/images/dots.png'); */
   background-position: top;
   position: absolute;
   bottom: 0;
@@ -533,7 +376,7 @@ export default {
 
 .two-col-biometric-wrap {
   min-height: 556px;
-  background-image: url('../assets/images/group-9.png');
+  background-image: url('../assets/images/bg-01.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

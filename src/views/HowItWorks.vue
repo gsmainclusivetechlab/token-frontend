@@ -390,16 +390,17 @@ export default {
 
 .bio-all::after {
   content: '';
-  background-image: url('../assets/images/bg-3.png');
-  background-position: center;
+  /*background-image: url('../assets/images/bg-dots-01.png');*/
+  background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 400px;
+  width: 600px;
   height: 350px;
   position: absolute;
   top: 0;
   right: 0;
   z-index: -1;
+  
 }
 .bio-all .img-bio {
   display: flex;
