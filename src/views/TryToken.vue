@@ -45,9 +45,7 @@
                   <br />
                   <br />
                   <div align="right" class="newscase-btn">
-                    <router-link to="/trytoken/mock">
-                      <a id="show-modal" class="btn-newscase">Try Virtual Token Simulation</a>
-                    </router-link>
+                    <a id="show-modal" href="/trytoken/mock" class="btn-newscase">Try Virtual Token Simulation</a>
                   </div>
                 </b-col>
               </b-row>
