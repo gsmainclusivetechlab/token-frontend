@@ -64,6 +64,10 @@ export default {
       type: String,
       required: true,
     },
+    sessionId: {
+      type: Number,
+      required: true,
+    },
   },
   data: () => ({
     selectedOperation: 'cash-in',
@@ -146,6 +150,7 @@ export default {
             headers: {
               'Content-Type': 'application/json',
               'Access-Control-Allow-Origin': '*',
+              'sessionId': this.sessionId
             },
           });
 

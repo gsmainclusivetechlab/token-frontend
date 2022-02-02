@@ -22,6 +22,10 @@ export default {
       type: Array,
       required: true,
     },
+    sessionId: {
+      type: Number,
+      required: true,
+    },
   },
   data: () => ({
     fields: [
@@ -37,11 +41,11 @@ export default {
       try {
         this.axios.delete(
           `${process.env.VUE_APP_PROXY_API_URL}/operations/notification/${data.id}`,
-          null,
           {
             headers: {
               "Content-Type": "application/json",
               "Access-Control-Allow-Origin": "*",
+              'sessionId': this.sessionId
             },
           }
         );

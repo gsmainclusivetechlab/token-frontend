@@ -78,12 +78,16 @@ export default {
       type: String,
       required: true,
     },
-    selectedMode: {
+    parentSelectedMode: {
       type: String,
       required: true,
     },
     phone: {
       type: String,
+      required: true,
+    },
+    sessionId: {
+      type: Number,
       required: true,
     },
   },
@@ -110,19 +114,19 @@ export default {
     },
 
     lastMessageReceive: '',
+    selectedMode: ''
   }),
   created() {
     this.phoneWithoutSpaces = this.phone.replace(/\s/g, '');
+    this.selectedMode = this.parentSelectedMode;
     switch (this.selectedMode) {
       case 'SMS':
         this.phoneMessageDisplay = 'Enter the text:';
-        this.postObjectSMS.phoneNumber = this.phoneWithoutSpaces;
-        this.postObjectSMS.system = this.selectedSystem;
+        this.resetPostObjectSMS();
         break;
       case 'USSD':
         this.phoneMessageDisplay = 'Dial Short Code:';
-        this.postObjectUSSD.phoneNumber = this.phoneWithoutSpaces;
-        this.postObjectUSSD.system = this.selectedSystem;
+        this.resetPostObjectUSSD();
         break;
       default:
         break;
@@ -133,6 +137,23 @@ export default {
     this.pollTimeoutGetSMS = setTimeout(() => {
       clearInterval(this.pollIntervalGetSMS);
     }, 1800000); //stop polling after ten minutes
+
+    this.$root.$on('newSelectedMode', (value) => {
+      this.selectedMode = value;
+      this.phoneMessageError = '';
+      switch (this.selectedMode) {
+        case 'SMS':
+          this.phoneMessageDisplay = 'Enter the text:';
+          this.resetPostObjectSMS();
+          break;
+        case 'USSD':
+          this.phoneMessageDisplay = 'Dial Short Code:';
+          this.resetPostObjectUSSD();
+          break;
+        default:
+          break;
+      }
+    });
   },
   beforeDestroy() {
     clearInterval(this.pollIntervalGetSMS);
@@ -243,6 +264,7 @@ export default {
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
+            sessionId: this.sessionId,
           },
         });
 
@@ -250,10 +272,10 @@ export default {
       } catch (err) {
         if (this.axios.isAxiosError(err) && err.response) {
           //USSD Case
-          if(err.response.data.error === 'Invalid short code'){
+          if (err.response.data.error === 'Invalid short code') {
             this.updatePhoneMessageError(err.response.data.error);
           }
-        } 
+        }
 
         return null;
       }
@@ -271,16 +293,37 @@ export default {
 
     getSMSResponse() {
       this.axios
-        .get(process.env.VUE_APP_PROXY_API_URL + '/message/sms')
+        .get(process.env.VUE_APP_PROXY_API_URL + '/message/sms', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            sessionId: this.sessionId,
+          },
+        })
         .then((response) => {
           if (response.data) {
             this.lastMessageReceive = response.data.message;
           }
         })
-        .catch(() => {
-          // clearInterval(this.pollIntervalGetSMS);
-          // clearTimeout(this.pollTimeoutGetSMS);
-        });
+        .catch(() => {});
+    },
+
+    resetPostObjectUSSD() {
+      this.postObjectUSSD = {
+        phoneNumber: this.phoneWithoutSpaces,
+        serviceCode: '',
+        text: '',
+        system: this.selectedSystem,
+      };
+    },
+
+    resetPostObjectSMS() {
+      this.postObjectSMS = {
+        phoneNumber: this.phoneWithoutSpaces,
+        receivingPhoneNumber: '+447777777',
+        text: '',
+        system: this.selectedSystem,
+      };
     },
   },
 };
