@@ -71,7 +71,7 @@
                 during the tests is deleted automatically after you finish the tests or refresh the page.
               </p>
 
-              <p>To test the Use Cases, you can follow the instructions present <a href="/howitworks" target="_blank"> here</a>.</p>
+              <p>To test the Use Cases, you can follow the instructions present <a href="/howitworks"> here</a>.</p>
 
               <p>
                 If you would like to suggest a new use case or customisation of this solution to meet your business needs, contact the
