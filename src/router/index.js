@@ -7,7 +7,6 @@ import RequestForm from '../views/RequestForm.vue';
 import RequestForm1 from '../views/RequestForm1.vue';
 import Orange from '../views/Orange.vue';
 import NotFound from '../views/NotFound.vue';
-import TryToken2 from "../views/TryToken2.vue";
 
 Vue.use(VueRouter);
 
@@ -31,11 +30,6 @@ const routes = [
     path: '/trytoken',
     name: 'TryToken',
     component: () => import(/* webpackChunkName: "about" */ '../views/TryToken.vue'),
-  },
-  {
-    path: "/trytoken2",
-    name: "trytoken2",
-    component: TryToken2,
   },
   {
     path: "/requestform",

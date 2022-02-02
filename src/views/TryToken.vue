@@ -56,7 +56,7 @@
     </section>
 
     <!-- FRAME 03: LIVE SIMULATION -->
-    <div class="login-form-frame">
+    <div class="try-token-frame">
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-6">
