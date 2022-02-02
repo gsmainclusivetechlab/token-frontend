@@ -29,7 +29,7 @@
         </div>
 
         <div v-if="insertOTP" class="form-group">
-          <label for="inputOTP">Hello {{ this.nickName }},<br>Please insert here the access code you received on your phone.</label>
+          <label for="inputOTP">Hello {{ this.nickNameToDisplay }},<br>Please insert here the access code you received on your phone.</label>
           <input type="text" class="form-control" id="inputOTP" placeholder="Enter Access Code" v-model="otp" maxlength="4" />
           <span class="error-msg" v-if="errors.otp.length != 0"> {{ errors.otp }}</span>
         </div>
@@ -76,6 +76,7 @@ export default {
     modalMessage: '',
 
     insertOTP: false,
+    nickNameToDisplay: ''
   }),
   methods: {
     processForm(e) {
@@ -123,6 +124,7 @@ export default {
             this.loading = false;
 
             this.phone = '';
+            this.nickNameToDisplay = this.nickName;
             this.nickName = '';
             this.termsConditions = 'no';
 
