@@ -29,8 +29,8 @@
         </div>
 
         <div v-if="insertOTP" class="form-group">
-          <label for="inputOTP">You will receive a message on your mobile phone with the OTP</label>
-          <input type="text" class="form-control" id="inputOTP" placeholder="Enter OTP" v-model="otp" maxlength="4" />
+          <label for="inputOTP">Hello {{ this.nickName }},<br>Please insert here the access code you received on your phone.</label>
+          <input type="text" class="form-control" id="inputOTP" placeholder="Enter Access Code" v-model="otp" maxlength="4" />
           <span class="error-msg" v-if="errors.otp.length != 0"> {{ errors.otp }}</span>
         </div>
 
@@ -121,9 +121,6 @@ export default {
           })
           .then((res) => {
             this.loading = false;
-            this.modalTitle = 'Success';
-            this.modalMessage = 'Sign up was successful.';
-            this.modalShow = true;
 
             this.phone = '';
             this.nickName = '';
@@ -156,7 +153,7 @@ export default {
 
     processOTPValidation() {
       if (!this.otp) {
-        this.errors.otp = 'OTP required.';
+        this.errors.otp = 'Access Code required.';
       } else {
         this.axios
           .get(`${process.env.VUE_APP_PROXY_API_URL}/accounts/${this.otp}/valid`, {
