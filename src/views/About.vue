@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <AppHeader v-bind="props" />
+    
     <div class="about-content-wrapper">
       <div class="container">
         <div class="row">

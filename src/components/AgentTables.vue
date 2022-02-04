@@ -28,9 +28,6 @@ export default {
   }),
   mounted() {
     this.pollInterval = setInterval(this.getData, 1000); //save reference to the interval
-    this.pollTimeout = setTimeout(() => {
-      clearInterval(this.pollInterval);
-    }, 1800000); //stop polling after ten minutes
   },
   beforeDestroy() {
     clearInterval(this.pollInterval);

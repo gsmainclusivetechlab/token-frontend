@@ -136,10 +136,10 @@
                         'CASH_OUT -space- {AMOUNT}'.
                       </p>
                       <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 3 -> Insert Amount.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 3 or 4 -> Insert Amount.
                       </p>
                       <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*3*{AMOUNT}'.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*3*{AMOUNT}' or '*165#*4*{AMOUNT}' .
                       </p>
                     </div>
                   </div>

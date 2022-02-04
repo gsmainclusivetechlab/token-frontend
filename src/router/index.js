@@ -2,10 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import HowItWorks from '../views/HowItWorks.vue';
-import Faq from '../views/Faq.vue';
 import RequestForm from '../views/RequestForm.vue';
 import RequestForm1 from '../views/RequestForm1.vue';
-import Orange from '../views/Orange.vue';
 import NotFound from '../views/NotFound.vue';
 
 Vue.use(VueRouter);
@@ -22,11 +20,6 @@ const routes = [
     component: HowItWorks,
   },
   {
-    path: '/faq',
-    name: 'Faq',
-    component: Faq,
-  },
-  {
     path: '/trytoken',
     name: 'TryToken',
     component: () => import(/* webpackChunkName: "about" */ '../views/TryToken.vue'),
@@ -40,11 +33,6 @@ const routes = [
     path: '/requestform1',
     name: 'RequestForm1',
     component: RequestForm1,
-  },
-  {
-    path: '/orange',
-    name: 'Orange',
-    component: Orange,
   },
 
   {
