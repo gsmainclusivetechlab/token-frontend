@@ -13,8 +13,7 @@
               {{ phoneMessageError }}
             </span>
             <div class="buttons-wrapper">
-              <button type="reset">Cancel</button>
-              <button type="submit">Send</button>
+              <button :disabled="!this.phoneInput" type="submit">Send</button>
             </div>
           </div>
         </form>
@@ -114,7 +113,7 @@ export default {
     },
 
     lastMessageReceive: '',
-    selectedMode: ''
+    selectedMode: '',
   }),
   created() {
     this.phoneWithoutSpaces = this.phone.replace(/\s/g, '');
@@ -163,6 +162,12 @@ export default {
 
     processSend(e) {
       this.phoneMessageError = '';
+
+      if (!this.phoneInput || this.phoneInput.trim().length == 0) {
+        this.phoneMessageError = `Input is empty.`;
+        return;
+      }
+
       switch (this.selectedMode) {
         case 'SMS':
           this.processSMSMode();
@@ -322,7 +327,7 @@ export default {
         system: this.selectedSystem,
       };
     },
-  },
+  }
 };
 </script>
 
