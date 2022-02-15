@@ -139,7 +139,7 @@ export default {
           };
 
           let postData = {
-            identifier: this.customerIdentifier,
+            identifier: this.customerIdentifier.split(' ').join(''),
             amount: this.amount,
             type: this.selectedOperation,
             system: this.selectedSystem,
