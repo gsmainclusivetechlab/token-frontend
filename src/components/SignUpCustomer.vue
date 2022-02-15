@@ -34,7 +34,7 @@
           <span class="error-msg" v-if="errors.otp.length != 0"> {{ errors.otp }}</span>
         </div>
 
-        <a v-if="!loading" href="#" class="btn1">
+        <a v-if="!loading" class="btn1">
           <input class="btn" type="submit" value="Try Live Token Simulation" />
         </a>
         <b-spinner style="margin-left: 45%" v-if="loading" label="Spinning"></b-spinner>
