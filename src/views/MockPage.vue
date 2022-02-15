@@ -87,7 +87,9 @@ export default {
         this.sessionId = response.data.otp;
         this.loading = false;
       }
-    } catch (err) { }
+    } catch (err) { 
+      this.$router.push({ path: `/trytoken` });
+    }
   },
   methods: {
     scrollBottom() {
