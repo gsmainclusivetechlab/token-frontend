@@ -8,11 +8,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-6">
-            <CustomerConfig
-              :selectedSystemParent="selectedSystem"
-              :selectedModeParent="selectedMode"
-              :phoneParent="phoneNumber"
-            />
+            <CustomerConfig :selectedSystemParent="selectedSystem" :selectedModeParent="selectedMode" :phoneParent="phoneNumber" />
           </div>
           <div class="col-12 col-lg-6">
             <AgentConfig :selectedSystem="selectedSystem" :sessionId="sessionId" />
@@ -71,23 +67,26 @@ export default {
     try {
       const otp = parseInt(this.$route.params.otp);
 
-      if(isNaN(otp)){
+      if (isNaN(otp)) {
         //Invalid
+        this.$router.push({ path: `/trytoken` });
       } else {
         this.sessionId = otp;
-      let response = await this.axios.get(`${process.env.VUE_APP_PROXY_API_URL}/accounts/${this.sessionId}/valid`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
+        let response = await this.axios.get(`${process.env.VUE_APP_PROXY_API_URL}/accounts/${this.sessionId}/valid`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        });
 
-      if (response.data) {
-        this.phoneNumber = response.data.phoneNumber;
-        this.loading = false;
+        if (response.data) {
+          this.phoneNumber = response.data.phoneNumber;
+          this.loading = false;
+        }
       }
-      }
-    } catch (err) {}
+    } catch (err) {
+      this.$router.push({ path: `/trytoken` });
+    }
   },
   methods: {
     scrollBottom() {
@@ -96,7 +95,7 @@ export default {
         left: 0,
         behavior: 'smooth',
       });
-    }
+    },
   },
 };
 </script>
