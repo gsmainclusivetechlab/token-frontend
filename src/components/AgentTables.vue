@@ -2,8 +2,8 @@
   <div>
     <h2 class="text-center">Notifications</h2>
     <div>
-      <AgentNotifications :data="notificationList" :sessionId="sessionId"/>
-      <AgentOperationList :data="operationList" :sessionId="sessionId"/>
+      <AgentOperationList :data="operationList" :sessionId="sessionId" />
+      <AgentNotifications :data="notificationList" :sessionId="sessionId" />
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            'sessionId': this.sessionId
+            sessionId: this.sessionId,
           },
         });
 
