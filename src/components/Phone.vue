@@ -246,7 +246,13 @@ export default {
       let response = await this.axiosPost(process.env.VUE_APP_PROXY_API_URL + '/ussd-gateway/send', this.postObjectUSSD);
 
       if (response && response.data) {
-        if (response.data.substring(0, 3) === 'END') {
+        if (response.data.message) {
+          if (response.data.message === 'Thanks for using Engine API') {
+            this.phoneInput = '';
+            this.postObjectUSSD.serviceCode = '';
+            this.postObjectUSSD.text = '';
+          }
+        } else if (response.data.substring(0, 3) === 'END') {
           if (response.data === 'END Invalid Option') {
             this.phoneMessageDisplay = 'Dial Short Code:';
             this.postObjectUSSD.serviceCode = '';
@@ -263,7 +269,7 @@ export default {
             this.phoneInput = '';
             this.postObjectUSSD.serviceCode = '';
             this.postObjectUSSD.text = '';
-            this.lastMessageReceive = response.data;
+            //this.lastMessageReceive = response.data;
           } else {
             this.updatePhoneMessageDisplay(response.data);
           }
