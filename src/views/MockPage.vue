@@ -13,13 +13,12 @@
               :selectedSystemParent="selectedSystem"
               :selectedModeParent="selectedMode"
               :phoneParent="phoneNumber"
-              @selectedModeChild="updateSelectedMode"
             />
-            <AgentConfig :selectedSystem="selectedSystem" :sessionId="sessionId"/>
+            <AgentConfig :selectedSystem="selectedSystem" :sessionId="sessionId" :selectedModeParent="selectedMode" />
           </div>
           <div class="col-12 col-lg-6">
             <h2 class="text-center">Mobile Simulation</h2>
-            <Phone :selectedSystem="selectedSystem" :parentSelectedMode="selectedMode" :phone="phoneNumber" :sessionId="sessionId"/>
+            <Phone :selectedSystem="selectedSystem" :parentSelectedMode="selectedMode" :phone="phoneNumber" :sessionId="sessionId" />
           </div>
         </div>
       </div>
@@ -87,7 +86,7 @@ export default {
         this.sessionId = response.data.otp;
         this.loading = false;
       }
-    } catch (err) { 
+    } catch (err) {
       this.$router.push({ path: `/trytoken` });
     }
   },
@@ -98,11 +97,7 @@ export default {
         left: 0,
         behavior: 'smooth',
       });
-    },
-
-    updateSelectedMode(newValue) {
-      this.selectedMode = newValue;
-    },
+    }
   },
 };
 </script>

@@ -68,8 +68,13 @@ export default {
       type: Number,
       required: true,
     },
+    selectedModeParent: {
+      type: String,
+      required: true,
+    },
   },
   data: () => ({
+    selectedMode: null,
     selectedOperation: 'cash-in',
     operationOptions: [
       { value: 'cash-in', text: 'Cash-In' },
@@ -107,6 +112,14 @@ export default {
       accountingSign: false,
     },
   }),
+  created() {
+    this.selectedMode = this.selectedModeParent;
+  },
+  mounted() {
+    this.$root.$on('newSelectedMode', (value) => {
+      this.selectedMode = value;
+    });
+  },
   methods: {
     async processForm(e) {
       try {
@@ -144,13 +157,14 @@ export default {
             type: this.selectedOperation,
             system: this.selectedSystem,
             merchantCode: this.merchantCode,
+            createdUsing: this.selectedMode
           };
 
           await this.axios.post(process.env.VUE_APP_PROXY_API_URL + '/operations', postData, {
             headers: {
               'Content-Type': 'application/json',
               'Access-Control-Allow-Origin': '*',
-              'sessionId': this.sessionId
+              sessionId: this.sessionId,
             },
           });
 

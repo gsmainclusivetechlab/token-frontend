@@ -4,12 +4,14 @@
     <b-table :items="data" :fields="fields">
       <template #cell(actions)="row">
         <div class="d-flex">
-          <div class="button-custom text-success mr-1" @click="acceptOperation(row.item)">
-            <b-icon icon="check2" aria-label="Accept"></b-icon>
-          </div>
-          <div class="button-custom text-danger" @click="rejectOperation(row.item)">
-            <b-icon size="lg" icon="x" aria-label="Reject"></b-icon>
-          </div>
+          <b-icon
+            class="button-custom text-success mr-1"
+            size="lg"
+            icon="check2"
+            aria-label="Accept"
+            @click="acceptOperation(row.item)"
+          ></b-icon>
+          <b-icon class="button-custom text-danger" size="lg" icon="x" aria-label="Reject" @click="rejectOperation(row.item)"></b-icon>
         </div>
       </template>
     </b-table>
@@ -85,9 +87,6 @@ export default {
 <style lang="scss" scoped>
 .button-custom {
   cursor: pointer;
-}
-
-.button-custom svg {
   width: 1.5rem;
   height: 1.5rem;
 }

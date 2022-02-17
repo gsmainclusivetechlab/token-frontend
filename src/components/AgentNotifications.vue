@@ -12,9 +12,7 @@
         {{ row.item.message }}
       </template>
       <template #cell(actions)="row">
-        <div class="button-custom text-danger" @click="cleanNotification(row.item)">
-          <b-icon size="lg" icon="trash" aria-label="Reject"></b-icon>
-        </div>
+        <b-icon class="button-custom text-danger" size="lg" icon="trash" aria-label="Reject" @click="cleanNotification(row.item)"></b-icon>
       </template>
     </b-table>
   </div>
@@ -69,9 +67,6 @@ export default {
 <style lang="scss" scoped>
 .button-custom {
   cursor: pointer;
-}
-
-.button-custom svg {
   width: 1.5rem;
   height: 1.5rem;
 }

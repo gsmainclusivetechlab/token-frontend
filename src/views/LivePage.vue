@@ -8,10 +8,14 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-6">
-            <CustomerConfig :selectedSystemParent="selectedSystem" :selectedModeParent="selectedMode" :phoneParent="phoneNumber" />
+            <CustomerConfig
+              :selectedSystemParent="selectedSystem"
+              :selectedModeParent="selectedMode"
+              :phoneParent="phoneNumber"
+            />
           </div>
           <div class="col-12 col-lg-6">
-            <AgentConfig :selectedSystem="selectedSystem" :sessionId="sessionId" />
+            <AgentConfig :selectedSystem="selectedSystem" :sessionId="sessionId" :selectedModeParent="selectedMode" />
           </div>
         </div>
       </div>
@@ -61,7 +65,7 @@ export default {
     selectedMode: 'SMS',
     phoneNumber: '',
     loading: true,
-    sessionId: null
+    sessionId: null,
   }),
   async created() {
     try {
@@ -95,7 +99,7 @@ export default {
         left: 0,
         behavior: 'smooth',
       });
-    },
+    }
   },
 };
 </script>

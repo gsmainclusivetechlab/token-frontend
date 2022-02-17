@@ -89,13 +89,13 @@
                       <h5 class="text-center">UC1 - Get Token</h5>
                       <p>Generate a token based on the user's phone number.</p>
                       <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'GET_TOKEN' on the input field.
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'GET TOKEN' on the input field.
                       </p>
                       <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'GET_TOKEN'.
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'GET TOKEN'.
                       </p>
                       <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 1.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 1.
                       </p>
                       <p>
                         <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*1'.
@@ -109,13 +109,13 @@
                       <h5 class="text-center">UC2 - Delete Token</h5>
                       <p>Delete the generated token.</p>
                       <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'DELETE_TOKEN' on input field.
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'DELETE TOKEN' on input field.
                       </p>
                       <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'DELETE_TOKEN'.
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'DELETE TOKEN'.
                       </p>
                       <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 2.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 2.
                       </p>
                       <p>
                         <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*2'.
@@ -128,18 +128,20 @@
                     <div class="content-manage-frame">
                       <h5 class="text-center">UC3 - Customer Initiated Cash-in / Cash-out</h5>
                       <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' on input
-                        field.
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'CASH IN {AMOUNT}' or 'CASH OUT {AMOUNT}' on input field. Next, write
+                        'PIN {VALUE}' on input field. Finally, accept the operation with the Agent.
                       </p>
                       <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'CASH_IN -space- {AMOUNT}' or
-                        'CASH_OUT -space- {AMOUNT}'.
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'CASH IN {AMOUNT}' or 'CASH OUT
+                        {AMOUNT}'. Next, the following SMS to +447401232937 - 'PIN {VALUE}'. Finally, accept the operation with the Agent.
                       </p>
                       <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 3 or 4 -> Insert Amount.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 3 or 4 -> Insert Amount -> Insert Pin. Then,
+                        accept the operation with the Agent.
                       </p>
                       <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*3*{AMOUNT}' or '*165#*4*{AMOUNT}' .
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*3*{AMOUNT}*{PIN}' or
+                        '*165#*4*{AMOUNT}*{PIN}'. Then, accept the operation with the Agent.
                       </p>
                     </div>
                   </div>
@@ -150,18 +152,20 @@
                     <div class="content-manage-frame">
                       <h5 class="text-center">UC5 - Customer Initiated Merchant Payment</h5>
                       <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'PAYMENT -space- {MERCHANT_CODE} -space- {AMOUNT}' on input field.
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'PAYMENT {MERCHANT_CODE} {AMOUNT}' on input field. Next, write 'PIN
+                        {VALUE}' on input field. Finally, accept the operation with the Merchant.
                       </p>
                       <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PAYMENT -space- {MERCHANT_CODE}
-                        -space- {AMOUNT}'.
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PAYMENT {MERCHANT_CODE} {AMOUNT}'.
+                        Next, the following SMS to +447401232937 - 'PIN {VALUE}'. Finally, accept the operation with the Merchant.
                       </p>
                       <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 5 -> Insert Merchant Code -> Insert Amount.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 5 -> Insert Merchant Code -> Insert Amount
+                        -> Insert Pin. Then, accept the operation with the Merchant.
                       </p>
                       <p>
                         <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 -
-                        '*165#*5*{MERCHANT_CODE}*{AMOUNT}'.
+                        '*165#*5*{MERCHANT_CODE}*{AMOUNT}*{PIN}'. Then, accept the operation with the Merchant.
                       </p>
                     </div>
                   </div>
@@ -171,7 +175,22 @@
                   <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
                       <h5 class="text-center">UC4 - Agent Initiated Cash-in / Cash-out</h5>
-                      <p>Choose the Operation Cash-In or Cash-Out on Agent Operation Seetings</p>
+                      <p>
+                        Create an operation in Agent Operation Settings by choosing the Cash-In or Cash-Out option in the Operation field, then
+                        accept this operation with the Agent.
+                      </p>
+                      <p>
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'PIN {VALUE}' on input field.
+                      </p>
+                      <p>
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PIN {VALUE}'.
+                      </p>
+                      <p>
+                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#*6*1234' on input field.
+                      </p>
+                      <p>
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*6*1234'.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -179,7 +198,22 @@
                   <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
                       <h5 class="text-center">UC6 - Merchant Initiated Merchant Payment</h5>
-                      <p>Choose the Operation Merchant-Payment on Agent Operation Seetings</p>
+                      <p>
+                        Create an operation in Agent Operation Settings by choosing the Merchant-Payment option in the Operation field, then accept
+                        this operation with the Merchant.
+                      </p>
+                      <p>
+                        <u><b>Using SMS in Mock Mode</b></u> - Write 'PIN {VALUE}' on input field.
+                      </p>
+                      <p>
+                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PIN {VALUE}'.
+                      </p>
+                      <p>
+                        <u><b>Using USSD in Mock Mode</b></u> - Write '*165#*6*1234' on input field.
+                      </p>
+                      <p>
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*6*1234'.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -400,7 +434,6 @@ export default {
   top: 0;
   right: 0;
   z-index: -1;
-  
 }
 .bio-all .img-bio {
   display: flex;
