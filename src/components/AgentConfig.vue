@@ -39,7 +39,7 @@
             <span class="error-msg" v-if="errors.inputMerchant.length != 0"> {{ errors.inputMerchant }}</span>
           </div>
 
-          <a v-if="!loading" href="#" class="btn1">
+          <a v-if="!loading" class="btn1">
             <input class="btn" type="submit" value="Create" />
           </a>
           <b-spinner style="margin-left: 45%" v-if="loading" label="Spinning"></b-spinner>
@@ -68,8 +68,13 @@ export default {
       type: Number,
       required: true,
     },
+    selectedModeParent: {
+      type: String,
+      required: true,
+    },
   },
   data: () => ({
+    selectedMode: null,
     selectedOperation: 'cash-in',
     operationOptions: [
       { value: 'cash-in', text: 'Cash-In' },
@@ -107,6 +112,14 @@ export default {
       accountingSign: false,
     },
   }),
+  created() {
+    this.selectedMode = this.selectedModeParent;
+  },
+  mounted() {
+    this.$root.$on('newSelectedMode', (value) => {
+      this.selectedMode = value;
+    });
+  },
   methods: {
     async processForm(e) {
       try {
@@ -139,18 +152,19 @@ export default {
           };
 
           let postData = {
-            identifier: this.customerIdentifier,
+            identifier: this.customerIdentifier.split(' ').join(''),
             amount: this.amount,
             type: this.selectedOperation,
             system: this.selectedSystem,
             merchantCode: this.merchantCode,
+            createdUsing: this.selectedMode
           };
 
           await this.axios.post(process.env.VUE_APP_PROXY_API_URL + '/operations', postData, {
             headers: {
               'Content-Type': 'application/json',
               'Access-Control-Allow-Origin': '*',
-              'sessionId': this.sessionId
+              sessionId: this.sessionId,
             },
           });
 

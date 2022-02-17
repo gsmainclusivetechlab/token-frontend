@@ -1,66 +1,71 @@
 <template>
-  <div class="d-flex justify-content-center">
-    <div class="phone-wrapper">
-      <div class="screen-content">
-        <form class="my-form" @submit.prevent="processSend" @reset.prevent="processCancel">
-          <div class="notification-wrapper" v-if="lastMessageReceive && lastMessageReceive.length != 0">
-            <span>{{ lastMessageReceive }}</span>
-          </div>
-          <div class="fields-wrapper">
-            <span class="text">{{ phoneMessageDisplay }}</span>
-            <input type="text" v-model="phoneInput" />
-            <span class="error-msg" v-if="phoneMessageError.length != 0">
-              {{ phoneMessageError }}
-            </span>
-            <div class="buttons-wrapper">
-              <button :disabled="!this.phoneInput" type="submit">Send</button>
+  <div>
+    <div v-if="selectedSystem == 'mock' && customerToken" class="text-center text-danger">
+      <span>Your Token Number is: {{ customerToken }}</span>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="phone-wrapper">
+        <div class="screen-content">
+          <form class="my-form" @submit.prevent="processSend" @reset.prevent="processCancel">
+            <div class="notification-wrapper" v-if="lastMessageReceive && lastMessageReceive.length != 0">
+              <span>{{ lastMessageReceive }}</span>
+            </div>
+            <div class="fields-wrapper">
+              <span class="text">{{ phoneMessageDisplay }}</span>
+              <input type="text" v-model="phoneInput" />
+              <span class="error-msg" v-if="phoneMessageError.length != 0">
+                {{ phoneMessageError }}
+              </span>
+              <div class="buttons-wrapper">
+                <button :disabled="!this.phoneInput" type="submit">Send</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="keys-map">
+          <div class="row">
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('1')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('2')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('3')"></a>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="keys-map">
-        <div class="row">
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('1')"></a>
+          <div class="row">
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('4')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('5')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('6')"></a>
+            </div>
           </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('2')"></a>
+          <div class="row">
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('7')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('8')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('9')"></a>
+            </div>
           </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('3')"></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('4')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('5')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('6')"></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('7')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('8')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('9')"></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('*')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('0')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('#')"></a>
+          <div class="row">
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('*')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('0')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('#')"></a>
+            </div>
           </div>
         </div>
       </div>
@@ -114,6 +119,9 @@ export default {
 
     lastMessageReceive: '',
     selectedMode: '',
+
+    customerToken: null,
+    getOrDeleteTokenAction: false,
   }),
   created() {
     this.phoneWithoutSpaces = this.phone.replace(/\s/g, '');
@@ -204,6 +212,10 @@ export default {
     async processSMSMode() {
       this.postObjectSMS.text = this.phoneInput;
 
+      if (this.phoneInput.toUpperCase() === 'GET TOKEN' || this.phoneInput.toUpperCase() === 'DELETE TOKEN') {
+        this.getOrDeleteTokenAction = true;
+      }
+
       let response = await this.axiosPost(process.env.VUE_APP_PROXY_API_URL + '/sms-gateway/send', this.postObjectSMS);
 
       if (response && response.data) {
@@ -222,6 +234,10 @@ export default {
       } else {
         if (this.postObjectUSSD.text === '') {
           this.postObjectUSSD.text = this.phoneInput;
+
+          if (this.phoneInput === '1' || this.phoneInput === '2') {
+            this.getOrDeleteTokenAction = true;
+          }
         } else {
           this.postObjectUSSD.text += '*' + this.phoneInput;
         }
@@ -230,7 +246,13 @@ export default {
       let response = await this.axiosPost(process.env.VUE_APP_PROXY_API_URL + '/ussd-gateway/send', this.postObjectUSSD);
 
       if (response && response.data) {
-        if (response.data.substring(0, 3) === 'END') {
+        if (response.data.message) {
+          if (response.data.message === 'Thanks for using Engine API') {
+            this.phoneInput = '';
+            this.postObjectUSSD.serviceCode = '';
+            this.postObjectUSSD.text = '';
+          }
+        } else if (response.data.substring(0, 3) === 'END') {
           if (response.data === 'END Invalid Option') {
             this.phoneMessageDisplay = 'Dial Short Code:';
             this.postObjectUSSD.serviceCode = '';
@@ -247,7 +269,7 @@ export default {
             this.phoneInput = '';
             this.postObjectUSSD.serviceCode = '';
             this.postObjectUSSD.text = '';
-            this.lastMessageReceive = response.data;
+            //this.lastMessageReceive = response.data;
           } else {
             this.updatePhoneMessageDisplay(response.data);
           }
@@ -305,6 +327,19 @@ export default {
         .then((response) => {
           if (response.data) {
             this.lastMessageReceive = response.data.message;
+
+            if (this.getOrDeleteTokenAction) {
+              if (response.data.message) {
+                if (response.data.message.startsWith('Your token is')) {
+                  const splitedMessage = response.data.message.split(' ');
+                  this.customerToken = splitedMessage[splitedMessage.length - 1];
+                  this.getOrDeleteTokenAction = false;
+                } else if (response.data.message === 'Your token was deleted') {
+                  this.customerToken = null;
+                  this.getOrDeleteTokenAction = false;
+                }
+              }
+            }
           }
         })
         .catch(() => {});
@@ -327,7 +362,7 @@ export default {
         system: this.selectedSystem,
       };
     },
-  }
+  },
 };
 </script>
 

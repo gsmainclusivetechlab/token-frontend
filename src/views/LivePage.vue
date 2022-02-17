@@ -15,7 +15,7 @@
             />
           </div>
           <div class="col-12 col-lg-6">
-            <AgentConfig :selectedSystem="selectedSystem" :sessionId="sessionId" />
+            <AgentConfig :selectedSystem="selectedSystem" :sessionId="sessionId" :selectedModeParent="selectedMode" />
           </div>
         </div>
       </div>
@@ -65,29 +65,32 @@ export default {
     selectedMode: 'SMS',
     phoneNumber: '',
     loading: true,
-    sessionId: null
+    sessionId: null,
   }),
   async created() {
     try {
       const otp = parseInt(this.$route.params.otp);
 
-      if(isNaN(otp)){
+      if (isNaN(otp)) {
         //Invalid
+        this.$router.push({ path: `/trytoken` });
       } else {
         this.sessionId = otp;
-      let response = await this.axios.get(`${process.env.VUE_APP_PROXY_API_URL}/accounts/${this.sessionId}/valid`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
+        let response = await this.axios.get(`${process.env.VUE_APP_PROXY_API_URL}/accounts/${this.sessionId}/valid`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        });
 
-      if (response.data) {
-        this.phoneNumber = response.data.phoneNumber;
-        this.loading = false;
+        if (response.data) {
+          this.phoneNumber = response.data.phoneNumber;
+          this.loading = false;
+        }
       }
-      }
-    } catch (err) {}
+    } catch (err) {
+      this.$router.push({ path: `/trytoken` });
+    }
   },
   methods: {
     scrollBottom() {
