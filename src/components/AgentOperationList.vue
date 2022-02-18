@@ -3,16 +3,8 @@
     <h4>Operations</h4>
     <b-table :items="data" :fields="fields">
       <template #cell(actions)="row">
-        <div class="d-flex">
-          <b-icon
-            class="button-custom text-success mr-1"
-            size="lg"
-            icon="check2"
-            aria-label="Accept"
-            @click="acceptOperation(row.item)"
-          ></b-icon>
-          <b-icon class="button-custom text-danger" size="lg" icon="x" aria-label="Reject" @click="rejectOperation(row.item)"></b-icon>
-        </div>
+        <b-icon class="button-custom text-success mr-1" icon="check2" aria-label="Accept" @click="acceptOperation(row.item)"></b-icon>
+        <b-icon class="button-custom text-danger" icon="x" aria-label="Reject" @click="rejectOperation(row.item)"></b-icon>
       </template>
     </b-table>
     <b-modal v-model="modalShow" hide-footer title="Error">
@@ -42,7 +34,7 @@ export default {
       },
       { key: 'amount', label: 'Amount' },
       { key: 'identifier', label: 'Client Identifier' },
-      { key: 'actions', label: 'Actions' },
+      { key: 'actions', label: 'Actions', thClass: 'text-center', tdClass: 'text-center' },
     ],
     errorMessage: '',
     modalShow: false,
