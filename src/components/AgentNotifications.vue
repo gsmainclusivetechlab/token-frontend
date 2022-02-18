@@ -1,18 +1,20 @@
 <template>
   <div>
-    <h4>Notifications</h4>
+    <h4>Notifications Sucesso</h4>
     <b-table :items="data" :fields="fields">
       <template #cell(message)="row">
         <b-icon
-          size="lg"
           icon="circle-fill"
           aria-label="Info"
+          class="small-circle"
           :class="[successfulNotification(row.item) ? 'text-success' : 'text-danger']"
         ></b-icon>
         {{ row.item.message }}
       </template>
       <template #cell(actions)="row">
-        <b-icon class="button-custom text-danger" size="lg" icon="trash" aria-label="Reject" @click="cleanNotification(row.item)"></b-icon>
+        <div class="d-flex justify-content-center">
+          <b-icon class="button-custom text-danger" icon="trash" aria-label="Reject" @click="cleanNotification(row.item)"></b-icon>
+        </div>
       </template>
     </b-table>
   </div>
@@ -37,7 +39,7 @@ export default {
         key: 'message',
         label: 'Message',
       },
-      { key: 'actions', label: 'Actions' },
+      { key: 'actions', label: 'Actions', thClass: 'text-center', tdClass: 'text-center' },
     ],
   }),
   methods: {
@@ -69,5 +71,9 @@ export default {
   cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
+}
+.small-circle {
+  width: 0.7em;
+  height: 0.7rem;
 }
 </style>
