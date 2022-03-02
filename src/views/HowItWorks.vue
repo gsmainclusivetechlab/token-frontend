@@ -10,22 +10,23 @@
               <div class="bio-content-wrap">
                 <h2>Token Solution</h2>
                 <p>
-                  One of the targets of the Token project is to demonstrate the advantages of using a token that will replace the user's
-                  phone number to make mobile money transactions with the goal of improving the security of the users.
+                  This showcase aims to demonstrate how tokenising customers’ phone numbers 
+                  protects their contact details and keeps their identity private. 
                 </p>
                 <p>
-                  This showcase consists of a system that allows the user to generate a token based on their phone number to execute
-                  transactions preventing their phone number from being exposed.
+                  A customer can easily request a token, which is issued in real time. 
+                  Once they have the token number, the customer can access a variety of 
+                  mobile services without having to disclose their mobile phone number - 
+                  safely and securely. 
                 </p>
                 <p>
-                  The available use cases will show that if users use the token they will be able to do the same as they are currently able
-                  to do using their phone number.
+                  Agents, meanwhile, do not need to do anything differently from usual.
                 </p>
               </div>
             </div>
             <div class="col-12 col-lg-6">
               <div class="img-bio">
-                <img src="../assets/images/usecase-gsma.png" class="img-fluid" alt="usecase-content" />
+                <!-- <img src="../assets/images/usecase-gsma.png" class="img-fluid" alt="usecase-content" /> -->
               </div>
             </div>
           </div>
@@ -249,7 +250,7 @@ export default {
   components: { AppHeader, Footer },
   data: () => ({
     props: {
-      tittle: 'FEATURES TOKEN BRINGS TO YOU',
+      tittle: 'THE VALUE OF MOBILE TOKENISATION',
       breadCrumb: {
         tittle: 'How it works',
         link: '/howitworks',
