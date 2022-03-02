@@ -26,7 +26,7 @@
             </div>
             <div class="col-12 col-lg-6">
               <div class="img-bio">
-                <!-- <img src="../assets/images/usecase-gsma.png" class="img-fluid" alt="usecase-content" /> -->
+                <img src="../assets/images/MobileMoney_2.jpeg" class="img-fluid" alt="usecase-content" />
               </div>
             </div>
           </div>
