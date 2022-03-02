@@ -13,15 +13,13 @@
         >
           <b-carousel-slide>
             <!-- <b-container> -->
-            <h1>TOKENISATION PROJECT</h1>
+            <h1>MOBILE TOKENISATION</h1>
+            <h1>FOR DIGITAL SAFETY</h1>
             <div class="biometric-content-carousal">
               <h4>
-                USING TOKEN TO PROVIDE SECURE TRANSACTIONS 
-                </br> IN DIFFERENT MOBILE MONEY SCENARIOS
+                Protecting people’s identities in  
+                emerging markets (especially women)
               </h4>
-              </br>
-              </br>
-              </br>
               <div class="os-system-wrap">
               </div>
             </div>
@@ -48,29 +46,16 @@
         <b-row>
           <b-col cols="12" md="5">
             <div class="digital-frame-left-content">
-              <h3>Improving the safety and the security of the customers</h3>
-              <h4>Are you a mobile operator and have concerns about safety and security of your customers?</h4>
-              <a href="/howitworks" class="btn btn-lap">Learn More</a>
+              <h3>Innovating mobile tokenisation to keep your customers safe</h3>
+              <p></p>
+              <a href="/howitworks" class="btn btn-lap" style="float: middle;">Learn More</a>
             </div>
           </b-col>
           <b-col cols="12" md="7">
             <div class="content-digital">
-              <!-- <p>
-                Biometrics For All offers an Interactive Voice Response (IVR)
-                call centre and mobile application with multiple use cases
-                showcasing the potential of biometrics to advance financial
-                inclusion in emerging markets.
-              </p>
+              <h4>Are you a mobile operator and do you have concerns about the safety of your customers?</h4>
               <p>
-                It currently offers enrolment and authentication using voice, with fingerprint and face recognition features to come soon and the scope to adopt additional modalities as well.
-              </p>
-              <a href="#" class="btn btn-mob">Learn More</a> -->
-              <p>
-                Token Project offers a more comfortable way for users to make mobile money transactions knowing that their phone number will
-                not be exposed.
-                </br>
-                </br>
-                < INSERT TEXT AFTER MARKETING REVIEW >
+                Mobile tokenisation enables replacing a customer’s mobile phone number with a non-sensitive equivalent (referred to as a token) when they use digital services. The solution is expected to benefit women in particular by providing them with greater privacy and security. 
               </p>
             </div>
           </b-col>
@@ -83,21 +68,19 @@
       <div class="container">
         <div class="bio-all-contents">
           <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-5">
               <div class="bio-content-wrap">
-                <h2>Features</h2>
+                <h2>Digital Safety for Inclusion</h2>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                  Mobile technology changes lives of people in low- and middle-income countries. Mobile has opened access to voice and communication services and, for many, their only gateway to the internet. In many markets, mobile phones have also enabled millions to access formal financial services like mobile money, unlocking life-enhancing services and utilities for the first time. 
                 </p>
                 <p>
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-                </p>
-                <p>
-                  It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                  However, not all users enjoy the same access, which is especially true for women. Various barriers as well as social norms keep them from accessing and using mobile technology. Safety and security concerns related to mobile are a key barrier, and one which women tend to experience more acutely than men.
                 </p>
               </div>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-7">
+              
               <div class="img-bio">    
                   <img
                     class="slider-img"
@@ -108,6 +91,7 @@
                     style="vertical-align:right"
                   />
               </div>
+              
             </div>
           </div>
         </div>
@@ -119,24 +103,78 @@
     <section class="two-col-biometric-wrap text-white">
       <b-container>
         <b-row class="justify-content-start align-items-center">
-          <b-col cols="12" xl="6">
-            <div class="biometric-content">
+          <div class="col-12 col-lg-4">
+            <div class="right-manage-img">
               <h2>
-                Problems and Solutions
+                Tokenise phone numbers to keep customers safe 
               </h2>
               <p>
-                INSERT THE MAIN PROBLEMS FACED WHEN THERE IS NO TOKEN SOLUTION
+                In emerging markets, customers’ phone numbers are commonly also  their personal 
+                account identifiers for digital services. The personal phone number is often 
+                disclosed when interacting with service agents, merchants or other people, 
+                for instance when they purchase airtime or make financial transactions. 
               </p>
             </div>
-          </b-col>
-          <b-col cols="12" xl="6">
-            <div class="biometric-img-block">
-              <b-row class="justify-content-center align-items-center gutter-20 flex-md-column">
-                <b-col cols="12" md="7">                
-                </b-col>
-              </b-row>
+          </div>
+          <div class="col-12 col-lg-1"></div>
+          <div class="col-12 col-lg-7">
+            <div class="managing-box">
+              <div class="row">
+
+                <!-- ELEMENT 01 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="content-manage-frame">
+                      <h5>What if your customers’ personal phone numbers and contact details could easily be protected? </h5>
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ELEMENT 02 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/feature-icon-1.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame">
+                      <h5>Simple and Useful</h5>
+                      <p>
+                        Tokenisation is a technology in which a sensitive data element is substituted with a non-sensitive equivalent, or “token”, that has no exploitable meaning or value. 
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ELEMENT 03 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/fingerprint.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame">
+                      <h5>Improving security</h5>
+                      <p>
+                        Tokenisation of mobile phone numbers can improve security, not only for women, 
+                        but for all customers interested in keeping their number private. It can contribute 
+                        to achieving gender equality and empowering all women and girls in line with UN 
+                        Sustainable Development Goal 5. 
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
-          </b-col>
+          </div>
         </b-row>
       </b-container>
     </section>
@@ -148,28 +186,31 @@
         <div class="row">
           <div class="col-12">
             <div class="feature-content text-center">
-              <h2>How the Inclusive Tech Lab can help you?</h2>
-              <h6>Drive your business to unlock new security technologies for your customers</h6>
+              <h2>Why choose mobile tokenisation?</h2>
+              <h6>Provide your customers with inclusive innovations to enhance their digital safety.</h6>
             </div>
             <div class="three-col-feature-frame">
               <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="card-wrap">
                     <img src="../assets/images/development.png" class="img-fluid" alt="development" />
-                    <h5>Built for low-tech environments</h5>
+                    <h5>Safety and Security</h5>
                     <h6>
-                      Our solutions are built to be used on feature phones and low-tech smartphones with a low-resolution camera or no
-                      camera at all.
+                      Tokenisation of mobile phone numbers is a simple and innovative way to 
+                      improve safety and security for all customers wanting to keep their 
+                      phone number private.  
                     </h6>
                   </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="card-wrap">
                     <img src="../assets/images/trusted.png" class="img-fluid" alt="trusted" />
-                    <h5>Trusted technical expertise</h5>
+                    <h5>Built for the context of low and middle-income countries </h5>
                     <h6>
-                      Adopting a new technology/service can be tricky to navigate, so we provide expertise to support you in understanding
-                      the impacts of using biometrics and during the adoption of biometrics solutions.
+                      Our solution are designed to put users first, and does not require 
+                      changes in the current user or agent interfaces. Interaction is 
+                      intuitive and familiar, accommodating users’ existing digital skills 
+                      and behaviours. 
                     </h6>
                   </div>
                 </div>
@@ -178,7 +219,9 @@
                     <img src="../assets/images/smartphones.png" class="img-fluid" alt="smartphones" />
                     <h5>Open-souce code</h5>
                     <h6>
-                      Our solutions are open source and can help you to quickly adapt to your needs
+                      Our solutions are built to work on any type of mobile device 
+                      (smart phone or feature phone), has the user as the centre of 
+                      our development, and our code is publicly available. 
                     </h6>
                   </div>
                 </div>
