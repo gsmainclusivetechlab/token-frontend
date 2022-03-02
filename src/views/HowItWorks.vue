@@ -33,207 +33,106 @@
         </div>
       </div>
     </section>
-    <section class="two-col-biometric-wrap text-white managing-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
+
+    <!-- FRAME 03: USE CASES -->
+    <section class="two-col-biometric-wrap text-white">
+      <b-container>
+        <b-row class="justify-content-start align-items-center">
+          <div class="col-12 col-lg-4">
             <div class="right-manage-img">
-              <h2 class="mb-0">How it works</h2>
-              <p>
-                Our showcase has an Agent/Merchant simulation and two possibilities to act as the Customer, a simulated Mock mode and Live
-                mode.
-              </p>
-              <p>
-                In the Mock mode, a mobile phone will appear on the page that will simulate a real mobile phone. it will be possible to
-                choose between using SMS or USSD to make actions. To use the Mock mode the user's needs to choose option Mock on the
-                Customer Area and press the "Start" button.
-              </p>
-              <p>
-                In Live mode, the user will use his mobile phone to send SMS messages to a phone number provided for demonstrating the Token
-                Solution. To use this mode the user will need to sign, for the system to recognize his phone number as belonging to a valid
-                user. The option to delete his information from the system is also provided via the “Delete Account” button.
-              </p>
-              <p>
-                Note that when the Mock mode is selected the notifications from the Agent/Merchant workflow will be sent to the page itself
-                and shown in the mobile interface provide. If the Live mode is selected the notifications will be sent to the user's real
-                mobile phone.
-              </p>
-              <p>
-                During the simulation, a PIN will be requested to the user to confirm operations. The PIN provided below is the only
-                accepted value.
-              </p>
-              <p>
-                <u><b>Default PIN</b></u
-                >: 1234
-              </p>
-              <p>
-                A Merchant code identifier is also required for the Merchant payment use cases, and the only accepted value is the one
-                below.
-              </p>
-              <p>
-                <u><b>Merchant Code Available</b></u
-                >: 4321
-              </p>
+              <h2>
+                Use Cases  
+              </h2>
+              <p> This showcase demonstrates the experience of mobile tokenisation for both customers and service agents across a variety of scenarios.</p>
+              <p> Our scenarios are based on market requests, and we invite those interested to bring new ideas.</p>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
+          <div class="col-12 col-lg-1"></div>
+          <div class="col-12 col-lg-7">
             <div class="managing-box">
               <div class="row">
                 <div class="col-12">
-                  <h2>Use Cases</h2>
+                  <p> - Pay a Merchant</p>
+                  <p> - Cash-in at an agent location</p>
+                  <p> - Cash-out at an agent location</p>
+                  <p> - SMS</p>
+                  <p> - USSD</p>
                 </div>
-                <div class="col-12 col-md-6">
+                <!-- CHANGE LATER .....
+
+                ELEMENT 01
+                <div class="col-12 col-md-12">
                   <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
-                      <h5 class="text-center">UC1 - Get Token</h5>
-                      <p>Generate a token based on the user's phone number.</p>
-                      <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'GET TOKEN' on the input field.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'GET TOKEN'.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 1.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*1'.
-                      </p>
+                      <h5>What if your customers’ personal phone numbers and contact details could easily be protected? </h5>
+                      <p></p>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-md-6">
+
+                ELEMENT 02 
+                <div class="col-12 col-md-12">
                   <div class="twoline-managing-frame">
-                    <div class="content-manage-frame">
-                      <h5 class="text-center">UC2 - Delete Token</h5>
-                      <p>Delete the generated token.</p>
-                      <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'DELETE TOKEN' on input field.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'DELETE TOKEN'.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 2.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*2'.
-                      </p>
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/feature-icon-1.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
                     </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
-                      <h5 class="text-center">UC3 - Customer Initiated Cash-in / Cash-out</h5>
+                      <h5>Simple and Useful</h5>
                       <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'CASH IN {AMOUNT}' or 'CASH OUT {AMOUNT}' on input field. Next, write
-                        'PIN {VALUE}' on input field. Finally, accept the operation with the Agent.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'CASH IN {AMOUNT}' or 'CASH OUT
-                        {AMOUNT}'. Next, the following SMS to +447401232937 - 'PIN {VALUE}'. Finally, accept the operation with the Agent.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 3 or 4 -> Insert Amount -> Insert Pin. Then,
-                        accept the operation with the Agent.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*3*{AMOUNT}*{PIN}' or
-                        '*165#*4*{AMOUNT}*{PIN}'. Then, accept the operation with the Agent.
+                        Tokenisation is a technology in which a sensitive data element is substituted with a non-sensitive equivalent, or “token”, that has no exploitable meaning or value. 
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-12 col-md-6">
+                ELEMENT 03
+                <div class="col-12 col-md-12">
                   <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/fingerprint.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
                     <div class="content-manage-frame">
-                      <h5 class="text-center">UC5 - Customer Initiated Merchant Payment</h5>
+                      <h5>Improving security</h5>
                       <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'PAYMENT {MERCHANT_CODE} {AMOUNT}' on input field. Next, write 'PIN
-                        {VALUE}' on input field. Finally, accept the operation with the Merchant.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PAYMENT {MERCHANT_CODE} {AMOUNT}'.
-                        Next, the following SMS to +447401232937 - 'PIN {VALUE}'. Finally, accept the operation with the Merchant.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 5 -> Insert Merchant Code -> Insert Amount
-                        -> Insert Pin. Then, accept the operation with the Merchant.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 -
-                        '*165#*5*{MERCHANT_CODE}*{AMOUNT}*{PIN}'. Then, accept the operation with the Merchant.
+                        Tokenisation of mobile phone numbers can improve security, not only for women, 
+                        but for all customers interested in keeping their number private. It can contribute 
+                        to achieving gender equality and empowering all women and girls in line with UN 
+                        Sustainable Development Goal 5. 
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
-                <div class="col-12 col-md-6">
-                  <div class="twoline-managing-frame">
-                    <div class="content-manage-frame">
-                      <h5 class="text-center">UC4 - Agent Initiated Cash-in / Cash-out</h5>
-                      <p>
-                        Create an operation in Agent Operation Settings by choosing the Cash-In or Cash-Out option in the Operation field, then
-                        accept this operation with the Agent.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'PIN {VALUE}' on input field.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PIN {VALUE}'.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#*6*1234' on input field.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*6*1234'.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="twoline-managing-frame">
-                    <div class="content-manage-frame">
-                      <h5 class="text-center">UC6 - Merchant Initiated Merchant Payment</h5>
-                      <p>
-                        Create an operation in Agent Operation Settings by choosing the Merchant-Payment option in the Operation field, then accept
-                        this operation with the Merchant.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'PIN {VALUE}' on input field.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PIN {VALUE}'.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write '*165#*6*1234' on input field.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*6*1234'.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </b-row>
+      </b-container>
     </section>
+
     <section class="bio-all">
       <div class="container">
         <div class="bio-all-contents">
           <div class="row">
-            <div class="col-12">
-              <div class="bio-content-wrap">
-                <h2>New Use Cases</h2>
-                <p>The number of use cases are always growing, and we invite those interested to bring new ideas for us to implement.</p>
+            
+              <div class="col-12 col-lg-6">
+                <h2>Value for operators </h2>
+                <h4>How can mobile use be made more secure for users, and especially women?</h4>
               </div>
-            </div>
+              <div class="col-12 col-lg-6">
+                <p>- Our solution is designed alongside mobile network operators.</p>
+                <p>- Our engine is non-intrusive to your core platforms and can be integrated as an modular extension.</p>
+                <p>- Generated tokens can be designed to have the same format as the phone number sequence in your market if interest. This ensures a seamless replacement of MSISDNs in requests to your platform.</p>
+              </div>
+            
           </div>
         </div>
       </div>

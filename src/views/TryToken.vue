@@ -2,30 +2,28 @@
   <div class="home">
     <AppHeader v-bind="headerProps" />
 
-    <!-- FRAME 01: CONTENT -->
-    <section class="bio-all">
-      <div class="container">
-        <div class="bio-all-contents">
-          <div class="row">
-            <div class="col-12 col-lg-6">
-              <div class="bio-content-wrap">
-                <h2>Info about the tests</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <p>
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                  type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially unchanged.
-                </p>
-                <p>
-                  It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
-                  with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
+    <!-- FRAME 01: TRY OUR SOLUTION -->
+    <div class="digital-wrapper mb-3">
+      <b-container>
+        <b-row>
+          <b-col cols="12" md="5">
+            <div class="digital-frame-left-content">
+              <h3>Innovating mobile tokenisation to keep your customers safe</h3>
+              <p>This showcase demonstrates how tokenising customers’ phone numbers protects their contact details and keeps their identity private. Try it out in different mobile money scenarios.</p>
+              <p>There are two methods to try out the solution.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </b-col>
+          <b-col cols="12" md="7">
+            <div class="content-digital">
+              <h4>Try out on our simulator</h4>
+              <p>Experience different scenarios in an interface to simulate both user and service agent. </p>
+              <h4>Try out on your own device</h4>
+              <p>Sign up and experience on your own phone. Send and receive SMS/USSD commands and access services. </p>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
 
     <!-- FRAME 02: MOBILE -->
     <section class="two-col-biometric-wrap text-white">
@@ -33,17 +31,21 @@
         <b-row class="justify-content-start align-items-center">
           <b-col cols="12" xl="6">
             <div class="biometric-content">
-              <h2>Virtual Mobile Simulation</h2>
-              <p>Info here</p>
+              <h2>Try out our simulator</h2>
+              <p>Experience different scenarios in an interface to simulate both user and service agent. </p>
+              <ul>
+                <li>- Everything in one interface</li>
+                <li>- Quick demonstration and evaluation</li>
+                <li>- Uses a feature phone</li>
+                <li>- Link to User Manual in the documentation</li>
+              </ul>
             </div>
           </b-col>
           <b-col cols="12" xl="6">
             <div class="biometric-img-block">
               <b-row class="justify-content-center align-items-center gutter-20 flex-md-column">
-                <b-col cols="12" md="7">
-                  <span>Are you a mobile operator and have concerns about safety and security of your customers? </span>
-                  <br />
-                  <br />
+                <b-col cols="12">
+
                   <div align="right" class="newscase-btn">
                     <a id="show-modal" href="/trytoken/mock" class="btn-newscase">Try Virtual Token Simulation</a>
                   </div>
@@ -61,24 +63,15 @@
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="content-login">
-              <h2>Live Token Showcase</h2>
-              <h4>Do a real simulation using your own mobile phone</h4>
+              <h2>Try out on your own device</h2>
+              <h4>Sign up and experience on your own phone. Send and receive SMS/USSD commands and access services.</h4>
               <br />
-              <p>
-                If you want to use the Live version, you need to sign up to be able to receive messages from the system. All the data used
-                during the tests is deleted automatically after you finish the tests or refresh the page.
-              </p>
+              <p> If you want to use the Live version, you need to sign up to be able to receive messages from the system. All the data used during the tests is deleted automatically after you finish the tests or refresh the page. </p>
+              <p> To test the Use Cases, you can follow the instructions present at <a href="https://docs.token.gsmainclusivetechlab.io/" target="_blank">Token Documentation</a></p>
+              <p> If you would like to suggest a new use case or customisation of this solution to meet your business needs, contact the
+                <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank"> Inclusive Tech Lab </a></p>
 
-              <p>To test the Use Cases, you can follow the instructions present <a href="/howitworks"> here</a>.</p>
-
-              <p>
-                If you would like to suggest a new use case or customisation of this solution to meet your business needs, contact the
-                <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank">
-                  Inclusive Tech Lab</a
-                >
-                or
-                <a @click="scrollBottom" class="link-color"> suggest a new use case.</a>
-              </p>
+              
             </div>
           </div>
           <div class="col-12 col-lg-6">
@@ -109,7 +102,7 @@ export default {
   },
   data: () => ({
     headerProps: {
-      tittle: 'EXPERIENCE THE TOKEN SHOWCASE',
+      tittle: 'EXPERIENCE MOBILE TOKENISATION',
       content: 'Protect yourself from exposing your phone number using a token solution',
       breadCrumb: {
         tittle: 'Try Token',
