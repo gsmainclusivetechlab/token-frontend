@@ -8,11 +8,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-6">
-            <CustomerConfig
-              :selectedSystemParent="selectedSystem"
-              :selectedModeParent="selectedMode"
-              :phoneParent="phoneNumber"
-            />
+            <CustomerConfig :selectedSystemParent="selectedSystem" :selectedModeParent="selectedMode" :phoneParent="phoneNumber" />
           </div>
           <div class="col-12 col-lg-6">
             <AgentConfig :selectedSystem="selectedSystem" :sessionId="sessionId" :selectedModeParent="selectedMode" />
@@ -30,6 +26,10 @@
       </div>
     </div>
     <Footer />
+
+    <b-modal v-model="modalShow" hide-footer :title="modalTitle" @hide="modalHide()">
+      <span>{{ modalMessage }}</span>
+    </b-modal>
   </div>
 </template>
 
@@ -66,9 +66,18 @@ export default {
     phoneNumber: '',
     loading: true,
     sessionId: null,
+
+    passedMoreThanOneMinute: false,
+    pollTimeout: null,
+
+    modalShow: false,
+    modalTitle: 'Session expired',
+    modalMessage: 'Your session has expired, once you close this pop-up, you will be redirected to the Try Token page',
   }),
   async created() {
     try {
+      document.addEventListener('visibilitychange', this.visibilityChange, false);
+
       const otp = parseInt(this.$route.params.otp);
 
       if (isNaN(otp)) {
@@ -92,14 +101,30 @@ export default {
       this.$router.push({ path: `/trytoken` });
     }
   },
+  beforeDestroy() {
+    document.removeEventListener('visibilitychange', () => {});
+    clearTimeout(this.pollTimeout);
+  },
   methods: {
-    scrollBottom() {
-      window.scrollTo({
-        top: 10000,
-        left: 0,
-        behavior: 'smooth',
-      });
-    }
+    visibilityChange(e) {
+      //Switches browser tabs or minimized the browser
+      if (document.hidden) {
+        this.pollTimeout = setTimeout(() => {
+          this.passedMoreThanOneMinute = true;
+        }, 60000);
+      } else {
+        //Returned to the page
+        if (this.passedMoreThanOneMinute) {
+          this.modalShow = true;
+        }
+
+        clearTimeout(this.pollTimeout);
+        this.passedMoreThanOneMinute = false;
+      }
+    },
+    modalHide() {
+      this.$router.push({ path: `/trytoken` });
+    },
   },
 };
 </script>

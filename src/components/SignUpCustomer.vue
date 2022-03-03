@@ -29,7 +29,9 @@
         </div>
 
         <div v-if="insertOTP" class="form-group">
-          <label for="inputOTP">Hello {{ this.nickNameToDisplay }},<br>Please insert here the access code you received on your phone.</label>
+          <label for="inputOTP"
+            >Hello {{ this.nickNameToDisplay }},<br />Please insert here the access code you received on your phone.</label
+          >
           <input type="text" class="form-control" id="inputOTP" placeholder="Enter Access Code" v-model="otp" maxlength="4" />
           <span class="error-msg" v-if="errors.otp.length != 0"> {{ errors.otp }}</span>
         </div>
@@ -76,7 +78,7 @@ export default {
     modalMessage: '',
 
     insertOTP: false,
-    nickNameToDisplay: ''
+    nickNameToDisplay: '',
   }),
   methods: {
     processForm(e) {
@@ -285,5 +287,10 @@ export default {
 .form-response {
   text-align: center;
   margin-top: 20px;
+}
+</style>
+<style lang="scss">
+.vue-tel-input .vti__dropdown-list {
+  z-index: 10;
 }
 </style>
