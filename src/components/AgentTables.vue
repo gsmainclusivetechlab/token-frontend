@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="text-center">Notifications</h2>
-    <div>
+    <div class="mb-4">
       <AgentOperationList :data="operationList" :sessionId="sessionId" />
       <AgentNotifications :data="notificationList" :sessionId="sessionId" />
     </div>
@@ -31,7 +31,7 @@ export default {
   },
   beforeDestroy() {
     clearInterval(this.pollInterval);
-    clearTimeout(this.pollTimeout);
+    // clearTimeout(this.pollTimeout);
   },
   methods: {
     async getData() {

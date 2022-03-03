@@ -81,7 +81,7 @@
               </p>
             </div>
           </div>
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-6 mb-4">
             <SignUpCustomer />
           </div>
         </div>

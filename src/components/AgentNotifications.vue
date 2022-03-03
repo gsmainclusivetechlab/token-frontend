@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>Notifications Sucesso</h4>
+    <h4>Notifications</h4>
     <b-table :items="data" :fields="fields">
       <template #cell(message)="row">
         <b-icon

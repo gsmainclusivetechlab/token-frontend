@@ -98,7 +98,7 @@
                         <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 1.
                       </p>
                       <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*1'.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165*1#'.
                       </p>
                     </div>
                   </div>
@@ -118,7 +118,7 @@
                         <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#' -> 2.
                       </p>
                       <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*2'.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165*2#'.
                       </p>
                     </div>
                   </div>
@@ -140,8 +140,8 @@
                         accept the operation with the Agent.
                       </p>
                       <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*3*{AMOUNT}*{PIN}' or
-                        '*165#*4*{AMOUNT}*{PIN}'. Then, accept the operation with the Agent.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165*3*{AMOUNT}*{PIN}#' or
+                        '*165*4*{AMOUNT}*{PIN}#'. Then, accept the operation with the Agent.
                       </p>
                     </div>
                   </div>
@@ -165,7 +165,7 @@
                       </p>
                       <p>
                         <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 -
-                        '*165#*5*{MERCHANT_CODE}*{AMOUNT}*{PIN}'. Then, accept the operation with the Merchant.
+                        '*165*5*{MERCHANT_CODE}*{AMOUNT}*{PIN}#'. Then, accept the operation with the Merchant.
                       </p>
                     </div>
                   </div>
@@ -186,10 +186,10 @@
                         <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PIN {VALUE}'.
                       </p>
                       <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165#*6*1234' on input field.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write the short code '*165*6*1234#' on input field.
                       </p>
                       <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*6*1234'.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165*6*1234#'.
                       </p>
                     </div>
                   </div>
@@ -209,10 +209,10 @@
                         <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PIN {VALUE}'.
                       </p>
                       <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write '*165#*6*1234' on input field.
+                        <u><b>Using USSD in Mock Mode</b></u> - Write '*165*6*1234#' on input field.
                       </p>
                       <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*6*1234'.
+                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165*6*1234#'.
                       </p>
                     </div>
                   </div>

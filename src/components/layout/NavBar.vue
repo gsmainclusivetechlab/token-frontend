@@ -29,10 +29,10 @@
                   <a href="https://docs.token.gsmainclusivetechlab.io/">Documentation</a>
                   <!-- </router-link> -->
                 </b-nav-item>
-                <!-- <b-nav-item href="#">
-                  <router-link to="/about">About</rouer-link>
-                </b-nav-item>
                 <b-nav-item href="#">
+                  <router-link to="/about">About</router-link>
+                </b-nav-item>
+                <!-- <b-nav-item href="#">
                   <router-link to="/faq">FAQs</router-link>
                 </b-nav-item> -->
               </b-navbar-nav>
