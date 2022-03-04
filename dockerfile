@@ -4,7 +4,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-ENV VUE_APP_PROXY_API_URL=http://localhost:4000
 RUN npm run build
 
 # production stage

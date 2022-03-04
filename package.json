@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve --skip-plugins @vue/cli-plugin-eslint",
     "build": "vue-cli-service build --skip-plugins @vue/cli-plugin-eslint",
+    "build-release": "vue-cli-service build --skip-plugins @vue/cli-plugin-eslint --mode release",
     "lint": "vue-cli-service lint",
     "gh-pages-deploy": "node scripts/gh-pages-deploy.js"
   },
