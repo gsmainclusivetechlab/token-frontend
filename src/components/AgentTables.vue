@@ -24,14 +24,12 @@ export default {
     operationList: [],
     notificationList: [],
     pollInterval: null,
-    pollTimeout: null,
   }),
   mounted() {
     this.pollInterval = setInterval(this.getData, 1000); //save reference to the interval
   },
   beforeDestroy() {
     clearInterval(this.pollInterval);
-    // clearTimeout(this.pollTimeout);
   },
   methods: {
     async getData() {
@@ -48,10 +46,7 @@ export default {
           this.operationList = response.data.operations;
           this.notificationList = response.data.notifications;
         }
-      } catch (err) {
-        // clearInterval(this.pollInterval);
-        // clearTimeout(this.pollTimeout);
-      }
+      } catch (err) {}
     },
   },
 };
