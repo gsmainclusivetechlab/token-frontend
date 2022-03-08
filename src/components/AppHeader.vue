@@ -106,7 +106,7 @@ export default {
   color: #fff;
 }
 .inner-header .inner-head-about {
-  background-image: url("../assets/images/banner.png");
+  background-image: url("../assets/images/bg-02.png");
   background-position: center;
   background-repeat: no-repeat;
   min-height: 374px;
