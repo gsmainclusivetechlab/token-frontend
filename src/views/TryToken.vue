@@ -190,9 +190,9 @@ tr{
   text-align: left;
 }
 
-ul {
-    margin-left: 60px; /* To remove default bottom margin */ 
-    padding: 30px; /* To remove default left padding */
-}
+/* ul {
+    margin-left: 60px; To remove default bottom margin  
+    padding: 30px; To remove default left padding
+} */
 
 </style>
