@@ -8,13 +8,13 @@
           <div class="row">
             <div class="col-12 col-lg-6">
               <div class="bio-content-wrap">
-                <h2>A demonstration of Mobile Token</h2>
+                <h2>A demonstration of mobile number tokenisation</h2>
                 <p>
                   This showcase aims to demonstrate how tokenising customers’ phone numbers 
                   protects their contact details and keeps their identity private. 
                 </p>
                 <p>
-                  A customer can easily request a token, which is issued in real time. To obtain the token the user can send SMS or USSD codes. Once they have the token number, the customer can access a variety of mobile services without having to disclose their mobile phone number - safely and securely. 
+                  A customer can easily request a token, which is issued in real time. To obtain the token the user can use SMS or USSD codes. Once they have the token number, the customer can access a variety of mobile services without having to disclose their mobile phone number - safely and securely. 
                 </p>
                 <p>
                   Agents, meanwhile, do not need to do anything differently from usual.
@@ -22,7 +22,8 @@
               </div>
             </div>
             <div class="col-12 col-lg-6">
-              <div class="img-bio">
+              <div class="img-bio">  
+                <!-- ALIGN IN THE MIDDLE -->
                 <img src="../assets/images/graphic-04.png" class="img-fluid" alt="usecase-content" />
               </div>
             </div>
@@ -39,7 +40,7 @@
               <h2>
                 User Scenarios  
               </h2>
-              <p> This showcase demonstrates the experience of mobile tokenisation under the two main users: customers and service agents or merchants. </p> 
+              <p> Our solution demonstrates the experience of mobile tokenisation for two users perspectives: customers and service agents or merchants. </p> 
               <p> There are different ways for the user to navigate and test across a variety of scenarios.</p>
               <p> Our scenarios are based on market requests and connect different use cases and technology approaches. We invite you, interested in tokenisation, to bring new ideas of use cases, technologies and token application to be added into our project.</p>
           </div>
@@ -120,11 +121,11 @@
           <div class="row">
 
             <div class="col-12 col-lg-4">
-            <div class="right-manage-img">
+            <div class="right-manage-img" style="">
               <h2>Value for operators </h2>
               <p>
               </p>
-              <h4>How can mobile use be made more secure for users, and especially women?</h4>
+              <h4>How can mobile services be made more secure for users, and especially women?</h4>
             </div>
           </div>
           <div class="col-12 col-lg-1"></div>
@@ -143,7 +144,7 @@
                       />
                     </div>
                     <div class="content-manage-frame">
-                      <h5>Our solution is designed alongside mobile network operators to attend their business needs.</h5>
+                      <p>Our solution is designed alongside mobile network operators to attend their business needs.</p>
                       <p>
                       </p>
                     </div>
@@ -161,7 +162,7 @@
                       />
                     </div>
                     <div class="content-manage-frame">
-                      <h5>Our engine is non-intrusive to your core platforms and can be integrated as an modular extension.</h5>
+                      <p>Our engine is non-intrusive to your core platforms and can be integrated as modular extension.</p>
                       <p>
                       </p>
                     </div>
@@ -179,7 +180,7 @@
                       />
                     </div>
                     <div class="content-manage-frame">
-                      <h5>Generated tokens can be designed to have the same format as the phone number sequence in your market if interest. This ensures a seamless replacement of MSISDNs in requests to your platform.</h5>
+                      <p>Generated tokens can be designed to have the same format as the phone number sequence in your market if interest. This ensures a seamless replacement of MSISDNs in requests to your platform.</p>
                       <p>
                       </p>
                     </div>

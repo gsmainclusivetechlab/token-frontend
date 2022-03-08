@@ -8,25 +8,9 @@
           <div class="col-12 col-md-6">
             <h2>Inclusive Tech Lab</h2>
             <h6>
-              The
-              <a
-                href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/"
-                target="_blank"
-              >
-                GSMA Inclusive Tech Lab</a
-              >
-              supports the mobile money industry to develop the mobile financial
-              ecosystem, to enable a broad range of digital transactions and
-              make mobile wallets central to the lives of the financially
-              excluded and underserved, providing them with better solutions to
-              manage their financial resources and face economic shocks. Mobile
-              money has evolved to a platform of more than 1 billion accounts
-              reaching emerging market consumers and bringing financial access
-              to the previously underserved and excluded. The Inclusive Tech Lab
-              has published a set of harmonised Mobile Money Application
-              Programming Interfaces (APIs) and is now looking at expanding the
-              potential of mobile money through the use of biometrics for
-              financial transactions.
+              <p> The <a href=https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/>GSMA Inclusive Tech Lab</a> is a GSMA-led global industry initiative that takes a hands-on approach to research, testing and development of the inclusive technologies of the future. </p>
+              <p> We are thinking big. We want to make a real impact. Think about breaking down barriers to financial services for unregistered people by developing digital identities, enabling wide availability of loans, insurance and education through seamless integrations between service providers and mobile money operators, the responsible application of artificial intelligence to tailor services for women and increase their economic participation. These challenges, and many more, will be driving our thinking as we help develop the transformative digital innovations of tomorrow. </p>
+              <p>Above all else, this Lab represents the power of collaboration: we welcome your thoughts on which technologies will prove the most impactful for digital and financial inclusion in years to come. </p>
             </h6>
           </div>
           <div class="col-12 col-md-6">
@@ -46,7 +30,7 @@
         <div class="row">
           <div class="col-12">
             <div class="bio-all-content-wrap">
-              <h2>Tpkenisation for Digital Safety</h2>
+              <h2>Tokenisation for Digital Safety</h2>
             </div>
           </div>
           <div class="col-12 col-lg-6">
@@ -103,6 +87,7 @@
               class="btn"
               >Contact</a
             >
+            <p></p>
           </div>
         </div>
       </div>
