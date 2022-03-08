@@ -17,7 +17,7 @@
               <p>This showcase demonstrates how tokenising customers’ phone numbers protects their contact details and keeps their identity private. Try it out in different mobile money scenarios.</p>
               <p><b>1. Our simulator:</b> Experience different scenarios in an interface to simulate both user and service agent. </p>
               <p><b>2. Your own device:</b> Sign up and experience on your own phone. Send and receive SMS/USSD commands and access services. </p>
-              
+              <p style="color: red"><i>*Use both phone number and token in your transactions</i></p>
             </div>
           </b-col>
           <b-col cols="12" md="1"></b-col>
@@ -52,7 +52,6 @@
               </table>
               <p></p>
               <p><i>*More information about the use cases and codes can be found in our <a href="https://docs.token.gsmainclusivetechlab.io/">documentation</a></i></p>
-              <p style="color: red"><i>*You can use the phone number or the token to access the transactions</i></p>
             </div>
           </b-col>
         </b-row>
