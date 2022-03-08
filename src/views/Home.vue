@@ -9,10 +9,11 @@
           no-animation
           indicators
           img-width="1024"
-          img-height="480"
+          img-height="400"
         >
           <b-carousel-slide>
             <!-- <b-container> -->
+            
             <h1>MOBILE TOKENISATION</h1>
             <h1>FOR DIGITAL SAFETY</h1>
             <div class="biometric-content-carousal">
@@ -20,18 +21,19 @@
                 Protecting people’s identities in  
                 emerging markets (especially women)
               </h4>
-              <div class="os-system-wrap">
-              </div>
+              <p></p>
+              <p></p>
+              
             </div>
             <!-- </b-container> -->
             <template #img>
               <img
                 class="img-fluid slider-img"
                 width="1024"
-                height="480"
-                src="../assets/images/banner-illustration-1.png"
+                height="400"
+                src="../assets/images/graphic-01.3.png"
                 alt="image slot"
-                style="vertical-align:middle"
+                style="vertical-align:top float:left"
               />
             </template>
           </b-carousel-slide>
@@ -44,27 +46,39 @@
     <div class="digital-wrapper mb-3">
       <b-container>
         <b-row>
+          <b-col cols="12" md="6">
+            <div class="content-digital">              
+              <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/feature-icon-1.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame" style="text-align:center">
+                      <h3>Are you a mobile operator and do you have concerns about the safety of your customers?</h3>
+                      <a href="/howitworks" class="btn btn-lap">Learn More</a>
+                    </div>
+              </div>
+            </div>
+          </b-col>
+          <b-col cols="12" md="1"> </b-col>
           <b-col cols="12" md="5">
             <div class="digital-frame-left-content">
               <h3>Innovating mobile tokenisation to keep your customers safe</h3>
-              <p></p>
-              <a href="/howitworks" class="btn btn-lap" style="float: middle;">Learn More</a>
-            </div>
-          </b-col>
-          <b-col cols="12" md="7">
-            <div class="content-digital">
-              <h4>Are you a mobile operator and do you have concerns about the safety of your customers?</h4>
               <p>
                 Mobile tokenisation enables replacing a customer’s mobile phone number with a non-sensitive equivalent (referred to as a token) when they use digital services. The solution is expected to benefit women in particular by providing them with greater privacy and security. 
               </p>
             </div>
           </b-col>
+      
         </b-row>
       </b-container>
     </div>
 
     <!-- FRAME 02: IMAGE -->
-    <section class="bio-all">
+    <section class="bio-all bg-greys" >
       <div class="container">
         <div class="bio-all-contents">
           <div class="row">
@@ -72,10 +86,10 @@
               <div class="bio-content-wrap">
                 <h2>Digital Safety for Inclusion</h2>
                 <p>
-                  Mobile technology changes lives of people in low- and middle-income countries. Mobile has opened access to voice and communication services and, for many, their only gateway to the internet. In many markets, mobile phones have also enabled millions to access formal financial services like mobile money, unlocking life-enhancing services and utilities for the first time. 
+                  In low- and middle-income countries (LMICs), the wide-ranging benefits of mobile technology are evident in the everyday life of underserved communities. Mobile enables access to voice and communication services, and provides a preferred, and often first, entry to the internet. More so, in many markets, mobile phones enable access to formal financial services like mobile money, which in turn unlocks access to a variety of life-enhancing services and utilities.
                 </p>
                 <p>
-                  However, not all users enjoy the same access, which is especially true for women. Various barriers as well as social norms keep them from accessing and using mobile technology. Safety and security concerns related to mobile are a key barrier, and one which women tend to experience more acutely than men.
+                  However, as mobiles become ubiquitous and functionalities increase in sophistication, not all user groups are afforded the same level of access or can enjoy the benefits of being connected. This is particularly prevalent for women, as a significant gender  <a href="https://www.gsma.com/r/gender-gap/" target="blank">gap in mobile phone ownership and usage</a> in LMICs means women are missing out.
                 </p>
               </div>
             </div>
@@ -86,7 +100,7 @@
                     class="slider-img"
                     width="1024"
                     height="480"
-                    src="../assets/images/MobileMoney_5.jpg"
+                    src="../assets/images/graphic-02.png"
                     alt="image slot"
                     style="vertical-align:right"
                   />
@@ -103,7 +117,7 @@
     <section class="two-col-biometric-wrap text-white">
       <b-container>
         <b-row class="justify-content-start align-items-center">
-          <div class="col-12 col-lg-4">
+          <div class="col-12 col-lg-5">
             <div class="right-manage-img">
               <h2>
                 Tokenise phone numbers to keep customers safe 
@@ -114,10 +128,11 @@
                 disclosed when interacting with service agents, merchants or other people, 
                 for instance when they purchase airtime or make financial transactions. 
               </p>
+              <h5>What if your customers’ personal phone numbers and contact details could easily be protected? </h5>
             </div>
           </div>
           <div class="col-12 col-lg-1"></div>
-          <div class="col-12 col-lg-7">
+          <div class="col-12 col-lg-6">
             <div class="managing-box">
               <div class="row">
 
@@ -125,7 +140,7 @@
                 <div class="col-12 col-md-12">
                   <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
-                      <h5>What if your customers’ personal phone numbers and contact details could easily be protected? </h5>
+                      
                       <p></p>
                     </div>
                   </div>
@@ -187,7 +202,7 @@
           <div class="col-12">
             <div class="feature-content text-center">
               <h2>Why choose mobile tokenisation?</h2>
-              <h6>Provide your customers with inclusive innovations to enhance their digital safety.</h6>
+              <h5>Provide your customers with inclusive innovations to enhance their digital safety.</h5>
             </div>
             <div class="three-col-feature-frame">
               <div class="row justify-content-center">
@@ -207,10 +222,9 @@
                     <img src="../assets/images/trusted.png" class="img-fluid" alt="trusted" />
                     <h5>Built for the context of low and middle-income countries </h5>
                     <h6>
-                      Our solution are designed to put users first, and does not require 
-                      changes in the current user or agent interfaces. Interaction is 
-                      intuitive and familiar, accommodating users’ existing digital skills 
-                      and behaviours. 
+                      Our solutions use an intuitive and familiar interaction, accommodating users’ 
+                      existing digital skills and behaviours and not requiring changes in the current
+                      user or agent interfaces.
                     </h6>
                   </div>
                 </div>

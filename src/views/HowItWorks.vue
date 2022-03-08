@@ -8,16 +8,13 @@
           <div class="row">
             <div class="col-12 col-lg-6">
               <div class="bio-content-wrap">
-                <h2>Token Solution</h2>
+                <h2>A demonstration of Mobile Token</h2>
                 <p>
                   This showcase aims to demonstrate how tokenising customers’ phone numbers 
                   protects their contact details and keeps their identity private. 
                 </p>
                 <p>
-                  A customer can easily request a token, which is issued in real time. 
-                  Once they have the token number, the customer can access a variety of 
-                  mobile services without having to disclose their mobile phone number - 
-                  safely and securely. 
+                  A customer can easily request a token, which is issued in real time. To obtain the token the user can send SMS or USSD codes. Once they have the token number, the customer can access a variety of mobile services without having to disclose their mobile phone number - safely and securely. 
                 </p>
                 <p>
                   Agents, meanwhile, do not need to do anything differently from usual.
@@ -26,7 +23,7 @@
             </div>
             <div class="col-12 col-lg-6">
               <div class="img-bio">
-                <img src="../assets/images/MobileMoney_2.jpeg" class="img-fluid" alt="usecase-content" />
+                <img src="../assets/images/graphic-04.png" class="img-fluid" alt="usecase-content" />
               </div>
             </div>
           </div>
@@ -38,39 +35,20 @@
     <section class="two-col-biometric-wrap text-white">
       <b-container>
         <b-row class="justify-content-start align-items-center">
-          <div class="col-12 col-lg-4">
-            <div class="right-manage-img">
+          <div class="col-12 col-lg-5">
               <h2>
-                Use Cases  
+                User Scenarios  
               </h2>
-              <p> This showcase demonstrates the experience of mobile tokenisation for both customers and service agents across a variety of scenarios.</p>
-              <p> Our scenarios are based on market requests, and we invite those interested to bring new ideas.</p>
-            </div>
+              <p> This showcase demonstrates the experience of mobile tokenisation under the two main users: customers and service agents or merchants. </p> 
+              <p> There are different ways for the user to navigate and test across a variety of scenarios.</p>
+              <p> Our scenarios are based on market requests and connect different use cases and technology approaches. We invite you, interested in tokenisation, to bring new ideas of use cases, technologies and token application to be added into our project.</p>
           </div>
           <div class="col-12 col-lg-1"></div>
-          <div class="col-12 col-lg-7">
+          <div class="col-12 col-lg-6">
             <div class="managing-box">
               <div class="row">
-                <div class="col-12">
-                  <p> - Pay a Merchant</p>
-                  <p> - Cash-in at an agent location</p>
-                  <p> - Cash-out at an agent location</p>
-                  <p> - SMS</p>
-                  <p> - USSD</p>
-                </div>
-                <!-- CHANGE LATER .....
 
-                ELEMENT 01
-                <div class="col-12 col-md-12">
-                  <div class="twoline-managing-frame">
-                    <div class="content-manage-frame">
-                      <h5>What if your customers’ personal phone numbers and contact details could easily be protected? </h5>
-                      <p></p>
-                    </div>
-                  </div>
-                </div>
-
-                ELEMENT 02 
+                <!-- ELEMENT 01 -->
                 <div class="col-12 col-md-12">
                   <div class="twoline-managing-frame">
                     <div class="img-manage">
@@ -81,35 +59,53 @@
                       />
                     </div>
                     <div class="content-manage-frame">
-                      <h5>Simple and Useful</h5>
+                      <h5>Merchant Payment</h5>
                       <p>
-                        Tokenisation is a technology in which a sensitive data element is substituted with a non-sensitive equivalent, or “token”, that has no exploitable meaning or value. 
+                        You can simulate a transaction where the customer pays a merchant.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                ELEMENT 03
+                <!-- ELEMENT 02 -->
                 <div class="col-12 col-md-12">
                   <div class="twoline-managing-frame">
                     <div class="img-manage">
                       <img
-                        src="../assets/images/fingerprint.png"
+                        src="../assets/images/feature-icon-2.png"
                         class="img-fluid"
                         alt="feature-icon-1"
                       />
                     </div>
                     <div class="content-manage-frame">
-                      <h5>Improving security</h5>
+                      <h5>Cash-In</h5>
                       <p>
-                        Tokenisation of mobile phone numbers can improve security, not only for women, 
-                        but for all customers interested in keeping their number private. It can contribute 
-                        to achieving gender equality and empowering all women and girls in line with UN 
-                        Sustainable Development Goal 5. 
+                        Simulate a money withdraw using a cash-in a transaction at an agent location.
                       </p>
                     </div>
                   </div>
-                </div> -->
+                </div>
+
+                <!-- ELEMENT 03 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/feature-icon-4.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame">
+                      <h5>Cash-Out</h5>
+                      <p>
+                        Reproduce a money deposit using a cash-in transaction at an agent location.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                
 
               </div>
             </div>
@@ -122,17 +118,80 @@
       <div class="container">
         <div class="bio-all-contents">
           <div class="row">
-            
-              <div class="col-12 col-lg-6">
-                <h2>Value for operators </h2>
-                <h4>How can mobile use be made more secure for users, and especially women?</h4>
+
+            <div class="col-12 col-lg-4">
+            <div class="right-manage-img">
+              <h2>Value for operators </h2>
+              <p>
+              </p>
+              <h4>How can mobile use be made more secure for users, and especially women?</h4>
+            </div>
+          </div>
+          <div class="col-12 col-lg-1"></div>
+          <div class="col-12 col-lg-7">
+            <div class="managing-box">
+              <div class="row">
+
+                <!-- ELEMENT 01 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/trusted.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame">
+                      <h5>Our solution is designed alongside mobile network operators to attend their business needs.</h5>
+                      <p>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ELEMENT 02 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/development.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame">
+                      <h5>Our engine is non-intrusive to your core platforms and can be integrated as an modular extension.</h5>
+                      <p>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ELEMENT 03 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/smartphones.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame">
+                      <h5>Generated tokens can be designed to have the same format as the phone number sequence in your market if interest. This ensures a seamless replacement of MSISDNs in requests to your platform.</h5>
+                      <p>
+                      </p>
+                    </div>
+                  </div> 
+                </div>
+
+               </div> 
               </div>
-              <div class="col-12 col-lg-6">
-                <p>- Our solution is designed alongside mobile network operators.</p>
-                <p>- Our engine is non-intrusive to your core platforms and can be integrated as an modular extension.</p>
-                <p>- Generated tokens can be designed to have the same format as the phone number sequence in your market if interest. This ensures a seamless replacement of MSISDNs in requests to your platform.</p>
-              </div>
-            
+          </div>
+
+
+
           </div>
         </div>
       </div>
@@ -150,6 +209,7 @@ export default {
   data: () => ({
     props: {
       tittle: 'THE VALUE OF MOBILE TOKENISATION',
+      content: 'Protect yourself from exposing your phone number using a token solution',
       breadCrumb: {
         tittle: 'How it works',
         link: '/howitworks',
