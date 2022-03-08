@@ -15,15 +15,15 @@
             <div class="digital-frame-left-content">
               <h2>Innovating mobile tokenisation to keep your customers safe</h2>
               <p>This showcase demonstrates how tokenising customers’ phone numbers protects their contact details and keeps their identity private. Try it out in different mobile money scenarios.</p>
-              <p><b>On our simulator:</b> Experience different scenarios in an interface to simulate both user and service agent. </p>
-              <p><b>Onn your own device:</b> Sign up and experience on your own phone. Send and receive SMS/USSD commands and access services. </p>
-              <p style="color: red"><i>*You can use the phone number or the token to access the transactions</i></p>
+              <p><b>1. Our simulator:</b> Experience different scenarios in an interface to simulate both user and service agent. </p>
+              <p><b>2. Your own device:</b> Sign up and experience on your own phone. Send and receive SMS/USSD commands and access services. </p>
+              
             </div>
           </b-col>
           <b-col cols="12" md="1"></b-col>
           <b-col cols="12" md="6">
             <div class="content-digital">
-              <h2 style="text-align:center">Codes and comands</h2>
+              <h2 style="text-align:center">Codes and Commands</h2>
               <table>
                 <tr>
                   <th style="width:60%">SMS</th>
@@ -52,6 +52,7 @@
               </table>
               <p></p>
               <p><i>*More information about the use cases and codes can be found in our <a href="https://docs.token.gsmainclusivetechlab.io/">documentation</a></i></p>
+              <p style="color: red"><i>*You can use the phone number or the token to access the transactions</i></p>
             </div>
           </b-col>
         </b-row>
@@ -64,15 +65,15 @@
         <b-row class="justify-content-start align-items-center">
           <b-col cols="12" xl="6">
             
-            <h2 style="text-align:center">Try out our simulator</h2>
-            <ul>
-              <li> <img src="../assets/images/tick.png" alt="tick symbol"/> Everything in one interface</li>
-              <li> <img src="../assets/images/tick.png" alt="tick symbol"/> Quick demonstration and evaluation</li>
-              <li> <img src="../assets/images/tick.png" alt="tick symbol"/> Uses a feature phone</li>
-              <li> <img src="../assets/images/tick.png" alt="tick symbol"/> Link to User Manual in the documentation</li>
-            </ul>
+            <h2 style="text-align:left">1. Try out our simulator</h2>
+            
+              <p> <img src="../assets/images/tick.png" alt="tick symbol"/> Everything in one interface</p>
+              <p> <img src="../assets/images/tick.png" alt="tick symbol"/> Quick demonstration and evaluation</p>
+              <p> <img src="../assets/images/tick.png" alt="tick symbol"/> Uses a feature phone</p>
+              <p> <img src="../assets/images/tick.png" alt="tick symbol"/> Link to User Manual in the documentation</p>
+            
             <p></p>
-            <div align="center" class="newscase-btn">
+            <div align="left" class="newscase-btn" style="padding: 0 0 0 25px">
               <p><a id="show-modal" href="/trytoken/mock" class="btn-newscase">Try Virtual Token Simulation</a></p>
             </div>
 
@@ -105,7 +106,7 @@
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="content-login">
-              <h2>Try out on your own device</h2>
+              <h2>2. Try out on your own device</h2>
               <h4>Sign up and experience on your own phone. Send and receive SMS/USSD commands and access services.</h4>
               <br />
               <p> If you want to use the Live version, you need to sign up to be able to receive messages from the system. All the data used during the tests is deleted automatically after you finish the tests or refresh the page. </p>

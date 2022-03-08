@@ -12,29 +12,33 @@
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
               <b-navbar-nav>
+                
                 <b-nav-item href="#">
                   <router-link to="/">Home</router-link>
                 </b-nav-item>
+                
                 <b-nav-item href="#">
                   <router-link to="/howitworks">How it works</router-link>
                 </b-nav-item>
-                <!-- <b-nav-item href="#">
-                  <router-link to="/tryb4all"> Try B4LL </router-link>
-                </b-nav-item> -->
+                
                 <b-nav-item href="#">
                   <router-link to="/trytoken"> Try Token </router-link>
                 </b-nav-item>
+                
                 <b-nav-item href="https://docs.token.gsmainclusivetechlab.io/">
                   <!-- <router-link to="/documentation">  -->
                   <a href="https://docs.token.gsmainclusivetechlab.io/">Documentation</a>
                   <!-- </router-link> -->
                 </b-nav-item>
+                
                 <b-nav-item href="#">
                   <router-link to="/about">About</router-link>
                 </b-nav-item>
+                
                 <!-- <b-nav-item href="#">
                   <router-link to="/faq">FAQs</router-link>
                 </b-nav-item> -->
+                
               </b-navbar-nav>
             </b-navbar-nav>
           </b-collapse>

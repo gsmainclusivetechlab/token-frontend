@@ -46,6 +46,18 @@
     <div class="digital-wrapper mb-3">
       <b-container>
         <b-row>
+          
+          <b-col cols="12" md="5">
+            <div class="digital-frame-left-content">
+              <h3>Innovating mobile tokenisation to keep your customers safe</h3>
+              <p>
+                Mobile tokenisation enables replacing a customer’s mobile phone number with a non-sensitive equivalent (referred to as a token) when they use digital services. The solution is expected to benefit women in particular by providing them with greater privacy and security. 
+              </p>
+            </div>
+          </b-col>
+
+          <b-col cols="12" md="1"> </b-col>
+
           <b-col cols="12" md="6">
             <div class="content-digital">              
               <div class="twoline-managing-frame">
@@ -63,16 +75,7 @@
               </div>
             </div>
           </b-col>
-          <b-col cols="12" md="1"> </b-col>
-          <b-col cols="12" md="5">
-            <div class="digital-frame-left-content">
-              <h3>Innovating mobile tokenisation to keep your customers safe</h3>
-              <p>
-                Mobile tokenisation enables replacing a customer’s mobile phone number with a non-sensitive equivalent (referred to as a token) when they use digital services. The solution is expected to benefit women in particular by providing them with greater privacy and security. 
-              </p>
-            </div>
-          </b-col>
-      
+
         </b-row>
       </b-container>
     </div>
@@ -220,7 +223,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="card-wrap">
                     <img src="../assets/images/trusted.png" class="img-fluid" alt="trusted" />
-                    <h5>Built for the context of low and middle-income countries </h5>
+                    <h5>Built for the context of low- and middle-income countries </h5>
                     <h6>
                       Our solutions use an intuitive and familiar interaction, accommodating users’ 
                       existing digital skills and behaviours and not requiring changes in the current
