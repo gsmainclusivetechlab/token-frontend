@@ -2,12 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import HowItWorks from "../views/HowItWorks.vue";
-import Faq from "../views/Faq.vue";
-import TryB4All from "../views/TryB4All.vue";
-import TryToken from "../views/TryToken.vue";
 import RequestForm from "../views/RequestForm.vue";
 import RequestForm1 from "../views/RequestForm1.vue";
-import Orange from "../views/Orange.vue";
 import NotFound from "../views/NotFound.vue";
 import CookiePolicy from "../views/CookiePolicy.vue"
 import CookieList from "../views/CookieList.vue"
