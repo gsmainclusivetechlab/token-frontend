@@ -9,6 +9,8 @@ import RequestForm from "../views/RequestForm.vue";
 import RequestForm1 from "../views/RequestForm1.vue";
 import Orange from "../views/Orange.vue";
 import NotFound from "../views/NotFound.vue";
+import CookiePolicy from "../views/CookiePolicy.vue"
+import CookieList from "../views/CookieList.vue"
 
 Vue.use(VueRouter);
 
@@ -55,6 +57,16 @@ const routes = [
   },
   { path: "/404", component: NotFound },
   { path: "*", redirect: "/404" },
+  {
+    path: "/cookie-policy",
+    name: "Cookie Policy",
+    component: CookiePolicy,
+  },
+  {
+    path: "/our-cookie-list",
+    name: "Cookie List",
+    component: CookieList,
+  },
 
   {
     path: "/about",
