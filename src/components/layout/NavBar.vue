@@ -4,10 +4,7 @@
       <b-container fluid>
         <b-navbar toggleable="lg">
           <b-navbar-brand href="/">
-            <img
-              src="../../assets/images/Logol1img.jpg"
-              class="img-fluid normal-logo "
-              alt="Logo"
+            <img src="../../assets/images/Logol1img.jpg" class="img-fluid normal-logo" alt="Logo"
           /></b-navbar-brand>
 
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -15,31 +12,33 @@
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
               <b-navbar-nav>
+                
                 <b-nav-item href="#">
                   <router-link to="/">Home</router-link>
                 </b-nav-item>
+                
                 <b-nav-item href="#">
                   <router-link to="/howitworks">How it works</router-link>
                 </b-nav-item>
-                <!-- <b-nav-item href="#">
-                  <router-link to="/tryb4all"> Try B4LL </router-link>
-                </b-nav-item> -->
+                
                 <b-nav-item href="#">
                   <router-link to="/trytoken"> Try Token </router-link>
                 </b-nav-item>
-                <!-- <b-nav-item href="https://docs.biometrics.gsmainclusivetechlab.io/"> -->
+                
+                <b-nav-item href="https://docs.token.gsmainclusivetechlab.io/">
                   <!-- <router-link to="/documentation">  -->
-                  <!-- <a href=" https://docs.biometrics.gsmainclusivetechlab.io/ "
-                    >Documentation</a
-                  > -->
+                  <a href="https://docs.token.gsmainclusivetechlab.io/">Documentation</a>
                   <!-- </router-link> -->
-                <!-- </b-nav-item> -->
-                <!-- <b-nav-item href="#">
+                </b-nav-item>
+                
+                <b-nav-item href="#">
                   <router-link to="/about">About</router-link>
                 </b-nav-item>
-                <b-nav-item href="#">
+                
+                <!-- <b-nav-item href="#">
                   <router-link to="/faq">FAQs</router-link>
                 </b-nav-item> -->
+                
               </b-navbar-nav>
             </b-navbar-nav>
           </b-collapse>
@@ -62,7 +61,7 @@
 
 <script>
 export default {
-  name: "NavBar",
+  name: 'NavBar',
 };
 </script>
 
@@ -135,8 +134,8 @@ a {
   color: #000;
 }
 .navbar .dropdown-toggle:after {
-  content: "";
-  background-image: url("../../assets/images/arrow-white.svg");
+  content: '';
+  background-image: url('../../assets/images/arrow-white.svg');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -187,7 +186,7 @@ a {
 }
 
 .navbar-light .navbar-toggler-icon {
-  background-image: url("../../assets/images/menu.png");
+  background-image: url('../../assets/images/menu.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -217,7 +216,7 @@ a {
     position: relative;
   }
   .navbar-expand-lg .navbar-nav .dropdown-menu::after {
-    content: "";
+    content: '';
     width: 0;
     height: 0;
     border-left: 9px solid transparent;
@@ -227,12 +226,8 @@ a {
     right: 22px;
     top: -9px;
   }
-  .navbar-light
-    .navbar-nav
-    .nav-item
-    .nav-link
-    a.router-link-exact-active::after {
-    content: "";
+  .navbar-light .navbar-nav .nav-item .nav-link a.router-link-exact-active::after {
+    content: '';
     width: 100%;
     height: 2px;
     background-color: #ae52c4;

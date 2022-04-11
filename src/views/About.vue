@@ -1,31 +1,16 @@
 <template>
   <div class="home">
     <AppHeader v-bind="props" />
+    
     <div class="about-content-wrapper">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-6">
             <h2>Inclusive Tech Lab</h2>
             <h6>
-              The
-              <a
-                href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/"
-                target="_blank"
-              >
-                GSMA Inclusive Tech Lab</a
-              >
-              supports the mobile money industry to develop the mobile financial
-              ecosystem, to enable a broad range of digital transactions and
-              make mobile wallets central to the lives of the financially
-              excluded and underserved, providing them with better solutions to
-              manage their financial resources and face economic shocks. Mobile
-              money has evolved to a platform of more than 1 billion accounts
-              reaching emerging market consumers and bringing financial access
-              to the previously underserved and excluded. The Inclusive Tech Lab
-              has published a set of harmonised Mobile Money Application
-              Programming Interfaces (APIs) and is now looking at expanding the
-              potential of mobile money through the use of biometrics for
-              financial transactions.
+              <p> The <a href=https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/>GSMA Inclusive Tech Lab</a> is a GSMA-led global industry initiative that takes a hands-on approach to research, testing and development of the inclusive technologies of the future. </p>
+              <p> We are thinking big. We want to make a real impact. Think about breaking down barriers to financial services for unregistered people by developing digital identities, enabling wide availability of loans, insurance and education through seamless integrations between service providers and mobile money operators, the responsible application of artificial intelligence to tailor services for women and increase their economic participation. These challenges, and many more, will be driving our thinking as we help develop the transformative digital innovations of tomorrow. </p>
+              <p>Above all else, this Lab represents the power of collaboration: we welcome your thoughts on which technologies will prove the most impactful for digital and financial inclusion in years to come. </p>
             </h6>
           </div>
           <div class="col-12 col-md-6">
@@ -45,55 +30,45 @@
         <div class="row">
           <div class="col-12">
             <div class="bio-all-content-wrap">
-              <h2>Biometrics for All</h2>
+              <h2>Tokenisation for Digital Safety</h2>
             </div>
           </div>
           <div class="col-12 col-lg-6">
             <div class="bio-all-content-wrap">
               <h6>
-                Biometrics for All seeks to show digital service providers the advantages and possibilities of using biometric solutions in low-tech environments. The main advantage of using biometrics in low tech environments comes from the ability to reach a larger audience of users.
+                Access to mobile phones and services can have a positive impact on women’s lives, 
+                contributing to the UN Sustainable Development Goal 5 
+                focusing on gender equality and women’s empowerment, and can also provide economic benefits 
+                to the mobile industry and the wider economy. However, women are being left behind as various 
+                barriers as well as social norms keep them from accessing and using mobile technology at the 
+                same rate as men. Research has consistently shown that 
+                safety and security concerns related to mobile are a key barrier, and one which women tend to 
+                experience more acutely than men.
               </h6>
               <h6>
-                This benefit is even more evident in places where the number of
-                national ID holders is reduced. Thus, in some developing
-                countries, starting from a scenario where access to national ID
-                is difficult, the registration and authentication of users on
-                mobile operators may be compromised. In this sense, the use of
-                biometrics allows the use of non-transferable information,
-                leading to greater adherence by users. This makes biometrics the
-                ideal and more accurate solution for validating personal data.
+                Issues are wide ranging and include mobile-related harassment, theft, fraud and security, 
+                which inhibit women from benefitting from or even wanting to use a mobile. A key concern is 
+                unsolicited phone calls and text messages, which some women receive as a result of their 
+                mobile numbers being misused by agents or at points of sale.
               </h6>
-              
             </div>
           </div>
           <div class="col-12 col-lg-6">
-            <div class="img-bio-content">
               <h6>
-                If well implemented, biometrics authentication can unlock access
-                to a large number of previously difficult to reach customers,
-                such as: people with disabilities, less literate populations,
-                people with lack of national ID, featured phones users and much more.
+                 In low- and middle-income countries (LMICs), customers’ phone numbers are commonly shared with the 
+                 agent or merchant when they purchase airtime or use mobile money, as their mobile phone number is 
+                 typically also their mobile money account number.
               </h6>
               <h6>
-                The use of biometrics can increase the security to execute
-                mobile money transactions, such as international remittance.
-                Inscribed within well-designed platforms would not only enable
-                them to make greater and better use of their mobile wallets, but
-                also make usage more secure and attractive.
+                Mobile-related security issues can be improved through tokenisation, a process of replacing 
+                sensitive data with a unique string of numbers, which has been successfully implemented in 
+                other industries. The Lab will design a system that will use an algorithm to generate tokens t
+                hat will replace the user’s phone numbers. This system will be designed alongside an operator as 
+                the generated tokens will be linked to the user’s phone number. The user will request a token via 
+                USSD menu, SMS, or phone call to the operator. The token can be accessed via a USSD menu or if SMS 
+                or phone call used, then the operator will return a unique number to the user which is associated with 
+                their account. This token will be used to pay for services such as topping up or merchant services.
               </h6>
-              <h6>
-                The GSMA is working with its members and mobile money industry
-                partners to support the process of implementing biometrics in
-                their markets.
-              </h6>
-            </div>
-            <div class="img-bottom">
-              <img
-                src="../assets/images/Biomet.png"
-                class="img-fluid"
-                alt="Biomet"
-              />
-            </div>
           </div>
         </div>
       </div>
@@ -112,6 +87,7 @@
               class="btn"
               >Contact</a
             >
+            <p></p>
           </div>
         </div>
       </div>
@@ -204,7 +180,6 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  background-image: url("../assets/images/bio-left.png");
   width: 210px;
   height: 364px;
 }
@@ -212,7 +187,7 @@ export default {
   padding-bottom: 121px;
 }
 .two-col-biometric-wrap .bio-all-content p a {
-  color: #fff;
+  color: #ae52c4;
 }
 @media only screen and (max-width: 1024px) {
   .two-col-biometric-wrap.bio-all-content {
@@ -238,4 +213,5 @@ export default {
     margin-top: 0;
   }
 }
+
 </style>

@@ -8,197 +8,191 @@
           <div class="row">
             <div class="col-12 col-lg-6">
               <div class="bio-content-wrap">
-                <h2>Token Solution</h2>
+                <h2>A demonstration of mobile number tokenisation</h2>
                 <p>
-                  One of the targets of the Token project is to demonstrate the advantages of using a token that will replace the user's
-                  phone number to make mobile money transactions with the goal of improving the security of the users.
+                  This showcase aims to demonstrate how tokenising customers’ phone numbers 
+                  protects their contact details and keeps their identity private. 
                 </p>
                 <p>
-                  This showcase consists of a system that allows the user to generate a token based on their phone number to execute
-                  transactions preventing their phone number from being exposed.
+                  A customer can easily request a token, which is issued in real time. To obtain the token the user can use SMS or USSD codes. Once they have the token number, the customer can access a variety of mobile services without having to disclose their mobile phone number - safely and securely. 
                 </p>
                 <p>
-                  The available use cases will show that if users use the token they will be able to do the same as they are currently able
-                  to do using their phone number.
+                  Agents, meanwhile, do not need to do anything differently from usual.
                 </p>
               </div>
             </div>
             <div class="col-12 col-lg-6">
-              <div class="img-bio">
-                <img src="../assets/images/usecase-gsma.png" class="img-fluid" alt="usecase-content" />
+              <div class="img-bio">  
+                <!-- ALIGN IN THE MIDDLE -->
+                <img src="../assets/images/graphic-04.png" class="img-fluid" alt="usecase-content" />
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="two-col-biometric-wrap text-white managing-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="right-manage-img">
-              <h2 class="mb-0">How it works</h2>
-              <p>
-                Our showcase has an Agent/Merchant simulation and two possibilities to act as the Customer, a simulated Mock mode and Live
-                mode.
-              </p>
-              <p>
-                In the Mock mode, a mobile phone will appear on the page that will simulate a real mobile phone. it will be possible to
-                choose between using SMS or USSD to make actions. To use the Mock mode the user's needs to choose option Mock on the
-                Customer Area and press the "Start" button.
-              </p>
-              <p>
-                In Live mode, the user will use his mobile phone to send SMS messages to a phone number provided for demonstrating the Token
-                Solution. To use this mode the user will need to sign, for the system to recognize his phone number as belonging to a valid
-                user. The option to delete his information from the system is also provided via the “Delete Account” button.
-              </p>
-              <p>
-                Note that when the Mock mode is selected the notifications from the Agent/Merchant workflow will be sent to the page itself
-                and shown in the mobile interface provide. If the Live mode is selected the notifications will be sent to the user's real
-                mobile phone.
-              </p>
-              <p>
-                During the simulation, a PIN will be requested to the user to confirm operations. The PIN provided below is the only
-                accepted value.
-              </p>
-              <p>
-                <u><b>Default PIN</b></u
-                >: 1234
-              </p>
-              <p>
-                A Merchant code identifier is also required for the Merchant payment use cases, and the only accepted value is the one
-                below.
-              </p>
-              <p>
-                <u><b>Merchant Code Available</b></u
-                >: 4321
-              </p>
-            </div>
+
+    <!-- FRAME 03: USE CASES -->
+    <section class="two-col-biometric-wrap text-white">
+      <b-container>
+        <b-row class="justify-content-start align-items-center">
+          <div class="col-12 col-lg-5">
+              <h2>
+                User Scenarios  
+              </h2>
+              <p> Our solution demonstrates the experience of mobile tokenisation for two users perspectives: customers and service agents or merchants. </p> 
+              <p> There are different ways for the user to navigate and test across a variety of scenarios.</p>
+              <p> Our scenarios are based on market requests and connect different use cases and technology approaches. We invite you, interested in tokenisation, to bring new ideas of use cases, technologies and token application to be added into our project.</p>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
+          <div class="col-12 col-lg-1"></div>
+          <div class="col-12 col-lg-6">
             <div class="managing-box">
               <div class="row">
-                <div class="col-12">
-                  <h2>Use Cases</h2>
-                </div>
-                <div class="col-12 col-md-6">
+
+                <!-- ELEMENT 01 -->
+                <div class="col-12 col-md-12">
                   <div class="twoline-managing-frame">
-                    <div class="content-manage-frame">
-                      <h5 class="text-center">UC1 - Get Token</h5>
-                      <p>Generate a token based on the user's phone number.</p>
-                      <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'GET_TOKEN' on the input field.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'GET_TOKEN'.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 1.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*1'.
-                      </p>
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/feature-icon-1.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
                     </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="twoline-managing-frame">
                     <div class="content-manage-frame">
-                      <h5 class="text-center">UC2 - Delete Token</h5>
-                      <p>Delete the generated token.</p>
+                      <h5>Merchant Payment</h5>
                       <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'DELETE_TOKEN' on input field.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'DELETE_TOKEN'.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 2.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*2'.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="twoline-managing-frame">
-                    <div class="content-manage-frame">
-                      <h5 class="text-center">UC3 - Customer Initiated Cash-in / Cash-out</h5>
-                      <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'CASH_IN -space- {AMOUNT}' or 'CASH_OUT -space- {AMOUNT}' on input
-                        field.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'CASH_IN -space- {AMOUNT}' or
-                        'CASH_OUT -space- {AMOUNT}'.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 3 -> Insert Amount.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 - '*165#*3*{AMOUNT}'.
+                        You can simulate a transaction where the customer pays a merchant.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <!-- ELEMENT 02 -->
+                <div class="col-12 col-md-12">
                   <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/feature-icon-2.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
                     <div class="content-manage-frame">
-                      <h5 class="text-center">UC5 - Customer Initiated Merchant Payment</h5>
+                      <h5>Cash-In</h5>
                       <p>
-                        <u><b>Using SMS in Mock Mode</b></u> - Write 'PAYMENT -space- {MERCHANT_CODE} -space- {AMOUNT}' on input field.
-                      </p>
-                      <p>
-                        <u><b>Using SMS in Live Mode</b></u> - Send the following SMS to +447401232937 - 'PAYMENT -space- {MERCHANT_CODE}
-                        -space- {AMOUNT}'.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Mock Mode</b></u> - Write short code '*165#' -> 5 -> Insert Merchant Code -> Insert Amount.
-                      </p>
-                      <p>
-                        <u><b>Using USSD in Live Mode</b></u> - Send the following SMS to +447401232937 -
-                        '*165#*5*{MERCHANT_CODE}*{AMOUNT}'.
+                        Simulate a money withdraw using a cash-in a transaction at an agent location.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <!-- ELEMENT 03 -->
+                <div class="col-12 col-md-12">
                   <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/feature-icon-4.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
                     <div class="content-manage-frame">
-                      <h5 class="text-center">UC4 - Agent Initiated Cash-in / Cash-out</h5>
-                      <p>Choose the Operation Cash-In or Cash-Out on Agent Operation Seetings</p>
+                      <h5>Cash-Out</h5>
+                      <p>
+                        Reproduce a money deposit using a cash-in transaction at an agent location.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-md-6">
-                  <div class="twoline-managing-frame">
-                    <div class="content-manage-frame">
-                      <h5 class="text-center">UC6 - Merchant Initiated Merchant Payment</h5>
-                      <p>Choose the Operation Merchant-Payment on Agent Operation Seetings</p>
-                    </div>
-                  </div>
-                </div>
+
+                
+
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </b-row>
+      </b-container>
     </section>
+
     <section class="bio-all">
       <div class="container">
         <div class="bio-all-contents">
           <div class="row">
-            <div class="col-12">
-              <div class="bio-content-wrap">
-                <h2>New Use Cases</h2>
-                <p>The number of use cases are always growing, and we invite those interested to bring new ideas for us to implement.</p>
-              </div>
+
+            <div class="col-12 col-lg-4">
+            <div class="right-manage-img" style="">
+              <h2>Value for operators </h2>
+              <p>
+              </p>
+              <h4>How can mobile services be made more secure for users, and especially women?</h4>
             </div>
+          </div>
+          <div class="col-12 col-lg-1"></div>
+          <div class="col-12 col-lg-7">
+            <div class="managing-box">
+              <div class="row">
+
+                <!-- ELEMENT 01 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/trusted.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame">
+                      <p>Our solution is designed alongside mobile network operators to attend their business needs.</p>
+                      <p>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ELEMENT 02 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/development.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame">
+                      <p>Our engine is non-intrusive to your core platforms and can be integrated as modular extension.</p>
+                      <p>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ELEMENT 03 -->
+                <div class="col-12 col-md-12">
+                  <div class="twoline-managing-frame">
+                    <div class="img-manage">
+                      <img
+                        src="../assets/images/smartphones.png"
+                        class="img-fluid"
+                        alt="feature-icon-1"
+                      />
+                    </div>
+                    <div class="content-manage-frame">
+                      <p>Generated tokens can be designed to have the same format as the phone number sequence in your market if interest. This ensures a seamless replacement of MSISDNs in requests to your platform.</p>
+                      <p>
+                      </p>
+                    </div>
+                  </div> 
+                </div>
+
+               </div> 
+              </div>
+          </div>
+
+
+
           </div>
         </div>
       </div>
@@ -215,7 +209,8 @@ export default {
   components: { AppHeader, Footer },
   data: () => ({
     props: {
-      tittle: 'FEATURES TOKEN BRINGS TO YOU',
+      tittle: 'THE VALUE OF MOBILE TOKENISATION',
+      content: 'Protect yourself from exposing your phone number using a token solution',
       breadCrumb: {
         tittle: 'How it works',
         link: '/howitworks',
@@ -390,11 +385,11 @@ export default {
 
 .bio-all::after {
   content: '';
-  background-image: url('../assets/images/bg-3.png');
-  background-position: center;
+  /*background-image: url('../assets/images/bg-dots-01.png');*/
+  background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 400px;
+  width: 600px;
   height: 350px;
   position: absolute;
   top: 0;

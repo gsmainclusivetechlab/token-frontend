@@ -1,71 +1,128 @@
 <template>
   <div class="home">
     <AppHeader v-bind="headerProps" />
-    <div class="login-form-frame">
+
+    <!-- FRAME 01: TRY OUR SOLUTION -->
+    <div class="digital-wrapper mb-3">
+      <b-container>
+        <!-- <b-row> 
+          <h2>
+            This showcase demonstrates how tokenising customers’ phone numbers protects their contact details and keeps their identity private. Try it out in different mobile money scenarios. 
+          </h2>
+        </b-row> -->
+        <b-row>
+          <b-col cols="12" md="5">
+            <div class="digital-frame-left-content">
+              <h2>Innovating mobile tokenisation to keep your customers safe</h2>
+              <p>This showcase demonstrates how tokenising customers’ phone numbers protects their contact details and keeps their identity private. Try it out in different mobile money scenarios.</p>
+              <p><b>1. Our simulator:</b> Experience different scenarios in an interface to simulate both user and service agent. </p>
+              <p><b>2. Your own device:</b> Sign up and experience on your own phone. Send and receive SMS/USSD commands and access services. </p>
+              <p style="color: red"><i>*Use both phone number and token in your transactions</i></p>
+            </div>
+          </b-col>
+          <b-col cols="12" md="1"></b-col>
+          <b-col cols="12" md="6">
+            <div class="content-digital">
+              <h2 style="text-align:center">Codes and Commands</h2>
+              <table>
+                <tr>
+                  <th style="width:60%">SMS</th>
+                  <th>USSD</th>
+                </tr>
+                <tr>
+                  <td>GET TOKEN</td>
+                  <td>*165*1#</td>
+                </tr>
+                <tr>
+                  <td>DELETE TOKEN</td>
+                  <td>*165*2#</td>
+                </tr>
+                <tr>
+                  <td>CASH IN (amount)</td>
+                  <td>*165*3*amount*pin#</td>
+                </tr>
+                <tr>
+                  <td>CASH OUT (amount)</td>
+                  <td>*165*4*amount*pin#</td>
+                </tr>
+                <tr>
+                  <td>PAYMENT (merchant) (amount)</td>
+                  <td>*165*3*merchant*amount*pin#</td>
+                </tr>
+              </table>
+              <p></p>
+              <p><i>*More information about the use cases and codes can be found in our <a href="https://docs.token.gsmainclusivetechlab.io/">documentation</a></i></p>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
+
+    <!-- FRAME 02: MOBILE -->
+    <section class="two-col-biometric-wrap text-white">
+      <b-container>
+        <b-row class="justify-content-start align-items-center">
+          <b-col cols="12" xl="6">
+            
+            <h2 style="text-align:left">1. Try out our simulator</h2>
+            
+              <p> <img src="../assets/images/tick.png" alt="tick symbol"/> Everything in one interface</p>
+              <p> <img src="../assets/images/tick.png" alt="tick symbol"/> Quick demonstration and evaluation</p>
+              <p> <img src="../assets/images/tick.png" alt="tick symbol"/> Uses a feature phone</p>
+              <p> <img src="../assets/images/tick.png" alt="tick symbol"/> Link to User Manual in the documentation</p>
+            
+            <p></p>
+            <div align="left" class="newscase-btn" style="padding: 0 0 0 25px">
+              <p><a id="show-modal" href="/trytoken/mock" class="btn-newscase">Try Virtual Token Simulation</a></p>
+            </div>
+
+
+          </b-col>
+          <b-col cols="12" xl="1"> </b-col>
+          <b-col cols="12" xl="5">
+            <div class="biometric-img-block">
+              <b-row class="justify-content-center align-items-center gutter-20 flex-md-column">
+                <b-col cols="12">
+                  
+                  <div class="biometric-content">
+                    <div class="img-bio">
+                      <img src="../assets/images/graphic-03.1.png" class="img-fluid" alt="usecase-content" />
+                    </div>
+                    <h5 style="text-align:center">Experience different scenarios in an interface to simulate both user and service agent.</h5>
+                  </div>
+
+                </b-col>
+              </b-row>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
+
+    <!-- FRAME 03: LIVE SIMULATION -->
+    <div class="try-token-frame">
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="content-login">
-              <h2>
-                Sign up to test our <br />
-                Token Project
-              </h2>
-              <p>
-                If you want to use the Live version, you need to sign up to be able to receive messages from the system. After the test, you
-                have the possibility to remove your data from the system, just press the button 'Delete Account'.
-              </p>
+              <h2>2. Try out on your own device</h2>
+              <h4>Sign up and experience on your own phone. Send and receive SMS/USSD commands and access services.</h4>
+              <br />
+              <p> If you want to use the Live version, you need to sign up to be able to receive messages from the system. All the data used during the tests is deleted automatically after you finish the tests or refresh the page. </p>
+              <p> To test the Use Cases, you can follow the instructions present at <a href="https://docs.token.gsmainclusivetechlab.io/" target="_blank">Token Documentation</a></p>
+              <p> If you would like to suggest a new use case or customisation of this solution to meet your business needs, contact the
+                <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank"> Inclusive Tech Lab </a></p>
 
-              <p>To test the Use Cases, you can follow the instructions present <a href="/howitworks" target="_blank"> here</a>.</p>
-
-              <p>
-                If you would like to suggest a new use case to meet your business needs, contact the
-                <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank">
-                  Inclusive Tech Lab</a
-                >
-                or
-                <a @click="scrollBottom" class="link-color"> suggest a new use case.</a>
-              </p>
+              
             </div>
           </div>
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-6 mb-4">
             <SignUpCustomer />
-            <DeleteCustomer class="mt-3" />
           </div>
         </div>
       </div>
     </div>
-    <div class="login-form-frame">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <AgentConfig :selectedSystem="selectedSystem" />
-          </div>
-          <div class="col-12 col-lg-6">
-            <CustomerConfig
-              :selectedSystemParent="selectedSystem"
-              :selectedModeParent="selectedMode"
-              :phoneParent="phoneNumber"
-              @selectedSystemChild="updateSelectedSystem"
-              @selectedModeChild="updateSelectedMode"
-              @emitShowPhoneInterface="updateShowPhoneInterface"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="login-form-frame">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <AgentTables />
-          </div>
-          <div class="col-12 col-lg-6">
-            <h2 class="text-center">Mobile Simulation</h2>
-            <Phone v-if="showPhoneInterface" :selectedSystem="selectedSystem" :selectedMode="selectedMode" :phone="phoneNumber" />
-          </div>
-        </div>
-      </div>
-    </div>
+
     <Footer />
   </div>
 </template>
@@ -77,41 +134,23 @@ import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
 import AppHeader from '../components/AppHeader';
 import Footer from '../components/layout/Footer';
-import { VueTelInput } from 'vue-tel-input';
 import SignUpCustomer from '../components/SignUpCustomer.vue';
-import AgentConfig from '../components/AgentConfig.vue';
-import CustomerConfig from '../components/CustomerConfig.vue';
-import Phone from '../components/Phone.vue';
-import AgentTables from '../components/AgentTables.vue';
-import OperationInformation from '../components/OperationInformation.vue';
-import DeleteCustomer from '../components/DeleteCustomer.vue';
 export default {
   name: 'TryToken',
   components: {
     AppHeader,
     Footer,
-    VueTelInput,
     SignUpCustomer,
-    AgentConfig,
-    CustomerConfig,
-    Phone,
-    AgentTables,
-    OperationInformation,
-    DeleteCustomer,
   },
   data: () => ({
     headerProps: {
-      tittle: 'EXPERIENCE THE TOKEN SHOWCASE',
-      content: 'Protect yourself from exposing your phone number using a token solution',
+      tittle: 'EXPERIENCE MOBILE TOKENISATION',
+      content: 'Try out our live and simulation version using SMS and USSD',
       breadCrumb: {
         tittle: 'Try Token',
         link: 'trytoken',
       },
     },
-    showPhoneInterface: false,
-    selectedSystem: 'mock',
-    selectedMode: 'SMS',
-    phoneNumber: '+447401232937',
   }),
   methods: {
     scrollBottom() {
@@ -121,222 +160,39 @@ export default {
         behavior: 'smooth',
       });
     },
-
-    updateSelectedSystem(newValue) {
-      this.selectedSystem = newValue;
-    },
-
-    updateSelectedMode(newValue) {
-      this.selectedMode = newValue;
-    },
-
-    updateShowPhoneInterface(newValue) {
-      this.showPhoneInterface = newValue;
+    tryMock() {
+      this.$router.push({ path: `/trytoken/mock` });
     },
   },
 };
 </script>
 <style src="vue-tel-input/dist/vue-tel-input.css"></style>
 <style>
-.coming-soon-frame h4 {
-  margin-bottom: 0;
-  color: #fff;
-  padding-top: 10px;
-}
-.try-frame {
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
-.login-form-frame {
+.try-token-frame {
   padding-top: 71px;
   padding-bottom: 70px;
   position: relative;
 }
-/* .login-form-frame::before {
-  content: '';
-  background-image: url('../assets/images/phone-call.png');
-  position: absolute;
-  left: 49px;
-  top: 17px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 100px;
-  height: 100px;
-}
-.login-form-frame::after {
-  content: '';
-  background-image: url('../assets/images/bg.png');
-  position: absolute;
-  right: -10px;
-  top: -61px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 391px;
-  height: 550px;
-  z-index: -1;
-} */
-.error-msg {
-  font-size: 12px;
-  color: red;
-}
-.form-control:focus {
-  outline: none;
-  box-shadow: none;
-  border: 1px solid #95236c;
-}
-.login-form-frame .btn {
-  width: 100%;
-}
-.mr-10 {
-  margin-right: 10px;
-}
-.phone-call-frame img {
-  margin-top: -7px;
-}
-.login-form-frame .content-login h4 {
-  font-weight: bold;
-  position: relative;
-  /* padding-left: 35px; */
-}
-.login-form-frame .content-login p a {
-  /* color: #000000; */
-  font-size: 16px;
-}
-.biometric-content p a {
-  color: #fff;
-}
-/* .biometric-content p a:hover,
-.biometric-content p a {
-  color: #ae52c4;
-} */
-.link-color:hover {
-  color: #ae52c4;
-  cursor: pointer;
-}
-/* .login-form-frame .content-login h4::before {
-  content: "";
-  position: absolute;
-  background-image: url("../assets/images/phone-call-blue.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 25px;
-  height: 25px;
-} */
-.login-form-frame .sign-up-frame p {
-  font-size: 14px;
-}
 
-.login-form-frame .sign-up-frame h2,
-.login-form-frame .sign-up-frame h4,
-.login-form-frame .sign-up-frame p {
-  text-align: center;
-}
-
-.login-form-frame .sign-up-frame {
-  background-color: #f9f9f9;
-  border-radius: 18px;
-  border: 1px solid #f2f2f2;
-  width: 485px;
-  /* height: 501px; */
-  padding-left: 26px;
-  padding-top: 34px;
-  padding-right: 28px;
-  padding-bottom: 51px;
-}
-::placeholder {
-  font-size: 14px;
-}
-.login-form-frame .sign-up-frame .checkmark {
-  position: absolute;
-  top: 5px;
-  margin-right: 5px;
-  left: 0;
-  border: 1px solid #979797;
-  width: 14px;
-  height: 14px;
-}
-.login-form-frame .content-login h4 a {
-  color: #373737;
-  font-size: 18px;
-  font-weight: bold;
-}
-.login-form-frame .sign-up-frame .form-check {
-  padding-left: 0;
-}
-.login-form-frame .sign-up-frame .checkmark:after {
-  content: '';
-  position: absolute;
-  display: none;
-}
-.form-check-label {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 14px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.form-check-label input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-/* Show the checkmark when checked */
-.form-check-label input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.form-check-label .checkmark:after {
-  left: 3px;
-  top: 0px;
-  width: 5px;
-  height: 10px;
-  border: solid #95236c;
-  border-width: 0 3px 3px 0;
-  /* background-color: #95236c; */
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.form-response {
-  text-align: center;
-  margin-top: 20px;
-}
 @media only screen and (max-width: 1024px) {
-  .login-form-frame .sign-up-frame {
+  .try-token-frame .sign-up-frame {
     width: auto;
   }
-  /* .login-form-frame::after {
-    content: '';
-    background-image: url('../assets/images/bg.png');
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    top: auto;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 224px;
-    height: 330px;
-    z-index: -1;
-  } */
 }
-@media only screen and (max-width: 767px) {
-  .coming-soon-frame h4 {
-    margin-bottom: 30px;
-  }
+
+th, td {
+  padding: 9px;
+  padding-left: 30px;
 }
+
+tr{
+  border-bottom: 1px solid rgb(0, 0, 0);
+  text-align: left;
+}
+
+/* ul {
+    margin-left: 60px; To remove default bottom margin  
+    padding: 30px; To remove default left padding
+} */
+
 </style>

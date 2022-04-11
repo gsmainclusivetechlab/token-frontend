@@ -1,67 +1,71 @@
 <template>
-  <div class="d-flex justify-content-center">
-    <div class="phone-wrapper">
-      <div class="screen-content">
-        <form class="my-form" @submit.prevent="processSend" @reset.prevent="processCancel">
-          <div class="notification-wrapper" v-if="lastMessageReceive && lastMessageReceive.length != 0">
-            <span>{{ lastMessageReceive }}</span>
-          </div>
-          <div class="fields-wrapper">
-            <span class="text">{{ phoneMessageDisplay }}</span>
-            <input type="text" v-model="phoneInput" />
-            <span class="error-msg" v-if="phoneMessageError.length != 0">
-              {{ phoneMessageError }}
-            </span>
-            <div class="buttons-wrapper">
-              <button type="reset">Cancel</button>
-              <button type="submit">Send</button>
+  <div>
+    <div v-if="selectedSystem == 'mock' && customerToken" class="text-center text-danger">
+      <span>Your Token Number is: {{ customerToken }}</span>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="phone-wrapper">
+        <div class="screen-content">
+          <form class="my-form" @submit.prevent="processSend" @reset.prevent="processCancel">
+            <div class="notification-wrapper" v-if="lastMessageReceive && lastMessageReceive.length != 0">
+              <span>{{ lastMessageReceive }}</span>
+            </div>
+            <div class="fields-wrapper">
+              <span class="text">{{ phoneMessageDisplay }}</span>
+              <input type="text" v-model="phoneInput" />
+              <span class="error-msg" v-if="phoneMessageError.length != 0">
+                {{ phoneMessageError }}
+              </span>
+              <div class="buttons-wrapper">
+                <button :disabled="!this.phoneInput" type="submit">Send</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="keys-map">
+          <div class="row">
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('1')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('2')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('3')"></a>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="keys-map">
-        <div class="row">
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('1')"></a>
+          <div class="row">
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('4')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('5')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('6')"></a>
+            </div>
           </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('2')"></a>
+          <div class="row">
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('7')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('8')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('9')"></a>
+            </div>
           </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('3')"></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('4')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('5')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('6')"></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('7')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('8')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('9')"></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('*')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('0')"></a>
-          </div>
-          <div class="col">
-            <a href="javascript: void(0)" @click="onClickKey('#')"></a>
+          <div class="row">
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('*')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('0')"></a>
+            </div>
+            <div class="col">
+              <a href="javascript: void(0)" @click="onClickKey('#')"></a>
+            </div>
           </div>
         </div>
       </div>
@@ -78,12 +82,16 @@ export default {
       type: String,
       required: true,
     },
-    selectedMode: {
+    parentSelectedMode: {
       type: String,
       required: true,
     },
     phone: {
       type: String,
+      required: true,
+    },
+    sessionId: {
+      type: Number,
       required: true,
     },
   },
@@ -110,19 +118,22 @@ export default {
     },
 
     lastMessageReceive: '',
+    selectedMode: '',
+
+    customerToken: null,
+    getOrDeleteTokenAction: false,
   }),
   created() {
     this.phoneWithoutSpaces = this.phone.replace(/\s/g, '');
+    this.selectedMode = this.parentSelectedMode;
     switch (this.selectedMode) {
       case 'SMS':
         this.phoneMessageDisplay = 'Enter the text:';
-        this.postObjectSMS.phoneNumber = this.phoneWithoutSpaces;
-        this.postObjectSMS.system = this.selectedSystem;
+        this.resetPostObjectSMS();
         break;
       case 'USSD':
         this.phoneMessageDisplay = 'Dial Short Code:';
-        this.postObjectUSSD.phoneNumber = this.phoneWithoutSpaces;
-        this.postObjectUSSD.system = this.selectedSystem;
+        this.resetPostObjectUSSD();
         break;
       default:
         break;
@@ -130,9 +141,23 @@ export default {
   },
   mounted() {
     this.pollIntervalGetSMS = setInterval(this.getSMSResponse, 1000); //save reference to the interval
-    this.pollTimeoutGetSMS = setTimeout(() => {
-      clearInterval(this.pollIntervalGetSMS);
-    }, 1800000); //stop polling after ten minutes
+
+    this.$root.$on('newSelectedMode', (value) => {
+      this.selectedMode = value;
+      this.phoneMessageError = '';
+      switch (this.selectedMode) {
+        case 'SMS':
+          this.phoneMessageDisplay = 'Enter the text:';
+          this.resetPostObjectSMS();
+          break;
+        case 'USSD':
+          this.phoneMessageDisplay = 'Dial Short Code:';
+          this.resetPostObjectUSSD();
+          break;
+        default:
+          break;
+      }
+    });
   },
   beforeDestroy() {
     clearInterval(this.pollIntervalGetSMS);
@@ -145,6 +170,12 @@ export default {
 
     processSend(e) {
       this.phoneMessageError = '';
+
+      if (!this.phoneInput || this.phoneInput.trim().length == 0) {
+        this.phoneMessageError = `Input is empty.`;
+        return;
+      }
+
       switch (this.selectedMode) {
         case 'SMS':
           this.processSMSMode();
@@ -181,6 +212,10 @@ export default {
     async processSMSMode() {
       this.postObjectSMS.text = this.phoneInput;
 
+      if (this.phoneInput.toUpperCase() === 'GET TOKEN' || this.phoneInput.toUpperCase() === 'DELETE TOKEN') {
+        this.getOrDeleteTokenAction = true;
+      }
+
       let response = await this.axiosPost(process.env.VUE_APP_PROXY_API_URL + '/sms-gateway/send', this.postObjectSMS);
 
       if (response && response.data) {
@@ -199,6 +234,10 @@ export default {
       } else {
         if (this.postObjectUSSD.text === '') {
           this.postObjectUSSD.text = this.phoneInput;
+
+          if (this.phoneInput === '1' || this.phoneInput === '2') {
+            this.getOrDeleteTokenAction = true;
+          }
         } else {
           this.postObjectUSSD.text += '*' + this.phoneInput;
         }
@@ -207,7 +246,13 @@ export default {
       let response = await this.axiosPost(process.env.VUE_APP_PROXY_API_URL + '/ussd-gateway/send', this.postObjectUSSD);
 
       if (response && response.data) {
-        if (response.data.substring(0, 3) === 'END') {
+        if (response.data.message) {
+          if (response.data.message === 'Thanks for using Engine API') {
+            this.phoneInput = '';
+            this.postObjectUSSD.serviceCode = '';
+            this.postObjectUSSD.text = '';
+          }
+        } else if (response.data.substring(0, 3) === 'END') {
           if (response.data === 'END Invalid Option') {
             this.phoneMessageDisplay = 'Dial Short Code:';
             this.postObjectUSSD.serviceCode = '';
@@ -224,7 +269,7 @@ export default {
             this.phoneInput = '';
             this.postObjectUSSD.serviceCode = '';
             this.postObjectUSSD.text = '';
-            this.lastMessageReceive = response.data;
+            //this.lastMessageReceive = response.data;
           } else {
             this.updatePhoneMessageDisplay(response.data);
           }
@@ -243,6 +288,7 @@ export default {
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
+            sessionId: this.sessionId,
           },
         });
 
@@ -250,10 +296,10 @@ export default {
       } catch (err) {
         if (this.axios.isAxiosError(err) && err.response) {
           //USSD Case
-          if(err.response.data.error === 'Invalid short code'){
+          if (err.response.data.error === 'Invalid short code') {
             this.updatePhoneMessageError(err.response.data.error);
           }
-        } 
+        }
 
         return null;
       }
@@ -271,16 +317,50 @@ export default {
 
     getSMSResponse() {
       this.axios
-        .get(process.env.VUE_APP_PROXY_API_URL + '/message/sms')
+        .get(process.env.VUE_APP_PROXY_API_URL + '/message/sms', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            sessionId: this.sessionId,
+          },
+        })
         .then((response) => {
           if (response.data) {
             this.lastMessageReceive = response.data.message;
+
+            if (this.getOrDeleteTokenAction) {
+              if (response.data.message) {
+                if (response.data.message.startsWith('Your token is')) {
+                  const splitedMessage = response.data.message.split(' ');
+                  this.customerToken = splitedMessage[splitedMessage.length - 1];
+                  this.getOrDeleteTokenAction = false;
+                } else if (response.data.message === 'Your token was deleted') {
+                  this.customerToken = null;
+                  this.getOrDeleteTokenAction = false;
+                }
+              }
+            }
           }
         })
-        .catch(() => {
-          // clearInterval(this.pollIntervalGetSMS);
-          // clearTimeout(this.pollTimeoutGetSMS);
-        });
+        .catch(() => {});
+    },
+
+    resetPostObjectUSSD() {
+      this.postObjectUSSD = {
+        phoneNumber: this.phoneWithoutSpaces,
+        serviceCode: '',
+        text: '',
+        system: this.selectedSystem,
+      };
+    },
+
+    resetPostObjectSMS() {
+      this.postObjectSMS = {
+        phoneNumber: this.phoneWithoutSpaces,
+        receivingPhoneNumber: '+447777777',
+        text: '',
+        system: this.selectedSystem,
+      };
     },
   },
 };

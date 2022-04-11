@@ -1,9 +1,9 @@
 <template>
   <div>
     <h2 class="text-center">Notifications</h2>
-    <div>
-      <AgentNotifications :data="notificationList" />
-      <AgentOperationList :data="operationList" />
+    <div class="mb-4">
+      <AgentOperationList :data="operationList" :sessionId="sessionId" />
+      <AgentNotifications :data="notificationList" :sessionId="sessionId" />
     </div>
   </div>
 </template>
@@ -14,21 +14,22 @@ import AgentNotifications from './AgentNotifications.vue';
 export default {
   name: 'AgentTables',
   components: { AgentOperationList, AgentNotifications },
+  props: {
+    sessionId: {
+      type: Number,
+      required: true,
+    },
+  },
   data: () => ({
     operationList: [],
     notificationList: [],
     pollInterval: null,
-    pollTimeout: null,
   }),
   mounted() {
     this.pollInterval = setInterval(this.getData, 1000); //save reference to the interval
-    this.pollTimeout = setTimeout(() => {
-      clearInterval(this.pollInterval);
-    }, 1800000); //stop polling after ten minutes
   },
   beforeDestroy() {
     clearInterval(this.pollInterval);
-    clearTimeout(this.pollTimeout);
   },
   methods: {
     async getData() {
@@ -37,6 +38,7 @@ export default {
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
+            sessionId: this.sessionId,
           },
         });
 
@@ -44,10 +46,7 @@ export default {
           this.operationList = response.data.operations;
           this.notificationList = response.data.notifications;
         }
-      } catch (err) {
-        // clearInterval(this.pollInterval);
-        // clearTimeout(this.pollTimeout);
-      }
+      } catch (err) {}
     },
   },
 };

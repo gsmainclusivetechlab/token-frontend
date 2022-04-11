@@ -16,29 +16,19 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home,
   },
   {
-    path: "/howitworks",
-    name: "HowItWorks",
+    path: '/howitworks',
+    name: 'HowItWorks',
     component: HowItWorks,
   },
   {
-    path: "/faq",
-    name: "Faq",
-    component: Faq,
-  },
-  // {
-  //   path: "/tryb4all",
-  //   name: "TryB4All",
-  //   component: TryB4All,
-  // },
-  {
-    path: "/trytoken",
-    name: "TryToken",
-    component: TryToken,
+    path: '/trytoken',
+    name: 'TryToken',
+    component: () => import(/* webpackChunkName: "about" */ '../views/TryToken.vue'),
   },
   {
     path: "/requestform",
@@ -46,14 +36,18 @@ const routes = [
     component: RequestForm,
   },
   {
-    path: "/requestform1",
-    name: "RequestForm1",
+    path: '/requestform1',
+    name: 'RequestForm1',
     component: RequestForm1,
   },
+
   {
-    path: "/orange",
-    name: "Orange",
-    component: Orange,
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   { path: "/404", component: NotFound },
   { path: "*", redirect: "/404" },
@@ -69,18 +63,29 @@ const routes = [
   },
 
   {
-    path: "/about",
-    name: "About",
+    path: '/trytoken/mock',
+    name: 'TryTokenMock',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    component: () => import(/* webpackChunkName: "about" */ '../views/MockPage.vue'),
   },
+
+  {
+    path: '/trytoken/live/:otp',
+    name: 'TryTokenLive',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/LivePage.vue'),
+  },
+
+  { path: '/404', component: NotFound },
+  { path: '*', redirect: '/404' },
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes,
 });

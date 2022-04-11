@@ -9,9 +9,9 @@
                 class="news-head d-flex  justify-content-md-between align-items-center"
               >
                 <div class="newscase-headline">
-                  <h2>Request a new use case</h2>
+                  <h2>Bespoke business needs?</h2>
                   <p>
-                    Can’t find your specific use case? Our team can support you
+                    Our team can support you
                     in the assessment of new use cases.
                   </p>
                 </div>
@@ -114,7 +114,7 @@
                       /> </span
                   ></span>
 
-                  <span class="copy-dis"> 2021 GSMA.All right reserved</span>
+                  <span class="copy-dis"> 2022 GSMA.All right reserved</span>
                 </p>
                 <div class="scroll-top" v-on:click="scrollTop">
                   <img

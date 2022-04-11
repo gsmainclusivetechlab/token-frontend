@@ -6,16 +6,28 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development - With API running locally
 
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiles and hot-reloads for development - With the deployed API
+
+```
+npm run serve-release
+```
+
+### Compiles and minifies for production - With local variables
 
 ```
 npm run build
+```
+
+### Compiles and minifies for production - With release variables
+
+```
+npm run build-release
 ```
 
 ### Lints and fixes files

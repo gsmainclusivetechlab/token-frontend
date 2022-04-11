@@ -43,7 +43,7 @@ html {
 }
 a {
   font-weight: bold;
-  /* color: #fff; */
+  color: #fff;
 }
 .app, .modal-dialog {
   font-family: "Arial";
