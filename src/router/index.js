@@ -1,10 +1,12 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import HowItWorks from '../views/HowItWorks.vue';
-import RequestForm from '../views/RequestForm.vue';
-import RequestForm1 from '../views/RequestForm1.vue';
-import NotFound from '../views/NotFound.vue';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import HowItWorks from "../views/HowItWorks.vue";
+import RequestForm from "../views/RequestForm.vue";
+import RequestForm1 from "../views/RequestForm1.vue";
+import NotFound from "../views/NotFound.vue";
+import CookiePolicy from "../views/CookiePolicy.vue"
+import CookieList from "../views/CookieList.vue"
 
 Vue.use(VueRouter);
 
@@ -42,6 +44,18 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  },
+  { path: "/404", component: NotFound },
+  { path: "*", redirect: "/404" },
+  {
+    path: "/cookie-policy",
+    name: "Cookie Policy",
+    component: CookiePolicy,
+  },
+  {
+    path: "/our-cookie-list",
+    name: "Cookie List",
+    component: CookieList,
   },
 
   {
