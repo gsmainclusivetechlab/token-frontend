@@ -1,11 +1,11 @@
-name: Publish Client
+name: Token frontend
 env:
   CI: true
   BASE_TAG: gsmainclusivetechlab/token:client-v
 on: [push]
 jobs:
   release:
-    name: Build Client
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout repository"
