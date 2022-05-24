@@ -1,6 +1,6 @@
 # Token Frontend
 
-This is the frontend code of the Token Project, developed as a Single Page Application (SPA) in VueJS.
+This is the frontend code of the Token Project, developed in VueJS.
 
 ## Project setup
 
@@ -11,27 +11,27 @@ This is the frontend code of the Token Project, developed as a Single Page Appli
 npm install
 ```
 
-### Compiles and hot-reloads for development (local backend)
+### Run for development (local backend)
 ```
 npm run serve
 ```
 
-### Compiles and hot-reloads for development (deployed backend)
+### Run for development (deployed backend)
 ```
 npm run serve-release
 ```
 
-### Compiles and minifies for production with local variables
+### Build for production (local backend)
 ```
 npm run build
 ```
 
-### Compiles and minifies for production with release variables
+### Build for production (deployed backend)
 ```
 npm run build-release
 ```
 
-### Lints and fixes files
+### Run lint
 ```
 npm run lint
 ```
