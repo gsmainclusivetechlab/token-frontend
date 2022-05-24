@@ -1,47 +1,42 @@
-# gsma-b4all
+# Token Frontend
+
+This is the frontend code of the Token Project, developed in VueJS.
 
 ## Project setup
 
+1. Clone this repository
+2. Navigate to the project directory
+3. Install development dependencies:
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development - With API running locally
-
+### Run for development (local backend)
 ```
 npm run serve
 ```
 
-### Compiles and hot-reloads for development - With the deployed API
-
+### Run for development (deployed backend)
 ```
 npm run serve-release
 ```
 
-### Compiles and minifies for production - With local variables
-
+### Build for production (local backend)
 ```
 npm run build
 ```
 
-### Compiles and minifies for production - With release variables
-
+### Build for production (deployed backend)
 ```
 npm run build-release
 ```
 
-### Lints and fixes files
-
+### Run lint
 ```
 npm run lint
 ```
 
-### Deployment to github pages
-
+### Deployment to Github Pages
 ```
 npm run gh-pages-deploy
 ```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
