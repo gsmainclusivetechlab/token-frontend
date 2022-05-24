@@ -18,7 +18,6 @@ npm run serve
 
 ### Compiles and hot-reloads for development (deployed backend)
 ```
-cp .env.release .env
 npm run serve-release
 ```
 
