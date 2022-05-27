@@ -42,7 +42,8 @@ export default {
   methods: {
     async acceptOperation(data) {
       try {
-        await this.axios.post(`${process.env.VUE_APP_PROXY_API_URL}/operations/accept/${data.id}`, null, {
+        console.log(this.sessionId);
+        await this.axios.post(`${process.env.VUE_APP_PROXY_API_URL}/operations/accept/${data.id}`, {}, {
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
@@ -58,7 +59,7 @@ export default {
     },
     async rejectOperation(data) {
       try {
-        await this.axios.post(`${process.env.VUE_APP_PROXY_API_URL}/operations/reject/${data.id}`, null, {
+        await this.axios.post(`${process.env.VUE_APP_PROXY_API_URL}/operations/reject/${data.id}`, {}, {
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
