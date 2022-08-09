@@ -12,7 +12,7 @@ Vue.config.productionTip = false;
 Vue.use(Notifications)
 
 Vue.use(VueGtag, {
-  config: { id: "G-SYN09MW98X" }
+  config: { id: "G-Y68XBFL32Q" }
 });
 
 Vue.use(IconsPlugin)
