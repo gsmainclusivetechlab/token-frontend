@@ -92,6 +92,7 @@
                       <a href="/howitworks">How it works</a>
                     </li>
                     <li><a href="/trytoken">Try Token</a></li>
+                    <li><a href="/cookie-policy">Cookie Policy</a></li>
                     <!-- <li>
                       <a
                         href=" https://docs.biometrics.gsmainclusivetechlab.io/ "
