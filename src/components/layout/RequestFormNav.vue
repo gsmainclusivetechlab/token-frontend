@@ -91,8 +91,7 @@ export default {
 }
 
 .home-form .navbar-brand .normal-logo {
-  width: 66px;
-  height: 64px;
+  height: 30px;
 }
 .home-form .navbar-light .navbar-nav li a {
   color: rgb(24, 7, 37) !important;
