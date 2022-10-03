@@ -87,7 +87,7 @@ export default {
 }
 
 .navbar-brand .normal-logo {
-  height: 30px;
+  height: 20px;
 }
 .navbar-light .navbar-nav li a {
   color: #fff !important;
