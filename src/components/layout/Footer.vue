@@ -127,13 +127,6 @@
             </b-col>
           </b-row>
         </b-container>
-        <div class="img-footer-biometric">
-          <img
-            src="../../assets/images/footer-bg-image.svg"
-            class="img-fluid"
-            alt="footer-bg-image"
-          />
-        </div>
       </div>
     </footer>
   </div>
@@ -376,7 +369,7 @@ hr {
   margin: 0;
 }
 .footer-wrapper .logo-main-footer img {
-  height: 20px;
+  height: 15px;
 }
 @media only screen and (max-width: 1024px) {
   .gsma-form .modal-container {
