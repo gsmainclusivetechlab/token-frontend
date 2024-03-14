@@ -16,17 +16,16 @@
           </span>
         </div>
 
-        <div v-if="!insertOTP" class="form-group">
+        <!-- <div v-if="!insertOTP" class="form-group">
           <div class="form-check">
             <label class="form-check-label">
               <input class="form-check-input" type="checkbox" id="gridCheck" v-model="termsConditions" true-value="yes" false-value="no" />
               <span class="checkmark"></span>
-              <!-- Change the pdf -->
               <a href="./terms-and-condition.pdf" target="_blank">Accept the terms and conditions</a>
             </label>
             <span class="error-msg" v-if="errors.tc.length != 0"> {{ errors.tc }}</span>
           </div>
-        </div>
+        </div> -->
 
         <div v-if="insertOTP" class="form-group">
           <label for="inputOTP"
@@ -37,7 +36,7 @@
         </div>
 
         <a v-if="!loading" class="btn1">
-          <input class="btn" type="submit" value="Try Live Token Simulation" />
+          <input class="btn" type="submit" value="Try Live Token Simulation" disabled/>
         </a>
         <b-spinner style="margin-left: 45%" v-if="loading" label="Spinning"></b-spinner>
 

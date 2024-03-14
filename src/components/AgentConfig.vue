@@ -40,7 +40,7 @@
           </div>
 
           <a v-if="!loading" class="btn1">
-            <input class="btn" type="submit" value="Create" />
+            <input class="btn" type="submit" value="Create" disabled/>
           </a>
           <b-spinner style="margin-left: 45%" v-if="loading" label="Spinning"></b-spinner>
 
