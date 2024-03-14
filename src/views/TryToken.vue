@@ -73,7 +73,7 @@
             
             <p></p>
             <div align="left" class="newscase-btn" style="padding: 0 0 0 25px">
-              <p><a id="show-modal" href="/trytoken/mock" class="btn-newscase">Try Virtual Token Simulation</a></p>
+              <p><a id="show-modal" href="/trytoken/mock" class="btn-newscase disabled" >Try Virtual Token Simulation</a></p>
             </div>
 
 
@@ -168,6 +168,11 @@ export default {
 </script>
 <style src="vue-tel-input/dist/vue-tel-input.css"></style>
 <style>
+.disabled {
+  color: #ccc; /* Gray out the button text */
+  cursor: not-allowed; /* Show a 'not-allowed' cursor when hovering */
+  pointer-events: none; /* Prevent clicking */
+}
 .try-token-frame {
   padding-top: 71px;
   padding-bottom: 70px;
